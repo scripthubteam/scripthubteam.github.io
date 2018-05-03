@@ -3,7 +3,7 @@
   <h3 align="center">Script Hub</h3>
 
   <p align="center">
-    Programación orientado a Discord y en general.
+    Programación orientado a Discord.
   </p>
 </p>
 
