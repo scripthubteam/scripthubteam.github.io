@@ -3,11 +3,10 @@
   <h3 align="center">Script Hub</h3>
 
   <p align="center">
-    Programación de entorno con [Discord](https://discordapp.com/) en español.
+    Programación de entorno con <a href="https://discordapp.com/">Discord</a> en español.
   </p>
 </p>
 
-<br>
 ## Sobre nosotros
 
 Sitio web ideado para albergar guías y contenido relacionado con la comunidad. Como documentaciones creadas por miembros del servidor o equipo, snippets (códigos reciclables) y más.
