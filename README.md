@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://media.discordapp.net/attachments/392512569652281356/441321751520215041/036.png?width=379&height=379"></img>
+<img src="https://media.discordapp.net/attachments/392512569652281356/441321751520215041/036.png?width=379&height=379">
   <h3 align="center">Script Hub</h3>
 
   <p align="center">
