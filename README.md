@@ -1,6 +1,8 @@
-# Script Hub - Programación de entorno con Discord.
+# Introducción
 
 ### Sobre nosotros
+
+![](.gitbook/assets/036.png)
 
 Sitio web ideado para albergar guías y contenido relacionado con la comunidad. Como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
 
