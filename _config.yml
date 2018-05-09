@@ -1,3 +1,5 @@
 title: "Script Hub"
 theme: jekyll-theme-cayman
 show_downloads: [true]
+plugins:
+  - jekyll-redirect-from
