@@ -1,12 +1,6 @@
-# README
+# Script Hub - Programación de entorno con Discord.
 
-![](https://media.discordapp.net/attachments/392512569652281356/441321751520215041/036.png?width=379&height=379)
-
-### Script Hub
-
- Programación de entorno con [Discord](https://discordapp.com/) en español.
-
-## Sobre nosotros
+### Sobre nosotros
 
 Sitio web ideado para albergar guías y contenido relacionado con la comunidad. Como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
 
