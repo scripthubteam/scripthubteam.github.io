@@ -6,7 +6,7 @@ Seleccione según su lenguaje de programación la documentación de su librería
 
 {% tabs %}
 {% tab title="JavaScript" %}
-{% page-ref page="discord.js/discord-js.md" %}
+{% page-ref page="discord.js.md" %}
 
 {% hint style="info" %}
 Próximamente más documentaciones para más librerías. 

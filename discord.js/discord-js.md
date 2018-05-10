@@ -1,4 +1,0 @@
-# discord-js
-
-Por añadir.
-
