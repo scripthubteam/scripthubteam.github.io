@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introducción](README.md)
-* [Documentación](docs/README.md)
-  * [discord-js](docs/discord-js.md)
+* [Índice](docs.md)
+* Discord.JS
+  * [discord-js](discord.js/discord-js.md)
 
