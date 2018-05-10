@@ -1,12 +1,8 @@
-# Introducción
 
 ### Sobre nosotros
 
-![](.gitbook/assets/036.png)
 
-Sitio web ideado para albergar guías y contenido relacionado con la comunidad. Como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
-
-Este sitio es posible gracias a nuestros [**Contribuidores**](https://github.com/scripthubteam/scripthubteam.github.io/graphs/contributors).
+**Script Hub** es una comunidad sobre guías de programación y contenido relacionado con la comunidad, como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
 
 ## Copyright y licencia
 
