@@ -1,7 +1,7 @@
 # Índice
 
-1. [Introducción](##introduccion) - Breve explicación sobre JDA.
-2. [Instalación](##instalacion) - Coḿo instalar y/o usar JDA en nuestro sistema.
+1. [Introducción](##introducción) - Breve explicación sobre JDA.
+2. [Instalación](##instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
 
 ## Introducción
 
@@ -17,8 +17,8 @@
 [![JDA Wiki](https://img.shields.io/badge/Wiki-Home-blue.svg)](https://github.com/DV8FromTheWorld/JDA/wiki "JDA Wiki")
 
 - [Requisitos](###requisitos)
-- [Instalación con Maven](###version-maven)
-- [Instalación con JAR](###version-jar)
+- [Instalación con Maven](###versión-maven)
+- [Instalación con JAR](###versión-jar)
 
 ---
 
@@ -95,20 +95,21 @@ Lo siguiente será crear los proyectos Maven según el IDE que vayamos a usar.
 - **Primero necesitamos crear un nuevo Proyecto Maven.**
 
 ![NetBeans Maven 01](https://i.imgur.com/EMxCAgR.png)
-> ![NetBeans Maven 02](https://i.imgur.com/uOG7LVg.png) En caso de que no esté la carpeta Maven en la librería de proyectos, deberás instalar su soporte a través de los Plugins de NetBeans.
+> ![NetBeans Maven 02](https://i.imgur.com/uOG7LVg.png)\ En caso de que no esté la carpeta Maven en la librería de proyectos, deberás instalar su soporte a través de los Plugins de NetBeans.
 
-> ![NetBeans Maven 03](https://i.imgur.com/UGHugJW.png) *Project Name* hace referencia al nombre del proyecto, *Project Localitation* se refiere al lugar en el que guardar nuestro proyecto, todo lo demás son propiedades de Maven que no hace falta cambiar.
+
+> ![NetBeans Maven 03](https://i.imgur.com/UGHugJW.png)\ *Project Name* hace referencia al nombre del proyecto, *Project Localitation* se refiere al lugar en el que guardar nuestro proyecto, todo lo demás son propiedades de Maven que no hace falta cambiar.
 
 - **Editamos el archivo pom.xml de la carpeta Project Files siguiendo las instrucciones señaladas [anteriormente](###version-maven).**
 
 ![NetBeans Maven 04](https://i.imgur.com/NmYySrm.png)\
 ![NetBeans Maven 05](https://i.imgur.com/yzyFQqh.png)
-> ![NetBeans Maven 06](https://i.imgur.com/oeamGrA.png) Simplemente añadimos el repositorio de JCenter y la dependencia de JDA y JUnit. Además de poner en `<version>` la versión correspondiente al [JDA](https://github.com/DV8FromTheWorld/JDA "JDA Lastest Version").
+> ![NetBeans Maven 06](https://i.imgur.com/oeamGrA.png)\ Simplemente añadimos el repositorio de JCenter y la dependencia de JDA y JUnit. Además de poner en `<version>` la versión correspondiente al [JDA](https://github.com/DV8FromTheWorld/JDA "JDA Lastest Version").
 
 - **En caso de que el proyecto salte Warning por falta de dependencias locales, bastará con darle click en Resolve Project Problems.**
 
 ![NetBeans Maven 07](https://i.imgur.com/TOvCjT9.png)
->![NetBeans Maven 08](https://i.imgur.com/WyUF2KR.png) Puede ser que este proceso tarde un poco, simplemente hay que esperar que se complete.
+>![NetBeans Maven 08](https://i.imgur.com/WyUF2KR.png)\ Puede ser que este proceso tarde un poco, simplemente hay que esperar que se complete.
 
 #### Eclipse Maven
 
