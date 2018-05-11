@@ -1,7 +1,7 @@
 # Índice
 
-1. [Introducción](##introduccion) - Explicación breve de lo que es `discord.py`.
-2. [Instalación](##instalacion) - Cómo instalar `discord.py` en nuestro Sistema.
+1. [Introducción](##introducción) - Explicación breve de lo que es `discord.py`.
+2. [Instalación](##instalación) - Cómo instalar `discord.py` en nuestro Sistema.
 3. [Requisitos Obligatorios](##dependencias) - Lista de librerías que son necesarios para la API.
 4. [Ejemplos de Uso](##ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
 
