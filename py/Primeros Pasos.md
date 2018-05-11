@@ -17,7 +17,7 @@
 [![PyPI](https://img.shields.io/badge/PyPI-Lastest-blue.svg?style=flat-square)](https://pypi.org/project/pip/ "Download pip")
 
 - [Requisitos](###requisitos)
-- [Instalar discord.py](###instalar-discord.py)
+- [Instalar discord.py](###instalar-discordpy)
 
 ---
 
@@ -99,7 +99,7 @@ python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip
   - `aiohttp`
   - `websockets`
   - `PyNaCl` (Opcional)
-    - *Esta librería solo es necesaria si has optado por la [versión de discord.py](##instalar-discord.py) con soporte para Voz o por la de Desarrollo.*
+    - *Esta librería solo es necesaria si has optado por la [versión de discord.py](##instalar-discordpy) con soporte para Voz o por la de Desarrollo.*
 
 ## Ejemplos de Uso
 
