@@ -4,9 +4,9 @@
   * [discord.js](/js/discord-js.md)
 
 * Python
-  * [Iniciación con discord.py](/py/Primeros Pasos.md)
+  * [discord.py](/py/discord-py.md)
 
 * Java
-  * [Iniciación con JDA](/jda/Primeros Pasos.md)
+  * [JDA](/jda/Primeros Pasos.md)
 
 **Próximamente más librerías!**
