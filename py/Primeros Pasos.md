@@ -1,9 +1,9 @@
 # Índice
 
-1. [Introducción](#introduccion) - Explicación breve de lo que es `discord.py`.
-2. [Instalación](#instalacion) - Cómo instalar `discord.py` en nuestro Sistema.
-3. [Requisitos Obligatorios](#dependencias) - Lista de librerías que son necesarios para la API.
-4. [Ejemplos de Uso](#ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
+1. [Introducción](##introduccion) - Explicación breve de lo que es `discord.py`.
+2. [Instalación](##instalacion) - Cómo instalar `discord.py` en nuestro Sistema.
+3. [Requisitos Obligatorios](##dependencias) - Lista de librerías que son necesarios para la API.
+4. [Ejemplos de Uso](##ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
 
 ## Introducción
 
@@ -16,8 +16,8 @@
 [![Python](https://img.shields.io/badge/Python-3.4.2+-green.svg?style=flat-square)](https://www.python.org/downloads/ "Download Python")
 [![PyPI](https://img.shields.io/badge/PyPI-Lastest-blue.svg?style=flat-square)](https://pypi.org/project/pip/ "Download pip")
 
-- [Requisitos](##requisitos)
-- [Instalar `discord.py`](##instalar-discord.py)
+- [Requisitos](###requisitos)
+- [Instalar discord.py](###instalar-discord.py)
 
 ---
 
@@ -46,7 +46,7 @@ Si ya tenemos **PyPI** instalado pero queremos actualizarlo a su última versió
 
 ---
 
-### Instalar `discord.py`
+### Instalar discord.py
 
 Una vez tengamos todos los requisitos necesarios bastará instalar `discord.py` en función de nuestras necesidades, para ello a continuación se muestran los comandos de consola necesarios para dicha instalación.
 
@@ -54,11 +54,11 @@ Una vez tengamos todos los requisitos necesarios bastará instalar `discord.py` 
 
 **Funciones de Texto exclusivamente:**
 
-```
+```Bash
 python3 -m pip install -U discord.py
 ```
 
-```
+```Bash
 python -m pip install -U discord.py
 ```
 
@@ -69,11 +69,11 @@ python -m pip install -U discord.py
 - libffi-dev (Puede ser que lo encuentres como `libffi-devel` en algunos Sistemas Operativos)
 - python-dev (Varía en función de la versión de Python. **Ejemplo:** `python3.5-dev` para **Python3.5**)
 
-```
+```Bash
 python3 -m pip install -U discord.py[voice]
 ```
 
-```
+```Bash
 python -m pip install -U discord.py[voice]
 ```
 
@@ -84,11 +84,11 @@ python -m pip install -U discord.py[voice]
 - libffi-dev (También llamado `libffi-devel`)
 - python-dev (**Ejemplo:** `python3.5-dev` para **Python3.5**)
 
-```
+```Bash
 python3 -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
 ```
 
-```
+```Bash
 python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
 ```
 
@@ -99,7 +99,7 @@ python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip
   - `aiohttp`
   - `websockets`
   - `PyNaCl` (Opcional)
-    - *Esta librería solo es necesaria si has optado por la [versión de `discord.py`](##instalar-discord.py) con soporte para Voz o por la de Desarrollo.*
+    - *Esta librería solo es necesaria si has optado por la [versión de discord.py](##instalar-discord.py) con soporte para Voz o por la de Desarrollo.*
 
 ## Ejemplos de Uso
 
