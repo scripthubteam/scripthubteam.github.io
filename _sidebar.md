@@ -7,6 +7,6 @@
   * [discord.py](/py/discord-py.md)
 
 * Java
-  * [JDA](/jda/Primeros Pasos.md)
+  * [JDA](/jda/jda.md)
 
 **Próximamente más librerías!**
