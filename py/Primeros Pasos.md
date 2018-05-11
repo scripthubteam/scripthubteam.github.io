@@ -5,13 +5,13 @@
 3. [Requisitos Obligatorios](#dependencias) - Lista de librerías que son necesarios para la API.
 4. [Ejemplos de Uso](#ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
 
-# Introducción
+## Introducción
 
 [Discord.py](https://github.com/Rapptz/discord.py "Discord.py GitHub") es una API Wrapper de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"), algo así como un simplicador de las herramientas que suministra Discord.
 
 `Discord.py` fue desarrollado por [Rapptz](https://github.com/Rapptz) y es una herramienta muy útil a la hora de crear, manejar o modificar Bots de Discord escritos en Python.
 
-# Instalación
+## Instalación
 
 [![Python](https://img.shields.io/badge/Python-3.4.2+-green.svg?style=flat-square)](https://www.python.org/downloads/ "Download Python")
 [![PyPI](https://img.shields.io/badge/PyPI-Lastest-blue.svg?style=flat-square)](https://pypi.org/project/pip/ "Download pip")
@@ -21,7 +21,7 @@
 
 ---
 
-## Requisitos
+### Requisitos
 
 Para instalar `discord.py` se necesitará **Python 3.4.2** o superior y **PyPI** (cualquier versión de PyPI que incluya `discord.py`).
 
@@ -46,7 +46,7 @@ Si ya tenemos **PyPI** instalado pero queremos actualizarlo a su última versió
 
 ---
 
-## Instalar `discord.py`
+### Instalar `discord.py`
 
 Una vez tengamos todos los requisitos necesarios bastará instalar `discord.py` en función de nuestras necesidades, para ello a continuación se muestran los comandos de consola necesarios para dicha instalación.
 
@@ -92,7 +92,7 @@ python3 -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zi
 python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
 ```
 
-# Dependencias
+## Dependencias
 
 - Python3.4.2 o superior.
 - Librerías:
@@ -101,7 +101,7 @@ python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip
   - `PyNaCl` (Opcional)
     - *Esta librería solo es necesaria si has optado por la [versión de `discord.py`](##instalar-discord.py) con soporte para Voz o por la de Desarrollo.*
 
-# Ejemplos de Uso
+## Ejemplos de Uso
 
 ### Ejemplo 1 - Usando `discord.Client()`
 
