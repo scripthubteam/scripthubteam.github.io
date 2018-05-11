@@ -1,6 +1,6 @@
 # Índice
 
-1. [Introducción](##introducción) - Breve explicación sobre JDA.
+1. [Introducción](#introducción) - Breve explicación sobre JDA.
 2. [Instalación](##instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
 
 ## Introducción
