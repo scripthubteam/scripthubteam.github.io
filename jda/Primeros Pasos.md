@@ -23,7 +23,7 @@
 [![JDK](https://img.shields.io/badge/JDK-8+-red.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "JDK 8 Download")
 [![Maven](https://img.shields.io/badge/Maven-Lastest-yellow.svg)](https://maven.apache.org/ "Maven Download")
 [![JDA Version](https://img.shields.io/badge/JDA-Lastest-lightgrey.svg)](https://github.com/DV8FromTheWorld/JDA "JDA GitHub")
-[![JDA Wiki](https://img.shields.io/badge/Wiki-Home-blue.svg)](https://github.com/DV8FromTheWorld/JDA/wiki "JDA Wiki")
+[![JDA Wiki](https://img.shields.io/badge/JDA-Wiki-blue.svg)](https://github.com/DV8FromTheWorld/JDA/wiki "JDA Wiki")
 
 - [Requisitos](###requisitos)
 - [Instalación con Maven](###versión-maven)
@@ -264,3 +264,28 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
 - **¡Listo para funcionar!**
 
 ### IntelliJ IDEA JAR
+
+- **Lo primero será crear un proyecto Java.**
+
+    ![IntelliJ 01 JAR](https://i.imgur.com/rPwSG3v.png)
+    > ![IntelliJ 02 JAR](https://i.imgur.com/i4qipgN.png)
+    >
+    > En *Project Name* irá el nombre del proyecto Java, mientras que en *Project Location* irá el lugar en el que guardar dicho proyecto.
+
+- **Para añadir las librerías JAR daremos click derecho en el proyecto y click en *Open Module Settings*, iremos a *Dependencies* y añadiremos una de tipo JAR.**
+
+    ![IntelliJ 03 JAR](https://i.imgur.com/dFCt7g4.png)\
+    ![IntelliJ 04 JAR](https://i.imgur.com/AnWeWyh.png)\
+    ![IntelliJ 05 JAR](https://i.imgur.com/P60eTBe.png)
+
+- **Ahora añadiremos el *Javadoc* y los *Sources*, para ello daremos click derecho sobre la librería añadida y click en *Edit...*. Luego darmeos click en el primer icono `+` y seleccionaremos los otros JAR.**
+
+    ![IntelliJ 06 JAR](https://i.imgur.com/eAvuVcE.png)\
+    ![IntelliJ 07 JAR](https://i.imgur.com/uDApmx3.png)
+    > ![IntelliJ 08 JAR](https://i.imgur.com/W9l884T.png)
+    >
+    > Según la versión que se esté usando, los números pueden variar.
+
+    ![IntelliJ 09 JAR](https://i.imgur.com/qZpxwTb.png)
+
+- **¡Listo para funcionar!**
