@@ -2,6 +2,15 @@
 
 1. [Introducción](##introducción) - Breve explicación sobre JDA.
 2. [Instalación](##instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
+    * [Requisitos](###requisitos) - Software necesario para la instalación de JDA.
+    * [Maven](###versión-maven) - Instalación con el sistema de versionado Maven.
+        - [NetBeans](###netbeans-maven) - Instalación para el IDE NetBeans.
+        - [Eclipse](###eclipse-maven) - Instalación para el IDE Eclipse Oxygen.
+        - [IntelliJ](###intellij-idea-maven) - Instalación para el IDE IntelliJ IDEA.
+    * [JAR](###versión-jar) - Instalación con el sistema de librerías JAR.
+        - [NetBeans](###netbeans-jar) - Instalación para el IDE NetBeans.
+        - [Eclipse](###eclipse-jar) - Instalación para el IDE Eclipse Oxygen.
+        - [IntelliJ](###intellij-idea-jar) - Instalación para el IDE IntelliJ IDEA.
 
 ## Introducción
 
