@@ -1,8 +1,9 @@
 # Índice
 
-1. [Introducción](##introducción) - Información básica sobre `discord.js`
-2. [Requisitos](##requisitos) - Software necesario para empezar a utilizar `discord.js`
-3. [Instalación](##instalacion) - Instalación de la librería y uso básico.
+* [**Introducción**](##introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo	
+  * [**Requisitos**](##requisitos) - Software necesario para empezar a utilizar `discord.js`	
+  * [**Instalación**](##instalacion) - Instalación de la librería	
+
 
 ## Introducción
 [Discord.js](https://github.com/discordjs/discord.js/ "Repositorio en GitHub de Discord.js") es una librería para [node.js](https://nodejs.org/ "Web oficial de Node.js") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
@@ -16,10 +17,12 @@ En el momento en que se escribe está guía, su última versión es `v11.3` y se
 * [Software para soporte de audio](###software-para-soporte-de-audio)
 
 ### Node.js
-
 `Node.js` es un entorno de ejecución, en este es posible ejecutar código escrito en `JavaScript` desde un servidor en lugar de un navegador.
 
-Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada (`8.11.1` en el momento que se escribió esta guía)
+Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada \(`8.11.1` en el momento que se escribió esta guía\)
+
+#### npm
+[`NPM`](https://www.npmjs.com "Web oficial de npm") es el servicio encargado de manejar los módulos de Node.js desarrollados por la comunidad, consiste en un comando \(instalado junto con node\) que nos permite instalar y mantener actualizado cualquier módulo alojado en su base de datos.
 
 ### Software para soporte de audio
 Si planea utilizar alguna función que requiera audio (reproducir música en un canal de voz por ejemplo), necesitará instalar algunos módulos adicionales:
@@ -34,7 +37,7 @@ Si planea utilizar alguna función que requiera audio (reproducir música en un 
 ## Instalación 
 Para empezar a utilizar `discord.js` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot (o utilizar la carpeta en que haya instalado Opus y ffmpeg).
 
-Luego de esto, deberá abrir el `cmd` (Win + R y escriba "cmd" en ejecutar) y abrirá la ruta donde se encuentra la carpeta con el comando `cd`, ejemplo:
+Luego de esto, deberá abrir el `cmd` \(Win + R y escriba "cmd" en ejecutar\) y abrirá la ruta donde se encuentra la carpeta con el comando `cd`, ejemplo:
 ```console
 cd desktop/bot
 ```
