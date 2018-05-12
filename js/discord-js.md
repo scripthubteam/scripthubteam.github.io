@@ -19,7 +19,7 @@ En el momento en que se escribe está guía, su última versión es `v11.3` y se
 
 `Node.js` es un entorno de ejecución, en este es posible ejecutar código escrito en `JavaScript` desde un servidor en lugar de un navegador.
 
-Para descargarlo,diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada (`8.11.1` en el momento que se escribió esta guía)
+Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada (`8.11.1` en el momento que se escribió esta guía)
 
 ### Software para soporte de audio
 Si planea utilizar alguna función que requiera audio (reproducir música en un canal de voz por ejemplo), necesitará instalar algunos módulos adicionales:
@@ -29,7 +29,7 @@ Si planea utilizar alguna función que requiera audio (reproducir música en un 
 
 * **En la carpeta que contendrá el bot:**
   * `npm i ffmpeg-binaries`
-  * `npm i node-opus` (En caso de que ocurra algún error, intente con `npm install opusscript`)
+  * `npm i node-opus` (En caso de que ocurra algún error, intente con `npm i opusscript`)
 
 ## Instalación 
 Para empezar a utilizar `discord.js` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot (o utilizar la carpeta en que haya instalado Opus y ffmpeg).
