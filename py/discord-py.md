@@ -1,3 +1,4 @@
 # Introducción a Discord.py
 
-## [Primeros Pasos](/py/Primeros Pasos.md)
+Comenzar con la guía:
+* [Primeros Pasos](/py/Primeros Pasos.md)
