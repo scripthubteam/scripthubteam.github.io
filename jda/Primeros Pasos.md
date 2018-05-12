@@ -11,6 +11,11 @@
         - [NetBeans](###netbeans-jar) - Instalación para el IDE NetBeans.
         - [Eclipse](###eclipse-jar) - Instalación para el IDE Eclipse Oxygen.
         - [IntelliJ](###intellij-idea-jar) - Instalación para el IDE IntelliJ IDEA.
+3. [Requisitos Obligatorios](##dependencias) - Software necesario para el correcto uso de JDA.
+4. [Ejemplos de Uso](##ejemplos-de-uso) - Serie de ejemplos sobre el uso de JDA.
+    - [Instanciado el Bot](###ejemplo-1-instanciando-el-bot) - Creando el objeto que será nuestro Bot.
+    - [Capturar Mensajes](###ejemplo-2-capturando-mensajes) - Leyendo y capturando el contenido de un mensaje.
+    - [Enviar Mensajes](###ejemplo-3-enviar-mensajes) - Respondiendo un mensaje.
 
 ## Introducción
 
@@ -289,3 +294,121 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
     ![IntelliJ 09 JAR](https://i.imgur.com/qZpxwTb.png)
 
 - **¡Listo para funcionar!**
+
+## Dependencias
+
+- JDK 8 o superior:
+    - *JDA no es compatible con versiones de Java inferiores a JDK 8.*
+    - *El equipo de ScriptHub solo ha testeado JDA hasta JDK10.0.1. No está asegurada su compatibilidad con sistemas superiores.*
+- El resto de dependencias deberían ser automáticamente registradas, pero en caso de que no sea así dejo una lista con las dependencias de JDA:
+    * NV Websocket Client
+        * Version: **2.2**
+        * [Github](https://github.com/TakahikoKawasaki/nv-websocket-client)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/com.neovisionaries%3Anv-websocket-client/view)
+    * OkHttp
+        * Version: **3.8.1**
+        * [Github](https://github.com/square/okhttp)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/com.squareup.okhttp:okhttp)
+    * Apache Commons Collections4
+        * Version: **4.1**
+        * [Website](https://commons.apache.org/proper/commons-collections/)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/org.apache.commons%3Acommons-collections4/view)
+    * org.json
+        * Version: **20160810**
+        * [Github](https://github.com/douglascrockford/JSON-java)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/org.json%3Ajson/view)
+    * JNA
+        * Version: **4.4.0**
+        * [Github](https://github.com/java-native-access/jna)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/net.java.dev.jna%3Ajna/view)
+    * Trove4j
+        * Version: **3.0.3**
+        * [BitBucket](https://bitbucket.org/trove4j/trove)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/net.sf.trove4j%3Atrove4j/view)
+    * slf4j-api
+        * Version: **1.7.25**
+        * [Website](https://www.slf4j.org/)
+        * [JCenter Repository](https://bintray.com/bintray/jcenter/org.slf4j%3Aslf4j-api/view)
+
+## Ejemplos de Uso
+
+### Ejemplo 1 - Instanciando el Bot
+
+```Java
+/* 
+ * Haremos que implemente la interfaz EventListener para
+ * hacer que esta clase sea capaz de capturar Eventos.
+ */
+public class NombreApp implements EventListener {
+
+    // Capturamos excepciones
+    public static void main(String[] args)
+    throws LoginException, RateLimitedException {
+        /* 
+         * El método .setToken("") nos permite poner entre
+         * parámetros el token del bot.
+         */
+        JDA bot = new JDABuilder(AccountType.BOT).setToken("bot-token").buildAsync();
+    }
+
+}
+```
+
+### Ejemplo 2 - Capturando Mensajes
+
+```Java
+/*
+ * Haremos que implemente la interfaz EventListener para
+ * que sea capaz de capturar Eventos y que herede de
+ * ListenerAdapter para que pueda actuar frente a estos.
+ */
+public class NombreApp extends ListenerAdapter implements EventListener {
+
+    public static void main(String[] args)
+    throws LoginException, RateLimitedException {
+        JDA bot = new JDABuilder(AccountType.BOT).setToken("bot-token").buildAsync;
+        /*
+        * Creamos un nuevo objeto capaz de escuchar, que será
+        * nuestro Bot.
+        */
+        bot.addEventListener(new NombreApp());
+    }
+
+    /*
+     * Este método heredado de ListenerAdapter capturará
+     * cualquier mensaje que el Bot pueda leer.
+     */
+    @Override
+    public void onMessageReceived(MessageReceivedEvent event) {
+        String contenidoMensaje = event.getContentDisplay();
+        User autorMensaje = event.getAuthor();
+        MessageChannel canalMensaje = event.getChannel();
+
+        System.out.println(autorMensaje.getName() + " ha dicho '" + contenidoMensaje + "', en " + canalMensaje.getName());
+    }
+
+}
+```
+
+### Ejemplo 3 - Enviar Mensajes
+
+```Java
+/*
+ * Partiendo del ejemplo anterior, solo modificaremos
+ * un poco el método onMessageReceived().
+ */
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    String contenidoMensaje = event.getContentDisplay();
+    User autorMensaje = event.getAuthor();
+    MessageChannel canalMensaje = event.getChannel();
+
+    /*
+     * Simplemente haremos que el Bot diga "Pong" cuando
+     * lea "ping".
+     */
+    if(contenidoMensaje.equals("ping")) {
+        canalMensaje.sendMessage("Pong, " + autorMensaje.getName());
+    }
+}
+```
