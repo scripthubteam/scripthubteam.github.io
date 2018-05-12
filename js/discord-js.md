@@ -1,5 +1,5 @@
 # Introducción a Discord JS
 
 Por añadir.
-
-# Instalando mi bot
+[Test](##Instalando mi bot)
+## Instalando mi bot
