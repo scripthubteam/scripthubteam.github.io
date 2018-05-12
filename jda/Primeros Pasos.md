@@ -235,4 +235,32 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
 
 ### Eclipse JAR
 
+- **Primero se deberá crear un proyecto Java.**
+
+    ![Eclipse JAR 01](https://i.imgur.com/gACNndm.png)
+    > ![Eclipse JAR 02](https://i.imgur.com/KasJd5y.png)
+    >
+    > En *Project Name* pondremos el nombre de nuestro proyecto Java, mientras que en *Location* escogeremos el lugar donde se guardará.
+
+- **Una vez creado, habrá que añadir las librerías JAR. Para ello damos click derecho sobre el proyecto y click en *Properties*, vamos a *Java Buildpath*, *Libraries* y *Add External JARs...***
+
+    ![Eclipse JAR 03](https://i.imgur.com/Bia74or.png)\
+    ![Eclipse JAR 04](https://i.imgur.com/qzvZzY9.png)\
+    ![Eclipse JAR 05](https://i.imgur.com/PAFIGMD.png)\
+    ![Eclipse JAR 06](https://i.imgur.com/rb8PRTZ.png)
+
+- **Ahora hay que incorporar el *Javadoc* y los *Sources*, para ello debemos dar click derecho en la librería importada y click en *Properties***
+
+    ![Eclipse JAR 07](https://i.imgur.com/cZS7hbc.png)
+    
+- **En la sección *Java Source Attachment* añadiremos nuestro *JDA-3.x-sources.jda* haciendo click en *External File...***
+    
+    ![Eclipse JAR 08](https://i.imgur.com/zkElN8Q.png)
+
+- **De igual manera, para añadir el *Javadoc* recurriremos a *Javadoc Location* y haremos click en *Javadoc in archive*, seleccionamos *External file* y ponemos la ruta de nuestro archivo en *Archive path* (Podemos buscar dicha ruta haciendo click en **Browse...**)**
+
+    ![Eclipse JAR 09](https://i.imgur.com/8hOcdrG.png)
+
+- **¡Listo para funcionar!**
+
 ### IntelliJ IDEA JAR
