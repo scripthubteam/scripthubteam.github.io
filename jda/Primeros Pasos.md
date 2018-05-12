@@ -94,28 +94,28 @@ Lo siguiente será crear los proyectos Maven según el IDE que vayamos a usar.
 
 - **Primero necesitamos crear un nuevo Proyecto Maven.**
 
-> ![NetBeans Maven 02](https://i.imgur.com/uOG7LVg.png)
->
-> En caso de que no esté la carpeta Maven en la librería de proyectos, deberás instalar su soporte a través de los Plugins de NetBeans.
->
-> ![NetBeans Maven 03](https://i.imgur.com/UGHugJW.png)
->
-> *Project Name* hace referencia al nombre del proyecto, *Project Localitation* se refiere al lugar en el que guardar nuestro proyecto, todo lo demás son propiedades de Maven que no hace falta cambiar.
+    > ![NetBeans Maven 02](https://i.imgur.com/uOG7LVg.png)
+    >
+    > En caso de que no esté la carpeta Maven en la librería de proyectos, deberás instalar su soporte a través de los Plugins de NetBeans.
+    >
+    > ![NetBeans Maven 03](https://i.imgur.com/UGHugJW.png)
+    >
+    > *Project Name* hace referencia al nombre del proyecto, *Project Localitation* se refiere al lugar en el que guardar nuestro proyecto, todo lo demás son propiedades de Maven que no hace falta cambiar.
 
 - **Editamos el archivo pom.xml de la carpeta Project Files siguiendo las instrucciones señaladas [anteriormente](###version-maven).**
 
-![NetBeans Maven 04](https://i.imgur.com/NmYySrm.png)\
-![NetBeans Maven 05](https://i.imgur.com/yzyFQqh.png)
-> ![NetBeans Maven 06](https://i.imgur.com/oeamGrA.png)
->
-> Simplemente añadimos el repositorio de JCenter y la dependencia de JDA y JUnit. Además de poner en `<version>` la versión correspondiente al [JDA](https://github.com/DV8FromTheWorld/JDA "JDA Lastest Version").
+    ![NetBeans Maven 04](https://i.imgur.com/NmYySrm.png)\
+    ![NetBeans Maven 05](https://i.imgur.com/yzyFQqh.png)
+    > ![NetBeans Maven 06](https://i.imgur.com/oeamGrA.png)
+    >
+    > Simplemente añadimos el repositorio de JCenter y la dependencia de JDA y JUnit. Además de poner en `<version>` la versión correspondiente al [JDA](https://github.com/DV8FromTheWorld/JDA "JDA Lastest Version").
 
 - **En caso de que el proyecto salte Warning por falta de dependencias locales, bastará con darle click en Resolve Project Problems.**
 
-![NetBeans Maven 07](https://i.imgur.com/TOvCjT9.png)
-> ![NetBeans Maven 08](https://i.imgur.com/WyUF2KR.png)
->
-> Puede ser que este proceso tarde un poco, simplemente hay que esperar que se complete.
+    ![NetBeans Maven 07](https://i.imgur.com/TOvCjT9.png)
+    > ![NetBeans Maven 08](https://i.imgur.com/WyUF2KR.png)
+    >
+    > Puede ser que este proceso tarde un poco, simplemente hay que esperar que se complete.
 
 - **¡Listo para funcionar!**
 
@@ -123,33 +123,33 @@ Lo siguiente será crear los proyectos Maven según el IDE que vayamos a usar.
 
 - **Se crea el Proyecto Maven.**
 
-> ![Eclipse Maven 01](https://i.imgur.com/8TxSbVi.png)
->
-> En caso de que no salga la carpeta Maven dentro de los proyectos, deberán instalarse sus dependencias a través del administrador de Plugins de Eclipse.
->
-> ![Eclipse Maven 02](https://i.imgur.com/DgVNHko.png)
->
-> Deseleccionamos *Use default Workspace location* para elegir de manera personalizada dónde guardar el proyecto.
->
-> ![Eclipse Maven 03](https://i.imgur.com/pEMjO1Q.png)
->
-> Usamos *maven-archetype-quickstart* para evitar configuraciones extra que nos dificulten crear el Bot de manera simple.
->
-> ![Eclipse Maven 04](https://i.imgur.com/IjGSQqX.png)
->
-> *Group Id* hace referencia al grupo al que pertenece el proyecto, *Artifact Id* se refiere al nombre con el referenciaremos al proyecto.
-> Todo lo demás es recomendado dejarlo como venga por defecto.
+    > ![Eclipse Maven 01](https://i.imgur.com/8TxSbVi.png)
+    >
+    > En caso de que no salga la carpeta Maven dentro de los proyectos, deberán instalarse sus dependencias a través del administrador de Plugins de Eclipse.
+    >
+    > ![Eclipse Maven 02](https://i.imgur.com/DgVNHko.png)
+    >
+    > Deseleccionamos *Use default Workspace location* para elegir de manera personalizada dónde guardar el proyecto.
+    >
+    > ![Eclipse Maven 03](https://i.imgur.com/pEMjO1Q.png)
+    >
+    > Usamos *maven-archetype-quickstart* para evitar configuraciones extra que nos dificulten crear el Bot de manera simple.
+    >
+    > ![Eclipse Maven 04](https://i.imgur.com/IjGSQqX.png)
+    >
+    > *Group Id* hace referencia al grupo al que pertenece el proyecto, *Artifact Id* se refiere al nombre con el referenciaremos al proyecto.
+    > Todo lo demás es recomendado dejarlo como venga por defecto.
 
 - **Editamos el archivo pom.xml del proyecto Maven para añadirle las dependencias necesarias.**
 
-![Eclipse Maven 05](https://i.imgur.com/M3HG06B.png)
-> ![Eclipse Maven 06](https://i.imgur.com/wJyte4Q.png)
->
-> Es posible que el creador de proyectos Maven de Eclipse venga ya con la `<depenedency>` JUnit.
->
-> ![Eclipse Maven 07](https://i.imgur.com/zRLOelz.png)
->
-> Tener en cuenta que en la sección `<version>` va la versión de JDA que se esté usando, en este caso era la **3.6.0_362**
+    ![Eclipse Maven 05](https://i.imgur.com/M3HG06B.png)
+    > ![Eclipse Maven 06](https://i.imgur.com/wJyte4Q.png)
+    >
+    > Es posible que el creador de proyectos Maven de Eclipse venga ya con la `<depenedency>` JUnit.
+    >
+    > ![Eclipse Maven 07](https://i.imgur.com/zRLOelz.png)
+    >
+    > Tener en cuenta que en la sección `<version>` va la versión de JDA que se esté usando, en este caso era la **3.6.0_362**
 
 - **¡Listo para funcionar!**
 
@@ -157,26 +157,26 @@ Lo siguiente será crear los proyectos Maven según el IDE que vayamos a usar.
 
 - **Lo primero será crear el proyecto Maven con *archetype-quickstart* para evitarnos complicaciones en la configuración del Bot.**
 
-![IntelliJ Maven 01](https://i.imgur.com/e0U3cjn.png)
-> ![IntelliJ Maven 02](https://i.imgur.com/Znn3FHP.png)
->
-> *GroupId* hace referencia al grupo al que pertenecerá el proyecto, mientras que *ArtifactId* se refiere al nombre de este.
->
-> ![IntelliJ Maven 03](https://i.imgur.com/uGwX9lo.png)
->
-> Dejamos esta venta por defecto.
->
-> ![IntellJ Maven 04](https://i.imgur.com/83eGosc.png)
->
-> *Project Name* indica el nombre del proyecto y *Project location* indica el lugar en el que se guardará dicho proyecto.
+    ![IntelliJ Maven 01](https://i.imgur.com/e0U3cjn.png)
+    > ![IntelliJ Maven 02](https://i.imgur.com/Znn3FHP.png)
+    >
+    > *GroupId* hace referencia al grupo al que pertenecerá el proyecto, mientras que *ArtifactId* se refiere al nombre de este.
+    >
+    > ![IntelliJ Maven 03](https://i.imgur.com/uGwX9lo.png)
+    >
+    > Dejamos esta venta por defecto.
+    >
+    > ![IntellJ Maven 04](https://i.imgur.com/83eGosc.png)
+    >
+    > *Project Name* indica el nombre del proyecto y *Project location* indica el lugar en el que se guardará dicho proyecto.
 
 - **Editamos el archivo pom.xml del proyecto para añadirle las dependencias necesarias.**
 
-![IntelliJ Maven 05](https://i.imgur.com/0oWQS4Q.png)\
-![IntelliJ Maven 06](https://i.imgur.com/zbpRkHP.png)
-> ![IntelliJ Maven 07](https://i.imgur.com/zmPmgQy.png)
->
-> En la sección `<version>` se debe poner la versión correspondiendo al JDA que se esté usando.
+    ![IntelliJ Maven 05](https://i.imgur.com/0oWQS4Q.png)\
+    ![IntelliJ Maven 06](https://i.imgur.com/zbpRkHP.png)
+    > ![IntelliJ Maven 07](https://i.imgur.com/zmPmgQy.png)
+    >
+    > En la sección `<version>` se debe poner la versión correspondiendo al JDA que se esté usando.
 
 - **¡Listo para funcionar!**
 
@@ -204,17 +204,25 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
 
 - **Primero se deberá crear un proyecto Java.**
 
-![NetBeans JAR 01](https://i.imgur.com/aljxbFC.png)
-> ![NetBeans JAR 02](https://i.imgur.com/4Foa9Et.png)
->
-> Escogemos el nombre del proyecto en *Project Name*, la localización en *Project Location* y decidimos si queremos o no clase **Main** en *Create Main Class*.
+    ![NetBeans JAR 01](https://i.imgur.com/aljxbFC.png)
+    > ![NetBeans JAR 02](https://i.imgur.com/4Foa9Et.png)
+    >
+    > Escogemos el nombre del proyecto en *Project Name*, la localización en *Project Location* y decidimos si queremos o no clase **Main** en *Create Main Class*.
 
 - **Una vez creado el proyecto bastará con añadir las librerías a traves del JAR.**
 
-![NetBeans JAR 03](https://i.imgur.com/2hd5HxQ.png)\
-![NetBeans JAR 04](https://i.imgur.com/fXSiKTB.png)
+    ![NetBeans JAR 03](https://i.imgur.com/2hd5HxQ.png)\
+    ![NetBeans JAR 04](https://i.imgur.com/fXSiKTB.png)
 
-- **Hará falta editar el JAR para incorporar el JavaDoc.**
+- **Hará falta editar el JAR para incorporar el JavaDoc. Para ello bastará con dar click derecho sobre la librería recién incorporada y click en *Edit...***
+
+    ![NetBeans JAR 05](https://i.imgur.com/aEJgAjg.png)
+
+- **En donde nos pide el *Javadoc* pondremos el JDA-3.x-javadoc.jar, y lo mismo para los *Sources* con JDA-3.x-sources.jar**
+
+    ![NetBeans JAR 06](https://i.imgur.com/edLGRe6.png)
+
+- **¡Listo para funcionar!**
 
 ### Eclipse JAR
 
