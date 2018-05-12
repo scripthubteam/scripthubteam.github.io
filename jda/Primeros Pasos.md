@@ -1,7 +1,7 @@
 # Índice
 
-1. [Introducción](##introducción) - Breve explicación sobre JDA.
-2. [Instalación](##instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
+1. [Introducción](#introducción) - Breve explicación sobre JDA.
+2. [Instalación](#instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
 
 ## Introducción
 
@@ -184,4 +184,38 @@ Lo siguiente será crear los proyectos Maven según el IDE que vayamos a usar.
 
 ### Versión JAR
 
-Este documento está **incompleto**, intentaremos tenerlo listo lo antes posible. Perdón por las molestias.
+Usar las dependencias del tipo JAR es, básicamente, instalar manualmente una librería descargada.
+
+En este caso se necesitarán una serie de JAR que nos provee [JDA](https://github.com/DV8FromTheWorld/JDA "JDA GitHub").
+
+#### Descargas de los JAR
+
+- [JDA Javadoc (3.6.0)](https://github.com/DV8FromTheWorld/JDA/releases/download/v3.6.0/JDA-3.6.0_354-javadoc.jar "API Javadoc")
+- [JDA Source (3.6.0)](https://github.com/DV8FromTheWorld/JDA/releases/download/v3.6.0/JDA-3.6.0_354-sources.jar "API Source")
+- [JDA (3.6.0)](https://github.com/DV8FromTheWorld/JDA/releases/download/v3.6.0/JDA-3.6.0_354-withDependencies.jar "API Itself")
+
+#### Instalación según el IDE
+
+- [NetBeans](###netbeans-jar)
+- [Eclipse](###eclipse-jar)
+- [IntelliJ](###intellij-idea-jar)
+
+### NetBeans JAR
+
+- **Primero se deberá crear un proyecto Java.**
+
+![NetBeans JAR 01](https://i.imgur.com/aljxbFC.png)
+> ![NetBeans JAR 02](https://i.imgur.com/4Foa9Et.png)
+>
+> Escogemos el nombre del proyecto en *Project Name*, la localización en *Project Location* y decidimos si queremos o no clase **Main** en *Create Main Class*.
+
+- **Una vez creado el proyecto bastará con añadir las librerías a traves del JAR.**
+
+![NetBeans JAR 03](https://i.imgur.com/2hd5HxQ.png)\
+![NetBeans JAR 04](https://i.imgur.com/fXSiKTB.png)
+
+- **Hará falta editar el JAR para incorporar el JavaDoc.**
+
+### Eclipse JAR
+
+### IntelliJ IDEA JAR
