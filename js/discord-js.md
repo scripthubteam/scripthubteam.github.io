@@ -12,19 +12,19 @@ Fue desarrollada principalmente por [hydrabolt](https://github.com/hydrabolt "Pe
 
 En el momento en que se escribe está guía, su última versión es `v11.3` y será con la que estaremos trabajando. Cuenta con soporte para ES8 por lo que es posible utilizar `async/await` ~~aunque estamos acostumbrados a las promesas~~.
 
-## Requisitos
+### Requisitos
 * [Node.js](###node.js)
 * [Software para soporte de audio](###software-para-soporte-de-audio)
 
-### Node.js
+#### Node.js
 `Node.js` es un entorno de ejecución, en este es posible ejecutar código escrito en `JavaScript` desde un servidor en lugar de un navegador.
 
 Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada \(`8.11.1` en el momento que se escribió esta guía\)
 
-#### npm
+##### npm
 [`NPM`](https://www.npmjs.com "Web oficial de npm") es el servicio encargado de manejar los módulos de Node.js desarrollados por la comunidad, consiste en un comando \(instalado junto con node\) que nos permite instalar y mantener actualizado cualquier módulo alojado en su base de datos.
 
-### Software para soporte de audio
+#### Software para soporte de audio
 Si planea utilizar alguna función que requiera audio (reproducir música en un canal de voz por ejemplo), necesitará instalar algunos módulos adicionales:
 
 * **En PowerShell con permisos de administrador:**
@@ -34,7 +34,7 @@ Si planea utilizar alguna función que requiera audio (reproducir música en un 
   * `npm i ffmpeg-binaries`
   * `npm i node-opus` (En caso de que ocurra algún error, intente con `npm i opusscript`)
 
-## Instalación 
+### Instalación 
 Para empezar a utilizar `discord.js` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot (o utilizar la carpeta en que haya instalado Opus y ffmpeg).
 
 Luego de esto, deberá abrir el `cmd` \(Win + R y escriba "cmd" en ejecutar\) y abrirá la ruta donde se encuentra la carpeta con el comando `cd`, ejemplo:
