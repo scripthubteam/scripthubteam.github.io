@@ -7,7 +7,7 @@
 	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
 	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
 	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros.
-* [Archivo de Configuración](#archivo-de-configuración) - Utilizando un archivo de configuración para enseñar el código sin exponer información personal.
+* [Archivo de Configuración](#archivo-de-configuración) - Utilizando un archivo externo para evitar exponer información personal.
 	* [config.json](#config.json) - Creando .json para almacenar información.
 	* [Utilizando config.json](#command-handler) - Utilizando en el código la información almacenada en config.json.
 * [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discord.js`.
