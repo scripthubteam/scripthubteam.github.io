@@ -87,7 +87,7 @@ if (message.content.startsWith("ping")) {
 	message.channel.send("Pong!");
 }
 ```
-En el este ejemplo `message.content` representaría el contenido del mensaje enviado, utilizando `startsWith` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
+En este ejemplo, `message.content` representaría el contenido del mensaje enviado, utilizando `startsWith` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
 >Otra aclaratoria rápida y muy importante, `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `send()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
 
 ### Command Handler
@@ -106,7 +106,7 @@ Una vez hecho lo anterior, para terminar el Command Handler debemos hacer dos co
 * Eliminar el prefijo dejando solo el comando.
 * Tomar el resto del contenido del mensaje como argumentos.
 
-¿Suena complicado?, permítame decir que no lo es, vamos a declarar otras dos variables y procederé a explicar el funcionamiento de estas.
+¿Suena complicado?, permítame decir que no lo es, vamos a declarar otras tres variables y procederé a explicar el funcionamiento de estas.
 ```js
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
@@ -119,10 +119,10 @@ Supongamos que tenemos el siguiente comando: `/saludo Me llamo Nakido`
 	* `trim()` elimina todos los espacios adicionales que puedan haber antes y después del mensaje.
 	* `split(/ +/g)` separaría el mensaje por sus espacios dejando solo un array (utilizamos RegExp en lugar de solo un espacio en caso de que haya un espacio adicional entre palabras, error muy común en los que acostumbramos a usar Discord en celular), de esta manera nos quedaría `["saludo", "Me", "llamo", Nakido]`
 * `command` sería lo que usaremos luego para agregar comandos.
-	* `args.shift()` separaría el comando del resto del mensaje (`shift()` remueve el primer objeto de un array), de esta manera `args` solo quedaría como el resto del contenido del mensaje y lo podremos utilizar para definir parámetros adicionales en nuestros comandos.
+	* `args.shift()` separaría el comando del resto del mensaje (`shift()` remueve el primer objeto de un array), de esta manera `args` solo quedaría como el resto del contenido del mensaje (`["Me", "llamo", Nakido]`) y lo podremos utilizar para definir parámetros adicionales en nuestros comandos.
 	*  `toLowerCase()` haría que todo el comando estuviera en minúsculas, así en caso de que nos equivoquemos escribiendo el comando y pongamos algo como `/Saludo`, funcionaría igual.
 *  `content` sería similar a `args`, solo que en lugar de tener un array, sería un string.
-	* `join(" ")` es la función que se encarga de unir todo los elementos del array con espacios en un string.
+	* `join(" ")` es la función que se encarga de unir todos los elementos del array con espacios en un string.
 
 #### Comandos
 Habiendo entendido todo, prosigamos a hacer un comando.
@@ -131,7 +131,7 @@ if (command === "ping") {
 	message.channel.send("Pong!");
 }
 ```
-Más simple eh?, de esta manera no tendrán los problemas de `startsWith()` (anteriormente, sí poníamos cosas como "pingasdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping".
+Más simple eh?, de esta manera no tendrán los problemas de `startsWith()` (anteriormente, sí poníamos cosas como "pingdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping".
 
 Ahora aprovechemos las otras dos variables y hagamos algo más interesante.
 ```js
@@ -147,7 +147,7 @@ if (command === "presentacion") {
 	message.channel.send("Hola, mi nombre es " + args[0] + ", tengo " + args[1] + " años y actualmente vivo en " + args[2]);
 }
 ```
-Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela.
+Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela".
 
 Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 
@@ -156,7 +156,7 @@ Puedes crear tus propios mensajes de error si tu comando no encuentra algo que e
 ```js
 if (!args) return message.channel.send("Introduzca algunos parámetros")
 ```
-También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestors servidores~~), para evitarlo solo añade la siguiente condición al comienzo del evento `message`:
+También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añade la siguiente condición al comienzo del evento `message`:
 ```js
 if (message.author.bot) return;
 ```
