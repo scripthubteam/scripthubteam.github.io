@@ -3,7 +3,7 @@
 * Java
   * **JDA**
     * [¿Qué es JDA?](/java/jda.md)
-      * [Primeros Pasos](/jda/Primeros Pasos.md)
+      * [Primeros Pasos](/java/Primeros Pasos.md)
 
 * JavaScript
   * **discord.js**
