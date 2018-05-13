@@ -1,8 +1,8 @@
 ![logo](https://i.imgur.com/DuxKrI0.png ':no-zoom')
 > Programación de entorno con Discord en español.
 
-[GitHub](https://github.com/scripthubteam/)
-[Introducción](#introducci%c3%b3n-a-la-documentaci%c3%b3n)
+[Discord](https://discord.gg/VK2V7Yk)
+[Introducción](#introducci%c3%b3n)
 
 <!-- background image -->
 

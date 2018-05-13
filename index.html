@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Script Hub</title>
@@ -7,7 +7,15 @@
   <meta name="theme-color" content="#FF0044">
   <meta name="description" content="Programación de entorno con Discord en español.">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" title="vue">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css" title="blue" disabled>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css" title="dark" disabled>
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/pure.css" title="pure" disabled>
+  <style>
+    nav.app-nav li ul {
+      min-width: 100px;
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -25,13 +33,31 @@
       search: {
       paths: "auto", // or 'auto'
       placeholder: 'Buscar',
-      noData: 'Sin resultados.'
-    }
+      noData: 'Sin resultados.',
+    },
+    plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            var url = 'https://github.com/scripthubteam/scripthubteam.github.io/tree/master/' + vm.route.file
+            var editHtml = '[:memo: Editar](' + url + ') - `Última modificación: {docsify-updated}`\n'
+            return editHtml
+              + html
+              + '\n\n----\n\n'
+              + '<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.'
+              + '<br>Impulsado por [Github Pages](https://pages.github.com) y [docsify](https://docsify.js.org)'
+          })
+        }
+        ],
+      mergeNavbar: true,
+      formatUpdated: '{DD}/{MM}/{YY} {HH}:{mm}'
     }
   </script>
+  <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
 </body>
 </html>

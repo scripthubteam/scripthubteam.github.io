@@ -1,11 +1,11 @@
 # Índice
 
-1. [Introducción](##introducción) - Explicación breve de lo que es `discord.py`.
-2. [Instalación](##instalación) - Cómo instalar `discord.py` en nuestro Sistema.
-    * [Requisitos](###requisitos) - Software necesario para `discord.py`.
-    * [Instalar discord.py](###instalar-discordpy) - Instalación de `discord.py` en nuestro sistema.
-3. [Requisitos Obligatorios](##dependencias) - Lista de librerías que son necesarios para la API.
-4. [Ejemplos de Uso](##ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
+1. [Introducción](#introducción) - Explicación breve de lo que es `discord.py`.
+2. [Instalación](#instalación) - Cómo instalar `discord.py` en nuestro Sistema.
+    * [Requisitos](#requisitos) - Software necesario para `discord.py`.
+    * [Instalar discord.py](#instalar-discordpy) - Instalación de `discord.py` en nuestro sistema.
+3. [Dependencias](#dependencias) - Lista de librerías que son necesarios para la API.
+4. [Ejemplos de Uso](#ejemplos-de-uso) - Serie de Ejemplos sencillos sobre el uso del Bot.
     * [Usando `discord.Client()`](###ejemplo-1-usando-discordclient) - Ejemplo sencillo de uso de la clase `Client`.
 
 ## Introducción

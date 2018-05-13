@@ -1,1 +1,1 @@
-* [Discord](https://discord.gg/VK2V7Yk)
+* [GitHub](https://github.com/scripthubteam/)

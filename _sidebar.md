@@ -1,14 +1,16 @@
 * [Índice](/)
 
+* Java
+  * **JDA**
+    * [¿Qué es JDA?](/java/jda.md)
+      * [Primeros Pasos](/jda/Primeros Pasos.md)
+
 * JavaScript
-  * [discord.js](/js/discord-js.md)
+  * **discord.js**
+    * [¿Qué es discord.js?](/js/discord-js.md)
+      * [Primeros Pasos](/js/Primeros Pasos.md)
 
 * Python
-  * [discord.py](/py/discord-py.md)
-    * [Primeros Pasos](/py/Primeros Pasos.md)
-
-* Java
-  * [JDA](/jda/jda.md)
-    * [Primeros Pasos](/jda/Primeros Pasos.md)
-
-**Próximamente más librerías!**
+  * **discord.py**
+    * [¿Qué es discord.py?](/py/discord-py.md)
+      * [Primeros Pasos](/py/Primeros Pasos.md)

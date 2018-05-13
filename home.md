@@ -1,6 +1,9 @@
-## Introducción
+
 
 !> **Advertencia:** Estamos soportando solamente guías para las librerías: **discord.js (JavaScript)**, **discord.py (Python)** y **JDA (Java)**.
+
+
+## Introducción
 
 Bienvenido a nuestra documentación. Aquí encontrarás diversas guías sobre programación en diferentes librerías para empezar tu bot de Discord desde cero, aprendiendo los conceptos teoricos y prácticos del manejo de cada librería.
 
