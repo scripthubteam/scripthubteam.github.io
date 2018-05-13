@@ -1,2 +1,7 @@
 # Compiled files for GitBook
 _book/
+
+# IDE and Code Editor Stuff
+.vscode/
+.sublime-project
+.sublime-workspace
