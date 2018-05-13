@@ -1,29 +1,29 @@
 # Índice
 
-1. [Introducción](##introducción) - Breve explicación sobre JDA.
-2. [Instalación](##instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
-    * [Requisitos](###requisitos) - Software necesario para la instalación de JDA.
-    * [Maven](###versión-maven) - Instalación con el sistema de versionado Maven.
+1. [Introducción](#introducción) - Breve explicación sobre JDA.
+2. [Instalación](#instalación) - Coḿo instalar y/o usar JDA en nuestro sistema.
+    * [Requisitos](#requisitos) - Software necesario para la instalación de JDA.
+    * [Maven](#versión-maven) - Instalación con el sistema de versionado Maven.
         - [NetBeans](###netbeans-maven) - Instalación para el IDE NetBeans.
         - [Eclipse](###eclipse-maven) - Instalación para el IDE Eclipse Oxygen.
         - [IntelliJ](###intellij-idea-maven) - Instalación para el IDE IntelliJ IDEA.
-    * [JAR](###versión-jar) - Instalación con el sistema de librerías JAR.
+    * [JAR](#versión-jar) - Instalación con el sistema de librerías JAR.
         - [NetBeans](###netbeans-jar) - Instalación para el IDE NetBeans.
         - [Eclipse](###eclipse-jar) - Instalación para el IDE Eclipse Oxygen.
         - [IntelliJ](###intellij-idea-jar) - Instalación para el IDE IntelliJ IDEA.
-3. [Requisitos Obligatorios](##dependencias) - Software necesario para el correcto uso de JDA.
-4. [Ejemplos de Uso](##ejemplos-de-uso) - Serie de ejemplos sobre el uso de JDA.
+3. [Requisitos Obligatorios](#dependencias) - Software necesario para el correcto uso de JDA.
+4. [Ejemplos de Uso](#ejemplos-de-uso) - Serie de ejemplos sobre el uso de JDA.
     - [Instanciado el Bot](###ejemplo-1-instanciando-el-bot) - Creando el objeto que será nuestro Bot.
     - [Capturar Mensajes](###ejemplo-2-capturando-mensajes) - Leyendo y capturando el contenido de un mensaje.
     - [Enviar Mensajes](###ejemplo-3-enviar-mensajes) - Respondiendo un mensaje.
 
-## Introducción
+# Introducción
 
 [JDA](https://github.com/DV8FromTheWorld/JDA "JDA GitHub") *(Java Discord API)* es un API Wrapper para [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation") que facilita enormemente su uso, es decir, una herramienta para hacer más accesible la API de Discord.
 
 **JDA** fue desarrollado por [Austin Keener](https://github.com/DV8FromTheWorld/ "Developer Home") sirviendo como librería para la creación, manejo y modificación de Bots en Java.
 
-## Instalación
+# Instalación
 
 [![JDK](https://img.shields.io/badge/JDK-8+-red.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "JDK 8 Download")
 [![Maven](https://img.shields.io/badge/Maven-Lastest-yellow.svg)](https://maven.apache.org/ "Maven Download")
@@ -295,7 +295,7 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
 
 - **¡Listo para funcionar!**
 
-## Dependencias
+# Dependencias
 
 - JDK 8 o superior:
     - *JDA no es compatible con versiones de Java inferiores a JDK 8.*
@@ -330,7 +330,7 @@ En este caso se necesitarán una serie de JAR que nos provee [JDA](https://githu
         * [Website](https://www.slf4j.org/)
         * [JCenter Repository](https://bintray.com/bintray/jcenter/org.slf4j%3Aslf4j-api/view)
 
-## Ejemplos de Uso
+# Ejemplos de Uso
 
 ### Ejemplo 1 - Instanciando el Bot
 
