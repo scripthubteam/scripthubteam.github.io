@@ -77,6 +77,10 @@ client.on("ready", () => {
 	console.log("Conectado como " + client.user.tag); 
 });
 ```
+Luego ejecute el comando `node` seguido del nombre del archivo de su bot, ejemplo: 
+```console
+node bot.js
+```
 Si se imprime en la consola el mensaje "Conectado como `DiscordTagDeNuestroBot`", todo salió bien.
 ### Recibiendo mensajes
 Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este emitirá un [objeto](https://discord.js.org/#/docs/main/stable/class/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
@@ -87,12 +91,14 @@ client.on('message', message => {
 ```
 En este ejemplo, se estaría imprimiendo en la consola el autor y contenido de cada mensaje que presencie el bot, si queremos que ignore el resto de mensajes exceptuando el que usted le indique, deberá crear una condición que compare el contenido de los mensajes.
 > **Importante:** el siguiente ejemplo debe ubicarse dentro del evento `message` (al igual que todo lo que veremos a continuación) y no es la manera correcta para agregar comandos, más adelante veremos como crear un command handler.
+
 ```js
 if (message.content.startsWith("ping")) {
 	message.channel.send("Pong!");
 }
 ```
 En este ejemplo, `message.content` representaría el contenido del mensaje enviado, utilizando `startsWith` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
+
 >**Otra aclaratoria rápida y muy importante:** `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `send()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
 
 ### Command Handler
@@ -111,7 +117,7 @@ Una vez hecho lo anterior, para terminar el Command Handler debemos hacer dos co
 * Eliminar el prefijo dejando solo el comando.
 * Tomar el resto del contenido del mensaje como argumentos.
 
-¿Suena complicado?, permítame decir que no lo es, vamos a declarar otras tres variables y procederé a explicar el funcionamiento de estas.
+¿Suena complicado?, permítanme decir que no lo es, vamos a declarar otras tres variables y procederé a explicar el funcionamiento de estas.
 ```js
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
@@ -149,7 +155,15 @@ Con este comando, si utilizáramos `/say Soy el mejor`, el bot enviaría un mens
 Ahora intentemos algo más complicado.
 ```js
 if (command === "presentacion") {
-	message.channel.send("Hola, mi nombre es " + args[0] + ", tengo " + args[1] + " años y actualmente vivo en " + args[2]);
+	const nombre = args[0];
+	const edad = args[1];
+	const pais = args[2];
+		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
+}
+// Desestructuración en ES&
+if (command === "presentacion") {
+	const [nombre, edad, pais] = args;
+		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
 }
 ```
 Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela".
@@ -157,11 +171,11 @@ Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezu
 Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 
 #### Notas adicionales
-Puedes crear tus propios mensajes de error si tu comando no encuentra algo que especificaste, como los argumentos, un ejemplo que puedes añadir al comienzo de un comando:
+Puedes crear tus propios mensajes de error si tu comando no encuentra algo que especificaste, como los argumentos, un ejemplo que puedes añadir al comienzo de un comando para que el usuario deba escribirlo:
 ```js
 if (!args) return message.channel.send("Introduzca algunos parámetros")
 ```
-También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añade la siguiente condición al comienzo del evento `message`:
+También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añada la siguiente condición al comienzo del evento `message`:
 ```js
 if (message.author.bot) return;
 ```
@@ -174,8 +188,8 @@ console.log(message.mentions.users.first().tag)
 Puede que quieras enseñarle tu código a alguien o subirlo a un repositorio en GitHub, pero este contiene el token de tu bot, alguna API key o cuenta personal, para evitar exponer esta información y ya de paso poder acceder a esta más fácilmente, podemos utilizar un archivo de configuración.
 
 ### config.json
-Lo primero que vamos a hacer es crear un archivo en la carpeta de nuestro bot y le colocamos el nombre `config.json`(no necesariamente debe ser ese nombre, pero la extensión sí debe ser .json).
->**Importante:** en el Tipo de archivo al guardar, debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
+Lo primero que hará, será crear un archivo en la carpeta de nuestro bot y le colocamos el nombre `config.json`(no necesariamente debe ser ese nombre, pero la extensión sí debe ser .json).
+>**Importante:** en el Tipo de archivo al guardar debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
 
 El contenido del archivo debe ser similar al siguiente:
 ```json
@@ -227,7 +241,7 @@ client.on("NombreDelEvento", (parámetros) => {
 	//Código a ejecutarse cuando se emita el evento
 });
 ```
-> Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `message is not defined` ya sabes porqué es
+> Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `message is not defined` ya sabes porqué es.
 
 Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
 
@@ -239,7 +253,7 @@ client.on("messageUpdate", (oldmsg, newmsg) => {
 		canal.send(oldmsg.content, newmsg.content)
 })
 ```
->**Importante:** Este evento emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
+>**Importante:** Los eventos son emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
 
 Para más información y una lista con todos los eventos, diríganse al apartado **Events** en la documentación de la clase [`Client`](https://discord.js.org/#/docs/main/stable/class/Client).
 #### Evento `ready`
