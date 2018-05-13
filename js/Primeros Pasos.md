@@ -160,7 +160,7 @@ if (command === "presentacion") {
 	const pais = args[2];
 		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
 }
-// Desestructuración en ES&
+// Desestructuración de arrays en ES6
 if (command === "presentacion") {
 	const [nombre, edad, pais] = args;
 		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
