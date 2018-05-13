@@ -7,6 +7,11 @@
 	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
 	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
 	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros.
+* [Archivo de Configuración](#archivo-de-configuración) - Utilizando un archivo de configuración para enseñar el código sin exponer información personal.
+	* [config.json](#config.json) - Creando .json para almacenar información.
+	* [Utilizando config.json](#command-handler) - Utilizando en el código la información almacenada en config.json.
+* [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discord.js`.
+	* [Eventos](#eventos) - Entendiendo el punto más importante de `discord.js`
 
 
 ## Introducción
@@ -45,7 +50,7 @@ Luego de esto, deberá abrir el `cmd` \(Win + R y escriba "cmd" en ejecutar\) y 
 ```console
 cd desktop/bot
 ```
-> Consejo: También puedes utilizar `Shift + Click Derecho` en la carpeta para abrir un cmd en ese directorio.  
+> **Consejo:** También puedes utilizar `Shift + Click Derecho` en la carpeta para abrir un cmd en ese directorio.  
 
 Hecho lo anterior, solo debe ejecutar el siguiente comando: `npm i discord.js`.
 De esta manera, se empezará a instalar `discord.js` con todas sus dependencias en el directorio seleccionado.
@@ -60,13 +65,13 @@ Antes de nada, al igual que con cualquier otro módulo de `Node`, se precisa de 
 const Discord = require("discord.js");
 ```
 ### Discord Client
-La clase `Client` es el principal punto de interacción de `discord.js` con `Discord API`, primero deberá crear una nueva instancia de `Discord.Client` e iniciar sesión con el token obtenido en [My apps](https://discordapp.com/developers/applications/me "Discord Developers").
+La clase [`Client`](https://discord.js.org/#/docs/main/stable/class/Client "Client") es el principal punto de interacción de `discord.js` con `Discord API`, primero deberá crear una nueva instancia de `Discord.Client` e iniciar sesión con el token obtenido en [My apps](https://discordapp.com/developers/applications/me "Discord Developers").
 ```js
 const client = new Discord.Client();
 
-client.login(TOKEN);
+client.login("TOKEN");
 ```
-Luego para comprobar que todo haya salido bien, utilizaremos el evento `ready`, que es emitido en cuanto nuestro bot está en línea.
+Luego para comprobar que todo haya salido bien, utilizaremos el evento [`ready`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-ready "Client#ready"), que es emitido en cuanto nuestro bot está en línea.
 ```js
 client.on("ready", () => { 
 	console.log("Conectado como " + client.user.tag); 
@@ -74,21 +79,21 @@ client.on("ready", () => {
 ```
 Si se imprime en la consola el mensaje "Conectado como `DiscordTagDeNuestroBot`", todo salió bien.
 ### Recibiendo mensajes
-Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento `message`, este emitirá un objeto con todas las propiedades del mensaje (autor, contenido, canal).
+Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este emitirá un [objeto](https://discord.js.org/#/docs/main/stable/class/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
 ```js
-client.on('message', msg => { 
-	console.log(msg.author.tag, msg.content) 
+client.on('message', message => { 
+	console.log(messagr.author.tag, message.content) 
 });
 ```
 En este ejemplo, se estaría imprimiendo en la consola el autor y contenido de cada mensaje que presencie el bot, si queremos que ignore el resto de mensajes exceptuando el que usted le indique, deberá crear una condición que compare el contenido de los mensajes.
-> **Importante**: el siguiente ejemplo debe ubicarse dentro del evento `message` (al igual que todo lo que veremos a continuación) y no es la manera correcta para agregar comandos, más adelante veremos como crear un command handler.
+> **Importante:** el siguiente ejemplo debe ubicarse dentro del evento `message` (al igual que todo lo que veremos a continuación) y no es la manera correcta para agregar comandos, más adelante veremos como crear un command handler.
 ```js
 if (message.content.startsWith("ping")) {
 	message.channel.send("Pong!");
 }
 ```
 En este ejemplo, `message.content` representaría el contenido del mensaje enviado, utilizando `startsWith` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
->Otra aclaratoria rápida y muy importante, `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `send()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
+>**Otra aclaratoria rápida y muy importante:** `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `send()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
 
 ### Command Handler
 Es hora de darle forma a nuestro bot y empezar a añadir comandos. En el ejemplo de la sección anterior pudimos hacer que nuestro bot reaccione a los mensajes que le indiquemos, pero esto no es suficiente, se precisa de algo que filtre los mensajes de una manera más cómoda y tome los parámetros adicionales que le indique el usuario (argumentos).
@@ -160,4 +165,100 @@ También recomiendo ignorar los mensajes de los bots, si interactúan entre ello
 ```js
 if (message.author.bot) return;
 ```
+Si queremos tomar una mención, iremos al objeto que las contiene `message.mentions.users` y agarraremos la primera con `first()`
+```js
+console.log(message.mentions.users.first().tag)
+```
 
+## Archivo de Configuración
+Puede que quieras enseñarle tu código a alguien o subirlo a un repositorio en GitHub, pero este contiene el token de tu bot, alguna API key o cuenta personal, para evitar exponer esta información y ya de paso poder acceder a esta más fácilmente, podemos utilizar un archivo de configuración.
+
+### config.json
+Lo primero que vamos a hacer es crear un archivo en la carpeta de nuestro bot y le colocamos el nombre `config.json`(no necesariamente debe ser ese nombre, pero la extensión sí debe ser .json).
+>**Importante:** en el Tipo de archivo al guardar, debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
+
+El contenido del archivo debe ser similar al siguiente:
+```json
+{
+	"prefix": "/",
+	"token": "MzI2ODA5NA6hE5h75NzByNjQx.DAkbDQ.kF7Jf66X2z4KR31yRQ58PYvy4Y",
+	"ownerID": "159158446304788481"
+}
+```
+Posteriormente, seguramente necesiten añadir más datos, mi archivo de configuración es mas o menos así:
+```json
+{
+  "token":"NDQxMjgzMDUxMTM0Mzg2gkH_eyX1joM",
+  "prefix": ".",
+  "APIkeys": {
+    "yandex": "022T04676edde956323dd922",
+    "osu": "413a4c89d96f5e4453e466"
+  },
+  "mal": {
+    "user": "Nakido", 
+    "pass": "passchida"
+  }
+}
+```
+
+### Utilizando config.json
+El config.json lo utilizaremos con un `require()` de la siguiente manera:
+```js
+const { prefix, token } = require("./config.json");
+```
+>**Importante:** el `./` para que detecte que está en un directorio y no es un módulo.
+
+Y luego solo queda implementarlo en el código
+```js
+client.login(config.token);
+```
+
+## Conceptos
+Puntos de `discord.js` que pueden resultar más complicados de entender y/o dominar en su totalidad.
+
+### Eventos
+Los eventos son el principal punto de interacción con nuestro bot, cada vez que "ocurre algo" en Discord mientras nuestro bot está presente (Como enviar un mensaje, crear un canal, etc), `discord.js` emitirá un evento.
+
+Para controlar estos eventos, utilizaremos [`Client`](https://discord.js.org/#/docs/main/stable/class/Client "Client").
+
+La síntaxis básica de cada evento sería:
+```js
+client.on("NombreDelEvento", (parámetros) => {
+	//Código a ejecutarse cuando se emita el evento
+});
+```
+> Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `message is not defined` ya sabes porqué es
+
+Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
+
+Un ejemplo con el evento [`messageUpdate`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#messageUpdate") (Emitido cuando se edita un mensaje o se añade un embed):
+```js
+client.on("messageUpdate", (oldmsg, newmsg) => {
+	let canal = oldmsg.channel; 
+	if(canal !== "198291975663779842") return; //Ignora los mensajes de otros canales
+		canal.send(oldmsg.content, newmsg.content)
+})
+```
+>**Importante:** Este evento emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
+
+Para más información y una lista con todos los eventos, diríganse al apartado **Events** en la documentación de la clase [`Client`](https://discord.js.org/#/docs/main/stable/class/Client).
+#### Evento `ready`
+```js
+client.user.setActivity("Dando amor en " + client.guilds.size + "servidores")
+
+client.on("ready", () => {
+  client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
+});
+```
+¿Cual es la diferencia entre el setActivity que está dentro del evento `ready` y el que está fuera?
+
+El de fuera nos dará `undefined`.
+
+Esto se debe a que al momento de ejecutar el código, `client` no está disponible debido a que demora un poco en cargar toda la información del bot (servidores, usuarios, etc), por lo tanto cualquier cosa que quieras ejecutar al encender el bot, debe estar dentro del evento `ready`.
+
+#### Probando eventos
+Supongamos que estamos haciendo un sistema de bienvenidas y queremos probarlo, lo primero que se te vendrá a la cabeza seguramente sea entra y salir constantemente con una multicuenta, pero esto es bastante molesto y pesado, en su lugar podemos "simular" un evento con `emit()`.
+```js
+client.emit("guildMemberAdd", message.member);
+```
+Como puedes observar, es una función, el primer parámetro debe ser el nombre del evento y el segundo, sería el objeto que emitiría el evento, pero en este caso debemos declararlo nosotros, en el ejemplo anterior, estoy tomando al autor del mensaje como ese usuario que "entró".
