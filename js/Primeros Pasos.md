@@ -6,7 +6,7 @@
 * [Primer bot](#primer-bot) - Tutorial básico en para la creación de un bot.	
 	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
 	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
-	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros
+	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros.
 
 
 ## Introducción
