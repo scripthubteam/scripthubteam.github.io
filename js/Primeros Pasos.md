@@ -1,4 +1,4 @@
-# Índice
+# Índice 
 
 * [Introducción](#introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo.	
 	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.js`.	
