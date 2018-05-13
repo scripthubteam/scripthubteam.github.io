@@ -1,8 +1,12 @@
 # Índice
 
-* [Introducción](#introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo	
-  * [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.js`	
-  * [Instalación](#instalacion) - Instalación de la librería	
+* [Introducción](#introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo.	
+	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.js`.	
+	* [Instalación](#instalacion) - Instalación de la librería.	
+* [Primer bot](#primer-bot) - Tutorial básico en para la creación de un bot.	
+	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
+	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
+	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros
 
 
 ## Introducción
