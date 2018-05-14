@@ -20,4 +20,4 @@ Aprenderás a:
 
 **Script Hub** es una comunidad sobre guías de programación y contenido relacionado con la comunidad, como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
 
-Visita nuestro Discord (invitación ubicada en la cima de la página) para formar parte de la comunidad, compartir tus ideas con los demás miembros y charlar sobre programación.
+Visita nuestro Discord (invitación ubicada en la cima de la barra izquierda) para formar parte de la comunidad, compartir tus ideas con los demás miembros y charlar sobre programación.

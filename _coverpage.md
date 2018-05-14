@@ -1,10 +1,9 @@
-![logo](https://i.imgur.com/DuxKrI0.png ':no-zoom')
+![logo](https://i.imgur.com/IfPahSm.png ':no-zoom')
 > Programación de entorno con Discord en español.
 
-[Discord](https://discord.gg/VK2V7Yk)
 [Introducción](#introducci%c3%b3n)
 
 <!-- background image -->
 
-![](https://cdn.radiofrance.fr/s3/cruiser-production/2016/06/7373a207-fc98-4533-a68d-2458fccf09c6/738_code.ronstik_ok.jpg)
+![](https://78.media.tumblr.com/4a3b008801798b91d89f8d68d2105a50/tumblr_oxsd3dr1Na1r5mt4oo1_500.gif)
 
