@@ -60,7 +60,10 @@ Si no hubo ningún mensaje de error al finalizar la instalación, es hora de pro
 ## Primer bot
 Una vez explicados los puntos básicos y teniendo todo listo, podemos empezar a usar `discord.js`, esta sección cubrirá los primeros pasos en la creación de un bot (Respuestas, Command Handler y Argumentos).
 
-Antes de nada, al igual que con cualquier otro módulo de `Node`, se precisa de la función `require()`para empezar a trabajar con él, así que vamos a declarar una variable que contenga `discord.js`
+Primero vamos a crear un nuevo archivo con extensión `.js` (ej: `MejorBot.js`).
+>**Importante:** en el Tipo de archivo al guardar debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
+
+Antes de nada, al igual que con cualquier otro módulo de `Node`, se precisa de la función `require()`para empezar a trabajar con él, así que vamos a declarar una variable que contenga `discord.js`.
 ```js
 const Discord = require("discord.js");
 ```
@@ -189,7 +192,6 @@ Puede que quieras enseñarle tu código a alguien o subirlo a un repositorio en 
 
 ### config.json
 Lo primero que hará, será crear un archivo en la carpeta de nuestro bot y le colocamos el nombre `config.json`(no necesariamente debe ser ese nombre, pero la extensión sí debe ser .json).
->**Importante:** en el Tipo de archivo al guardar debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
 
 El contenido del archivo debe ser similar al siguiente:
 ```json
