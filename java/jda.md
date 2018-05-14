@@ -6,4 +6,4 @@ JDA es una librería de Discord para Java que proporciona un estilo limpio y com
 El objetivo del equipo ScriptHub, en esta sección, es ayudar a aquellos poco familiares con la librería o con el lenguaje de programación Java y resolver las posibles dudas.
 
 Comenzar con la guía:
-* [Primeros Pasos](/jda/Primeros Pasos.md)
+* [Primeros Pasos](/java/Primeros Pasos.md)
