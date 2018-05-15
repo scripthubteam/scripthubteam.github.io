@@ -12,13 +12,7 @@
 	* [Utilizando config.json](#command-handler) - Utilizando en el código la información almacenada en config.json.
 * [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discord.js`.
 	* [Eventos](#eventos) - Entendiendo el punto más importante de `discord.js`.
-* [Colecciones](#colecciones) - Objetos hechos para almacenar varios elementos más fácilmente.
-	* [Convirtiendo en un array](#convirtiendo-en-un-array) - Método para obtener un nuevo array basado en el contenido de la colección.
-	* [Primero y último](#primero-y-último) - La manera más simple de acceder al primero y último elemento.
-	* [Mapeo](#mapeo) - Uno de los métodos más útiles de las colecciones.
-	* [Filtrar](#filtrar) - Filtra los elementos de una colección basado en una condición.
-	* [Búsqueda](#búsqueda) - Busca una propiedad entre los elementos de colección.
-	* [Otros métodos](#otros-métodos) - Métodos adicionales.
+	* [Colecciones](#colecciones) - Objetos hechos para almacenar varios elementos más fácilmente.
 
 ## Introducción
 [Discord.js](https://github.com/discordjs/discord.js/ "Repositorio en GitHub de Discord.js") es una librería para [node.js](https://nodejs.org/ "Web oficial de Node.js") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
