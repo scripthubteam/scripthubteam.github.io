@@ -264,7 +264,7 @@ Para más información y una lista con todos los eventos, diríganse al apartado
 client.user.setActivity("Dando amor en " + client.guilds.size + "servidores")
 
 client.on("ready", () => {
-  client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
+	client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
 });
 ```
 ¿Cual es la diferencia entre el setActivity que está dentro del evento `ready` y el que está fuera?
@@ -283,7 +283,7 @@ Como puedes observar, es una función, el primer parámetro debe ser el nombre d
 ### Colecciones
 Cuando una propiedad posee varios objetos similares (como canales), son almacenados de una manera diferente para poder acceder a ellos más fácilmente, estas son las colecciones, un ejemplo de una colección sería `guild.channels`, esta contendría todos los canales de un servidor.
 
-Las colecciones utilizan la misma estrectura de los obejtos `Map()` ya implementados por defecto en JavaScript pero con algunas funciones adicionales que nos permiten trabajar con ellas de una manera más simple y amplia que, lo que podría ser un array.
+Las colecciones utilizan la misma estrectura de los objetos `Map()` ya implementados por defecto en JavaScript pero con algunas funciones adicionales que nos permiten trabajar con ellas de una manera más simple y amplia que, lo que podría ser un array.
 
 > Estaré explicando todo dentro del evento `message` con el fin de hacer todo más fácil de entender.
 
