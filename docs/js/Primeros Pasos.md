@@ -11,8 +11,8 @@
 	* [config.json](#config.json) - Creando .json para almacenar información.
 	* [Utilizando config.json](#command-handler) - Utilizando en el código la información almacenada en config.json.
 * [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discord.js`.
-	* [Eventos](#eventos) - Entendiendo el punto más importante de `discord.js`
-
+	* [Eventos](#eventos) - Entendiendo el punto más importante de `discord.js`.
+	* [Colecciones](#colecciones) - Objetos hechos para almacenar varios elementos más fácilmente.
 
 ## Introducción
 [Discord.js](https://github.com/discordjs/discord.js/ "Repositorio en GitHub de Discord.js") es una librería para [node.js](https://nodejs.org/ "Web oficial de Node.js") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
@@ -89,7 +89,7 @@ Si se imprime en la consola el mensaje "Conectado como `DiscordTagDeNuestroBot`"
 Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este emitirá un [objeto](https://discord.js.org/#/docs/main/stable/class/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
 ```js
 client.on('message', message => { 
-	console.log(messagr.author.tag, message.content) 
+	console.log(messagr.author.tag, message.content);
 });
 ```
 En este ejemplo, se estaría imprimiendo en la consola el autor y contenido de cada mensaje que presencie el bot, si queremos que ignore el resto de mensajes exceptuando el que usted le indique, deberá crear una condición que compare el contenido de los mensajes.
@@ -145,7 +145,7 @@ if (command === "ping") {
 	message.channel.send("Pong!");
 }
 ```
-Más simple eh?, de esta manera no tendrán los problemas de `startsWith()` (anteriormente, sí poníamos cosas como "pingdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping".
+Más simple eh?, de esta manera no tendrán los problemas de `startsWith()` (anteriormente, sí poníamos cosas como "pingdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping").
 
 Ahora aprovechemos las otras dos variables y hagamos algo más interesante.
 ```js
@@ -176,7 +176,7 @@ Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 #### Notas adicionales
 Puedes crear tus propios mensajes de error si tu comando no encuentra algo que especificaste, como los argumentos, un ejemplo que puedes añadir al comienzo de un comando para que el usuario deba escribirlo:
 ```js
-if (!args) return message.channel.send("Introduzca algunos parámetros")
+if (!args) return message.channel.send("Introduzca algunos parámetros");
 ```
 También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añada la siguiente condición al comienzo del evento `message`:
 ```js
@@ -184,8 +184,9 @@ if (message.author.bot) return;
 ```
 Si queremos tomar una mención, iremos al objeto que las contiene `message.mentions.users` y agarraremos la primera con `first()`
 ```js
-console.log(message.mentions.users.first().tag)
+console.log(message.mentions.users.first().tag);
 ```
+Otra cosa que quiero mencionar es que son los punto y coma (`;`) que utilizo en cada ejemplo **no son necesarios**, los utilizo por mantener un orden al final de cada declaración.
 
 ## Archivo de Configuración
 Puede que quieras enseñarle tu código a alguien o subirlo a un repositorio en GitHub, pero este contiene el token de tu bot, alguna API key o cuenta personal, para evitar exponer esta información y ya de paso poder acceder a esta más fácilmente, podemos utilizar un archivo de configuración.
@@ -226,7 +227,7 @@ const { prefix, token } = require("./config.json");
 
 Y luego solo queda implementarlo en el código
 ```js
-client.login(config.token);
+client.login(token);
 ```
 
 ## Conceptos
@@ -252,7 +253,7 @@ Un ejemplo con el evento [`messageUpdate`](https://discord.js.org/#/docs/main/st
 client.on("messageUpdate", (oldmsg, newmsg) => {
 	let canal = oldmsg.channel; 
 	if(canal !== "198291975663779842") return; //Ignora los mensajes de otros canales
-		canal.send(oldmsg.content, newmsg.content)
+		canal.send(oldmsg.content, newmsg.content);
 })
 ```
 >**Importante:** Los eventos son emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
@@ -263,7 +264,7 @@ Para más información y una lista con todos los eventos, diríganse al apartado
 client.user.setActivity("Dando amor en " + client.guilds.size + "servidores")
 
 client.on("ready", () => {
-  client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
+	client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
 });
 ```
 ¿Cual es la diferencia entre el setActivity que está dentro del evento `ready` y el que está fuera?
@@ -273,8 +274,99 @@ El de fuera nos dará `undefined`.
 Esto se debe a que al momento de ejecutar el código, `client` no está disponible debido a que demora un poco en cargar toda la información del bot (servidores, usuarios, etc), por lo tanto cualquier cosa que quieras ejecutar al encender el bot, debe estar dentro del evento `ready`.
 
 #### Probando eventos
-Supongamos que estamos haciendo un sistema de bienvenidas y queremos probarlo, lo primero que se te vendrá a la cabeza seguramente sea entra y salir constantemente con una multicuenta, pero esto es bastante molesto y pesado, en su lugar podemos "simular" un evento con `emit()`.
+Supongamos que estamos haciendo un sistema de bienvenidas y queremos probarlo, lo primero que se te vendrá a la cabeza seguramente sea entrar y salir constantemente con una multicuenta, pero esto es bastante molesto y pesado, en su lugar podemos "simular" un evento con `emit()`.
 ```js
 client.emit("guildMemberAdd", message.member);
 ```
 Como puedes observar, es una función, el primer parámetro debe ser el nombre del evento y el segundo, sería el objeto que emitiría el evento, pero en este caso debemos declararlo nosotros, en el ejemplo anterior, estoy tomando al autor del mensaje como ese usuario que "entró".
+
+### Colecciones
+Cuando una propiedad posee varios objetos similares (como canales), son almacenados de una manera diferente para poder acceder a ellos más fácilmente, estas son las colecciones, un ejemplo de una colección sería `guild.channels`, esta contendría todos los canales de un servidor.
+
+Las colecciones utilizan la misma estrectura de los objetos `Map()` ya implementados por defecto en JavaScript pero con algunas funciones adicionales que nos permiten trabajar con ellas de una manera más simple y amplia que, lo que podría ser un array.
+
+> Estaré explicando todo dentro del evento `message` con el fin de hacer todo más fácil de entender.
+
+#### Convirtiendo en un array
+¿No te gusta la estructura de las colecciones?, no pasa nada, existe el método `.array()` que nos devolvería un nuevo array con todo lo que contiene una colección, ejemplo:
+```js
+const canal = message.guild.channels.array()[0];
+const nombre = canal.name;
+```
+`nombre` devolvería el nombre del primer canal (en cuanto a posición) del servidor, aunque sí queremos el primer canal, existe un método más simple.
+
+#### Primero y último
+Están los métodos `first()` y `last()` para las colecciones, permitiéndonos acceder más fácilmente al primer y último elemento de la colección.
+```js
+const canales = message.guild.channels;
+const primero = canales.first();
+const ultimo = canales.last();
+```
+Incluso podemos incluir un parámetro para tomar varios elementos.
+```js
+canales.first(2)
+```
+Tomaría los primeros dos, no hace falta explicar más.
+
+#### Mapeo
+`map()` es uno de los métodos más útiles para colecciones, es igual que la función [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "MDN web docs"), devuelve un array basado en la función indicada.
+
+Supongamos que queremos todos los nombres de los usuarios de un servidor, haríamos lo siguiente:
+```js
+const usuarios = message.guild.members;
+const nombres = usuarios.map(u => u.displayName);
+```
+También hay que tener en cuenta que la función dentro del `map()` se ejecuta por cada elemento y puede ser más de una.
+```js
+usuarios.map(u => {
+	message.channel.send(u.displayName);
+	message.channel.send(u.id);
+});
+```
+Esto enviaría el id y nombre de todos los usuarios de un servidor, uno por mensaje ya que se está ejecutando por cada usuario.
+
+#### Filtrar
+Es posible filtrar los elementos bajo la condición indicada utilizando `filter()` (Similar a [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter "MDN web docs")). 
+
+En lugar de un array como `map()`, este devuelve una nueva colección.
+```js
+message.guild.members.filter(g => g.nickname);
+```
+Esto sería una colección con todos los usuarios que tienen nick, ahora intentemos utilizar `map()` ya que sí, se pueden utilizar entre sí mientras se obtenga otra colección.
+```js
+message.guild.members.filter(g => g.nickname).map(u => {
+	message.channel.send(u.id);
+}
+```
+
+#### Búsqueda
+Ahora los dos métodos que nos permiten buscar algo específico entre colecciones: `get()` y `find()`.
+
+`get()` es un método para `map()`, pero podemos utilizarlo en las colecciones para buscar un elemento específico, en este caso, por id.
+```js
+client.users.get("163156330721443840");
+```
+Con esto obtendriamos la colección del usuario que posea esa id ~~es mi amigo btw, vayan a spammearle fotos de gatitos~~.
+
+Luego tenemos `find()` que al igual que [`Array.find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find "MDN web docs"), podemos utilizarlo para buscar un valor entre todos los elementos de la colección, como el nombre de un canal o usuario.
+```js
+message.guild.channels.find("name", "Nakido");
+```
+Esta función utiliza dos parámetros, el primero es la propiedad que buscamos, y el segundo lo que debería contener.
+
+#### Otros métodos
+`.concat()` funciona para combinar una colección con otra/s
+```js
+const servidor = message.guild;
+const unaColeccion = servidor.channels;
+const otraColeccion = servidor.members;
+const ultimaColeccion = servidor.roles;
+
+unaColeccion.concat(otraColeccion, ultimaColeccion);
+```
+
+`.findAll()` similar a `.find()` solo que este devuelve todos los elementos que coincidan con la búsqueda en lugar de solo uno.
+
+`.random()` devolvería un elemento aleatorio de la colección.
+
+Para ver todos los métodos y más información, entra en la documentación de [Discord.js](https://discord.js.org/#/docs/main/stable/class/Collection "Collection") y [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map "Map").
