@@ -80,7 +80,7 @@ border: 1px solid rgba(255, 255, 255, 0.1);
 			display: inline-block;
 			width: 40px;
 			height: 40px;
-			background: url("./assets/logo-cord.png");
+			background: url("/assets/logo-cord.png");
 			background-size: 100%;
 			margin-right: 15px;
 		}
