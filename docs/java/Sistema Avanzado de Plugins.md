@@ -1,12 +1,11 @@
 # Índice
 
-- [Índice](#indice)
-- [Introducción](#introduccion)
+- [Introducción](#introducción)
 - [Requisitos](#requisitos)
 - [Creando Bot](#creando-bot)
     - [Lanzador](#lanzador)
     - [Plugins](#plugins)
-    - [Activación](#activacion)
+    - [Activación](#activación)
     - [Ayudas](#ayudas)
 
 # Introducción
