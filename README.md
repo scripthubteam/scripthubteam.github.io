@@ -1,5 +1,5 @@
 
-### Sobre nosotros
+# Sobre nosotros
 
 
 **Script Hub** es una comunidad sobre guías de programación y contenido relacionado con la comunidad, como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
@@ -9,7 +9,6 @@
 Script Hub está conformado por un grupo de personas que también aman que respeten sus derechos de autor, a continuación, enlaces directos que deben ser tomados en cuenta.
 
 * [Ver miembros del equipo de Script Hub](https://github.com/orgs/scripthubteam/people)
-* [Ver acerca de la licencia de Script Hub](https://es.wikipedia.org/wiki/Apache_License)
 * [Ver licencia de este repositorio](https://github.com/scripthubteam/scripthubteam.github.io/blob/master/LICENSE)
 
 ## Declaración
