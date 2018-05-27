@@ -6,6 +6,7 @@
 - [Creando Bot](#creando-bot)
     - [Lanzador](#lanzador)
     - [Plugins](#plugins)
+    - [Activación](#activacion)
 
 # Introducción
 
@@ -156,3 +157,256 @@ public abstract class AbstractPlugin {
 
 }
 ```
+
+Probaremos nuestra clase abstracta con un simple plugin que apagará el bot.
+
+```Java
+public class Shutdown extends AbstractPlugin {
+
+    // Tendremos que implementar el super constructor
+    public Shutdown(JDA bot, Message message, MessageChannel channel) {
+        super(bot, message, channel);
+    }
+
+    // Y el método que hará funcionar nuestro plugin
+
+    /*
+     * Método para apagar el Bot
+     */
+    @Override
+    public void run() {
+        // Aquí escribiremos las acciones que realizará el bot
+        channel.sendMessage("Bye, bye~").queue();
+        bot.shutdown();
+    }
+    
+}
+```
+
+## Activación
+
+Con esto quedaría finalizada nuestra súper clase para manejar Plugins, ahora solo queda recoger qué plugin está activando el usuario.
+
+Volveremos a nuestra clase Bot y añadiremos el método que recoge mensajes del servidor.
+
+```Java
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    /*
+     * Declaramos un prefijo,
+     * a menos que queramos que el bot recoja todos los mensajes
+     */
+    String prefix = "test.";
+
+    // Recogemos el contenido del mensaje
+    String msg = event.getMessage().getContentRaw();
+
+    // Comprobamos si el mensaje empieza por el prefijo
+    // y el autor no sea el bot
+    if(msg.startsWith(prefix) && !event.getAuthor().isBot()) {
+        
+    }
+}
+```
+
+Recogeremos el nombre del Plugin (test.shutdown -> shutdown) y lo usaremos para inicializar nuestra clase, por lo que recurriremos a Class, Constructor y Object.
+
+```Java
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    /*
+     * Declaramos un prefijo,
+     * a menos que queramos que el bot recoja todos los mensajes
+     */
+    String prefix = "test.";
+
+    // Recogemos el contenido del mensaje
+    String msg = event.getMessage().getContentRaw();
+
+    // Comprobamos si el mensaje empieza por el prefijo
+    // y el autor no sea el bot
+    if(msg.startsWith(prefix) && !event.getAuthor().isBot()) {
+        // Recogemos el plugin, eliminando el prefijo y cualquier
+        // cosa seguida de una espacio
+        String plugin = msg.replace(prefix, "").split(" ")[0];
+
+        // Convertimos la primera letra en mayúscula
+        plugin = Character.toUpperCase(plugin.charAt(0)) + plugin.substring(1);
+
+        // Declaramos el paquete donde estarán almacenados
+        // nuestros plugins
+        String package = "plugins";
+
+        // Deberemos capturar excepciones
+        try {
+            // Inicializamos la clase con la información que tenemos
+            // Declaramos como (?) porque es de tipo indefinido
+            Class<?> pluginCls = Class.forName(package + "." + plugin);
+        } catch (ClassNotFoundException e) {
+            System.err.println(plugin + " plugin not found!");
+        } catch (Exception e2) {
+            System.err.println(e2.getMessage());
+        }
+    }
+}
+```
+
+De la clase que acabamos de crear, seleccionaremos todos los cosntructores y obtendremos solo el primero (el único que hemos creado, realmente) para poder usarlo para instaciar el Objeto.
+
+```Java
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    /*
+     * Declaramos un prefijo,
+     * a menos que queramos que el bot recoja todos los mensajes
+     */
+    String prefix = "test.";
+
+    // Recogemos el contenido del mensaje
+    String msg = event.getMessage().getContentRaw();
+
+    // Comprobamos si el mensaje empieza por el prefijo
+    // y el autor no sea el bot
+    if(msg.startsWith(prefix) && !event.getAuthor().isBot()) {
+        // Recogemos el plugin, eliminando el prefijo y cualquier
+        // cosa seguida de una espacio
+        String plugin = msg.replace(prefix, "").split(" ")[0];
+
+        // Convertimos la primera letra en mayúscula
+        plugin = Character.toUpperCase(plugin.charAt(0)) + plugin.substring(1);
+
+        // Declaramos el paquete donde estarán almacenados
+        // nuestros plugins
+        String package = "plugins";
+
+        // Deberemos capturar excepciones
+        try {
+            // Inicializamos la clase con la información que tenemos
+            // Declaramos como (?) porque es de tipo indefinido
+            Class<?> pluginCls = Class.forName(package + "." + plugin);
+
+            // Recogemos constructores y seleccionamos el primero
+            Constructor<?> pluginCons = pluginCls.getConstructors()[0];
+
+            // Inicializamos pasándo por parámetros lo que
+            // señalamos en AbstractPlugin
+            Object pluginObj = pluginCons.newInstance(bot, event.getMessage(), event.getChannel());
+        } catch (ClassNotFoundException e) {
+            System.err.println(plugin + " plugin not found!");
+        } catch (Exception e2) {
+            System.err.println(e2.getMessage());
+        }
+    }
+}
+```
+
+Una vez creado el Objeto bastará con convertirlo en uno de tipo `AbstractPlugin` (nuestra súper clase) y ejecutar el método `run()` obligatorio para todos los plugins.
+
+```Java
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    /*
+     * Declaramos un prefijo,
+     * a menos que queramos que el bot recoja todos los mensajes
+     */
+    String prefix = "test.";
+
+    // Recogemos el contenido del mensaje
+    String msg = event.getMessage().getContentRaw();
+
+    // Comprobamos si el mensaje empieza por el prefijo
+    // y el autor no sea el bot
+    if(msg.startsWith(prefix) && !event.getAuthor().isBot()) {
+        // Recogemos el plugin, eliminando el prefijo y cualquier
+        // cosa seguida de una espacio
+        String plugin = msg.replace(prefix, "").split(" ")[0];
+
+        // Convertimos la primera letra en mayúscula
+        plugin = Character.toUpperCase(plugin.charAt(0)) + plugin.substring(1);
+
+        // Declaramos el paquete donde estarán almacenados
+        // nuestros plugins
+        String package = "plugins";
+
+        // Deberemos capturar excepciones
+        try {
+            // Inicializamos la clase con la información que tenemos
+            // Declaramos como (?) porque es de tipo indefinido
+            Class<?> pluginCls = Class.forName(package + "." + plugin);
+
+            // Recogemos constructores y seleccionamos el primero
+            Constructor<?> pluginCons = pluginCls.getConstructors()[0];
+
+            // Inicializamos pasándo por parámetros lo que
+            // señalamos en AbstractPlugin
+            Object pluginObj = pluginCons.newInstance(bot, event.getMessage(), event.getChannel());
+
+            AbstractPlugin runner = (AbstractPlugin) pluginObj;
+            runner.run();
+        } catch (ClassNotFoundException e) {
+            System.err.println(plugin + " plugin not found!");
+        } catch (Exception e2) {
+            System.err.println(e2.getMessage());
+        }
+    }
+}
+```
+
+Como añadido, podemos ejecutar un mensaje de prueba en caso de que el usuario quiera ejecutar un plugin que no existe.
+
+Para ello bastará con modificar un poco el `catch` de `ClassNotFoundException`.
+
+```Java
+@Override
+public void onMessageReceived(MessageReceivedEvent event) {
+    /*
+     * Declaramos un prefijo,
+     * a menos que queramos que el bot recoja todos los mensajes
+     */
+    String prefix = "test.";
+
+    // Recogemos el contenido del mensaje
+    String msg = event.getMessage().getContentRaw();
+
+    // Comprobamos si el mensaje empieza por el prefijo
+    // y el autor no sea el bot
+    if(msg.startsWith(prefix) && !event.getAuthor().isBot()) {
+        // Recogemos el plugin, eliminando el prefijo y cualquier
+        // cosa seguida de una espacio
+        String plugin = msg.replace(prefix, "").split(" ")[0];
+
+        // Convertimos la primera letra en mayúscula
+        plugin = Character.toUpperCase(plugin.charAt(0)) + plugin.substring(1);
+
+        // Declaramos el paquete donde estarán almacenados
+        // nuestros plugins
+        String package = "plugins";
+
+        // Deberemos capturar excepciones
+        try {
+            // Inicializamos la clase con la información que tenemos
+            // Declaramos como (?) porque es de tipo indefinido
+            Class<?> pluginCls = Class.forName(package + "." + plugin);
+
+            // Recogemos constructores y seleccionamos el primero
+            Constructor<?> pluginCons = pluginCls.getConstructors()[0];
+
+            // Inicializamos pasándo por parámetros lo que
+            // señalamos en AbstractPlugin
+            Object pluginObj = pluginCons.newInstance(bot, event.getMessage(), event.getChannel());
+
+            AbstractPlugin runner = (AbstractPlugin) pluginObj;
+            runner.run();
+        } catch (ClassNotFoundException e) {
+            System.err.println(plugin + " plugin not found!");
+
+            // Mensaje para el usuario
+            event.getChannel().sendMessage("`" + plugin + "` no está en al lista de Plugins.").queue();
+        } catch (Exception e2) {
+            System.err.println(e2.getMessage());
+        }
+    }
+}
+```
+
+Con esto nuestro bot debería estar listo, simplemente bastará comprobarlo.
