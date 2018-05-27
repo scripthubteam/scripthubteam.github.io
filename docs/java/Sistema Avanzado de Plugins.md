@@ -7,6 +7,7 @@
     - [Lanzador](#lanzador)
     - [Plugins](#plugins)
     - [Activación](#activacion)
+    - [Ayudas](#ayudas)
 
 # Introducción
 
@@ -409,4 +410,12 @@ public void onMessageReceived(MessageReceivedEvent event) {
 }
 ```
 
-Con esto nuestro bot debería estar listo, simplemente bastará comprobarlo.
+Con esto nuestro bot está listo, simplemente bastará comprobarlo.
+
+![test](https://i.imgur.com/YYyDSe0.png)
+
+## Ayudas
+
+Puedes encontrar una versión más avanzada y completa de este mismo sistema, así como una plantilla para Bots en el siguiente repositorio:
+
+[JavaBot](https://github.com/LeCuay/SimpleJavaBot "JavaBot by LeCuay") by LeCuay

@@ -4,6 +4,7 @@
   * **JDA**
     * [¿Qué es JDA?](/java/jda.md)
       * [Primeros Pasos](/java/Primeros Pasos.md)
+      * [Manejo Avanzado de Plugins](/java/Sistema Avanzado de Plugins.md)
 
 * JavaScript
   * **discord.js**
