@@ -7,3 +7,4 @@ El objetivo del equipo ScriptHub, en esta sección, es ayudar a aquellos poco fa
 
 Comenzar con la guía:
 * [Primeros Pasos](/java/Primeros Pasos.md)
+* [Manejo Avanzado de Plugins](/java/Sistema Avanzado de Plugins.md)
