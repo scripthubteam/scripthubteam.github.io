@@ -1,10 +1,10 @@
-* [Índice](/)
-
+* [Introducción](/)
+* [Índice](/indice.md)
 * Java
   * **JDA**
     * [¿Qué es JDA?](/java/jda.md)
       * [Primeros Pasos](/java/Primeros Pasos.md)
-      * [<sup style="color:red">(nuevo)<sup> Manejo Avanzado de Plugins](/java/Sistema Avanzado de Plugins.md)
+      * [Manejo Avanzado de Plugins <sup style="color:red">(nuevo)</sup>](/java/Sistema Avanzado de Plugins.md)
 
 * JavaScript
   * **discord.js**

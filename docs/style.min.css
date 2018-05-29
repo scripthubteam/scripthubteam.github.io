@@ -945,3 +945,14 @@ margin-right:.5rem;
 top:2px;
 position:relative
 }
+.meta-container>.doc-style{
+text-decoration:none;
+font-size:12px;
+color:#1c646f
+}
+.meta-container>.doc-style svg{
+width:14px;
+margin-right:.5rem;
+top:2px;
+position:relative
+}

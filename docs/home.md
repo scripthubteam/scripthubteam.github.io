@@ -1,6 +1,6 @@
 
 
-!> **Advertencia:** Estamos soportando solamente guías para las librerías: **discord.js (JavaScript)**, **discord.py (Python)** y **JDA (Java)**.
+!> **Advertencia:** Estamos soportando solamente guías para las librerías: **discord.js (JavaScript)**, **discord.py (Python)** y **JDA (Java)**. [Ver Índice de la Documentación](/indice.md)
 
 
 ## Introducción
@@ -16,8 +16,12 @@ Aprenderás a:
 * Añadir comandos
 * Modificarlo a tu gusto
 
+Toda nuestra documentación está ubicada en [GitHub](https://github.com/scripthubteam/scripthubteam.github.io), puedes apoyarnos con mucho :heart: en las correcciones y las mejoras!
+
 ## Sobre nosotros
 
-**Script Hub** es una comunidad sobre guías de programación y contenido relacionado con la comunidad, como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
+Script Hub es una comunidad que brinda una red de aprendizaje y una plataforma social sobre programación de bots en Discord. 
 
-Visita nuestro Discord (invitación ubicada en la cima de la barra izquierda) para formar parte de la comunidad, compartir tus ideas con los demás miembros y charlar sobre programación.
+Nuestro principal objetivo es la tutoría de contenidos relacionados con la programación de bots o de entorno y una comunidad social para aficionados sobre el tema.
+
+Visita nuestro Discord (invitación ubicada en la cima de la página) para formar parte nuestra comunidad, compartir tus ideas con los demás miembros y charlar sobre programación.
