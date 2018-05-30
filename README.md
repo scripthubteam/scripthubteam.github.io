@@ -1,8 +1,13 @@
 
 # Sobre nosotros
 
+**Script Hub** es una comunidad que brinda una red de aprendizaje y una plataforma social sobre programación de bots en Discord. 
 
-**Script Hub** es una comunidad sobre guías de programación y contenido relacionado con la comunidad, como documentaciones creadas por miembros del servidor o equipo, snippets \(códigos reciclables\) y más.
+Nuestro principal objetivo es la tutoría de contenidos relacionados con la programación de bots o de entorno y una comunidad social para aficionados sobre el tema.
+
+* [Discord](https://discord.gg/VK2V7Yk)
+* [Introducción de la documentación](https://scripthubteam.github.io/docs)
+* Introducción de la librería de códigos **(Próximamente)**
 
 ## Copyright y licencia
 
