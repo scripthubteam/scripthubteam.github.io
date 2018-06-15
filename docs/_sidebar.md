@@ -10,7 +10,7 @@
   * **discord.js**
     * [¿Qué es discord.js?](/js/discord-js.md)
       * [Primeros Pasos](/js/Primeros Pasos.md)
-      * [<sup style="color:red">(nuevo)</sup> Eventos](/js/eventos.md)
+      * [Eventos, utilización y ejemplos](/js/eventos.md)
 
 * Python
   * **discord.py**
