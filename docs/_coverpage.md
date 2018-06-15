@@ -1,4 +1,4 @@
-![logo](https://i.imgur.com/IfPahSm.png ':no-zoom')
+![logo](/assets/logo-bn.png ':no-zoom')
 > Programación de bots con Discord en español.
 
 [Introducción](#introducci%c3%b3n)
