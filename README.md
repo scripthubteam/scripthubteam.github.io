@@ -1,3 +1,4 @@
+![](https://scripthubteam.github.io/docs/assets/logo-bn.png)
 
 # Sobre nosotros
 
