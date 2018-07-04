@@ -1,27 +1,31 @@
 
 
-!> **Advertencia:** Estamos soportando solamente guías para las librerías: **discord.js (JavaScript)**, **discord.py (Python)** y **JDA (Java)**. [Ver Índice de la Documentación](/indice.md)
-
-
 ## Introducción
 
-Bienvenido a nuestra documentación. Aquí encontrarás diversas guías sobre programación en diferentes librerías para empezar tu bot de Discord desde cero, aprendiendo los conceptos teoricos y prácticos del manejo de cada librería.
+¡Bienvenido a nuestra documentación!
 
-**NOTA:** **Debes tener un concepto básico en programación.** Nuestras guías **no incluyen** un tutorial para aprender a programar.
+Nuestras guías te capacitan a estar cien por cien seguro de lo que aprenderás aquí, ya sea que quieras un bot para tu servidor u otro motivo en común.
 
-Aprenderás a:
+Te brindamos los recursos más importantes para programar tu bot de Discord en diferentes lenguajes de programación, **para ir al índice haz [clic aquí](indice.md)**.
+
+Después de poner en práctica tu conocimiento adquirido, podrás:
 
 * Ejecutar tu primer bot
 * Estudiar sus funciones
 * Añadir comandos
 * Modificarlo a tu gusto
 
+**Somos también un sitio de consulta para programadores.** ¿Programas? Puedes aprender a ver cómo funciona Discord y los módulos de trabajo más recomendados para empezar a trabajar en tu lenguaje de programación de preferencia.
+
 Toda nuestra documentación está ubicada en [GitHub](https://github.com/scripthubteam/scripthubteam.github.io), puedes apoyarnos con mucho :heart: en las correcciones y las mejoras!
 
 ## Sobre nosotros
 
-Script Hub es una comunidad que brinda una red de aprendizaje y una plataforma social sobre programación de bots en Discord. 
+![](https://discordapp.com/assets/ef555bf639a11bd65ae3065263788bba.png)
 
-Nuestro principal objetivo es la tutoría de contenidos relacionados con la programación de bots o de entorno y una comunidad social para aficionados sobre el tema.
+Somos programadores aficionados que trabajamos este proyecto en nuestro tiempo libre, escribimos guías para ayudar a otros a comprender la función de la programación orientada a Discord y hacer posible el acceso al conocimiento de la creación de un sistema automatizado de interacción con usuarios, comúnmente llamado **Bot**.
 
-Visita nuestro Discord (invitación ubicada en la cima de la página) para formar parte nuestra comunidad, compartir tus ideas con los demás miembros y charlar sobre programación.
+Cuando pensamos en Script Hub nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, sino que los programadores y aficionados de lengua española nos pudieramos comunicar cómodamente.
+
+También nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/VK2V7Yk)
+
