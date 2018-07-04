@@ -4,7 +4,7 @@
 
 ¡Bienvenido a nuestra documentación!
 
-Nuestras guías te capacitan a estar cien por cien seguro de lo que aprenderás aquí, ya sea que quieras un bot para tu servidor u otro motivo en común.
+Nuestras guías te capacitan a estar seguro de lo que adquieras aquí, ya sea un bot para tu servidor u otro motivo en común.
 
 Te brindamos los recursos más importantes para programar tu bot de Discord en diferentes lenguajes de programación, **para ir al índice haz [clic aquí](indice.md)**.
 
@@ -20,8 +20,6 @@ Después de poner en práctica tu conocimiento adquirido, podrás:
 Toda nuestra documentación está ubicada en [GitHub](https://github.com/scripthubteam/scripthubteam.github.io), puedes apoyarnos con mucho :heart: en las correcciones y las mejoras!
 
 ## Sobre nosotros
-
-![](https://discordapp.com/assets/ef555bf639a11bd65ae3065263788bba.png)
 
 Somos programadores aficionados que trabajamos este proyecto en nuestro tiempo libre, escribimos guías para ayudar a otros a comprender la función de la programación orientada a Discord y hacer posible el acceso al conocimiento de la creación de un sistema automatizado de interacción con usuarios, comúnmente llamado **Bot**.
 
