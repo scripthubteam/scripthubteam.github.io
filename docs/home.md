@@ -21,7 +21,7 @@ Toda nuestra documentación está ubicada en [GitHub](https://github.com/scripth
 
 ## Sobre nosotros
 
-Somos programadores aficionados que trabajamos en este proyecto en nuestro tiempo libre, escribimos guías para ayudar a otros y ayudamos a comprender la función de la programación orientada a Discord.
+Somos programadores aficionados que trabajamos en este proyecto en nuestro tiempo libre, escribimos guías y ayudamos a otros a comprender la función de la programación orientada a Discord.
 
 Cuando pensamos en crear **Script Hub** al principio nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, y que los programadores aficionados de lengua española se pudieran comunicar y leer cómodamente.
 
