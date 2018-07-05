@@ -15,7 +15,7 @@ Después de poner en práctica tu conocimiento adquirido, podrás:
 * Añadir comandos
 * Modificarlo a tu gusto
 
-**Somos también un sitio de consulta para programadores.** ¿Programas? Puedes aprender a ver cómo funciona Discord y los módulos de trabajo más recomendados para empezar a trabajar en tu lenguaje de programación de preferencia.
+**Somos también un sitio de consulta para programadores.** Nosostros nos encargamos de traducir código y luego documentarlo para que tengas base sobre cómo funcionan ciertas cosas.
 
 Toda nuestra documentación está ubicada en [GitHub](https://github.com/scripthubteam/scripthubteam.github.io), puedes apoyarnos con mucho :heart: en las correcciones y las mejoras!
 
