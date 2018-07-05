@@ -2,11 +2,11 @@
 
 # Sobre nosotros
 
-Somos programadores aficionados que trabajamos este proyecto en nuestro tiempo libre, escribimos guías para ayudar a otros a comprender la función de la programación orientada a Discord y hacer posible el acceso al conocimiento de la creación de un sistema automatizado de interacción con usuarios, ésto comúnmente llamado **Bot**.
+Somos programadores aficionados que trabajamos en este proyecto en nuestro tiempo libre, escribimos guías para ayudar a otros y ayudamos a comprender la función de la programación orientada a Discord.
 
-Cuando pensamos en Script Hub nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, sino que los programadores y aficionados de lengua española nos pudieramos comunicar cómodamente.
+Cuando pensamos en crear **Script Hub** al principio nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, y que los programadores aficionados de lengua española se pudieran comunicar y leer cómodamente.
 
-También nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/VK2V7Yk)
+Nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/VK2V7Yk)
 
 * [Introducción de la documentación](https://scripthubteam.github.io/docs)
 * Introducción de la librería de códigos **(Próximamente)**
