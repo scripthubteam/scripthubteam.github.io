@@ -1,8 +1,16 @@
 
-
-## Introducción
-
-¡Bienvenido a nuestra documentación!
+<br><font size=5 style="flex: 1 1 auto;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0px #eee;
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #7289da 0%, #7249db 51%, #9289da 100%);"> ¡Bienvenido a nuestra documentación! </font>
 
 Nuestras guías te capacitan a estar seguro de lo que adquieras aquí, ya sea un bot para tu servidor u otro motivo en común.
 

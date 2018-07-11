@@ -1,3 +1,9 @@
+> ** <font size=5> Visita el bot modelo de esta librería </font>**
+
+> **<i class="fas fa-download"></i> [Bot Modelo (discordjs-bot-example)](https://github.com/MrDevsaider/discordjs-bot-example) (por [MrDevsaider](https://github.com/MrDevsaider) alojado en [GitHub](https://github.com))**
+
+> **Advertencia:** Si no has leído el contenido de la guía, te recomendamos encarecidamente leerla antes de descargar el proyecto.
+
 # Índice 
 
 * [Introducción](#introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo.	
