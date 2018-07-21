@@ -2,10 +2,6 @@
 
 * [Listado y estatus de las guías](#listado-y-estatus-de-las-guías)
 
-Bienvenido al índice. 
-
-Nuestro trabajo está recopilado aquí, observe y mire detalladamente la información de nuestras guías y seleccione su módulo de preferencia.
-
 !> **¿Necesitas ayuda con nuestra documentación?** Visita nuestro servidor de Discord y dirígete al canal de soporte #soporte-general. [Haz clic aquí!](https://discord.gg/VK2V7Yk)
 
 ## Listado y estatus de las guías
