@@ -33,11 +33,12 @@ Vamos a observar el botón **Create an application**, procedemos a hacer clic en
 
 ### Paso 3
 
-Una vez dentro de nuestra aplicación recién creada y luego haberla nombrado, descrito e ilustrado con un ícono y guardado los cambios apropiadamente, vamos a comenzar a configurar la presencia de tu Bot en Discord. ¿Cómo? Muy sencillo.
+Una vez dentro de nuestra aplicación recién creada y luego de haberla nombrado, descrito e ilustrado con un ícono apropiado, vamos a comenzar a configurar la presencia de tu Bot en Discord. ¿Cómo? Muy sencillo (Recuerda guardar los cambios antes de ir a este apartado!).
 
 Vamos a dirigirnos al apartado **Bot** (en imagen resaltado en un recuadro rojo) de la barra lateral izquierda de la página:
 
 ![](https://i.imgur.com/TxYXfh8.png)
+
 
 ### Paso 4
 
