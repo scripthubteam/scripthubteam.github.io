@@ -5,8 +5,9 @@
     * [Características de Heroku CLI](##características) - Herramientas más usadas y curiosidades.
     * [Crear Aplicación con Heroku](##crear-aplicación) - Cómo crear una aplicación con Heroku CLI.
 3. [Preparación del Bot](#preparando-el-bot) - Explicación de los entornos necesarios.
-    * [Java](###bot-en-java) - Preparación para el Bot en Java.
-    * [Python](###bot-en-python) - Preparación para el Bot en Python.
+    * [Java](##bot-en-java) - Preparación para el Bot en Java.
+    * [Python](##bot-en-python) - Preparación para el Bot en Python.
+4. [Añadiendo Procfile](#añadir-procfile) - Indicaciones a Heroku sobre cómo se ejecuta nuestro Bot.
 
 # Introducción
 
@@ -84,24 +85,325 @@ Debido a que cada de lenguaje de programación tiene una manera de preparar el e
 - [Java](###bot-en-java)
 - [Python](###bot-en-python)
 
-### Bot en Java
+## Bot en Java
 
 Heroku es capaz de trabajar aplicaciones Java construídas tanto en entornos **Maven** como **Gradle**, pero en este tutorial en concreto solo enseñaremos a configurar un entorno Maven.
 
-#### Requisitos
+### Requisitos
 
 - [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Cualquier versión debería valer, aunque el estándar es JDK8)
 - [JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (De la misma versión que el JDK)
 - [Maven](https://maven.apache.org/download.cgi)
 
-#### Preparando el entorno Maven
+### Preparando el entorno Maven
 
 Lo primero será comprobar que *Maven* está correctamente instalado, y para ello hacemos uso del comando `mvn --version`, obteniendo un resultado parecido al siguiente:
 
 ![comprobar-maven](https://i.imgur.com/AxCAtum.png)
 
+Los proyectos Maven se estructuran de una manera particular basada en el siguiente esquema:
+
+```
+my-app (Carpeta)
+|-- pom.xml (Archivo con información sobre el proyecto)
+`-- src (Carpeta)
+    |
+    `-- main (Carpeta)
+    |   |
+    |   `-- java (Carpeta contenedora de los archivos .java)
+    |       
+    `-- test (Carpeta)
+        `-- java (Carpeta contenedora para los JUnit Test)
+```
+
+Es decir, basándonos en la aplicación antes creada (`scripthubteam-test-app`), el árbol de carpetas quedaría tal que:
+
+```
+scripthub-test-app (Carpeta de Aplicación clonada con Git)
+`-- src
+    |
+    `-- main
+    |   |
+    |   `-- java
+    |       
+    `-- test
+        `-- java
+```
+
+![tree-powershell](https://i.imgur.com/ga3nsjY.png)
+
+>Estas carpetas pueden ser creadas con un *Goal* de Maven, pero en este caso han sido creadas manualmente para clarificar el ejemplo.
+
+Una vez creadas las carpetas, bastará con crear el archivo `pom.xml` para que nuestra aplicación sea legible por Maven.  
+Este archivo XML debe contener una serie de especificaciones:
+
+**1. Etiqueta de apertuda del proyecto y etiqueta de cerrado, la de apertura con los NameSpaces correspondieste al POM y su versión.**
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+</project>
+```
+
+>En este caso, como se puede denotar, estamos usando la versión 4.0.0 del POM.
+
+**2. Ahora procederemos a añadir la etiqueta de versionado, y ciertos elementos de identificación de nuestra aplicación.**
+
+>Primero se expondrá el resultado final y luego se explicará etiqueta a etiqueta.
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- Modelo de versionado -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificadores del Bot -->
+  <groupId>scripthub.bot</groupId>
+  <artifactId>TestBot</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <name>ScriptHub Test Bot</name>
+  <url>http://scripthubteam.github.io/docs/</url>
+
+</project>
+```
+
+* `<modelVersion>` - Hace referencia al modelo de POM usado en el proyecto.
+* `<groupId>` - Indica el grupo identificador del proyecto.
+* `<artifactId>` - Señala el identificador de ese proyecto concreto dentro del grupo.
+* `<packaging>` - Indicamos el tipo de archivo que queremos obtener tras la compilación.
+* `<version>` - La versión de nuestra aplicación.
+* `<name>` - El nombre de nuestra aplicación a nivel MANIFEST (cosas del JAR).
+* `<url>` - Indica la URL en la que encontrar más información sobre nuestro proyecto.
+
+
+>Es recomendado que groupId sea también la/s carpeta/s contenedoras del proyecto, es decir, si nuestro groupId es **scripthub.bot**, nuestro árbol de carpetas sería tal que:
+>![arbol-scripthub](https://i.imgur.com/d5z452q.png)
+>Aunque no es del todo necesario, es una buena práctica.
+
+**3. Señalamos el compilador que vamos a usar (la versión del JDK) y el tipo de codificación (lo más normal es usar UTF-8).**
+
+>Como en este caso en particular se está usando JDK8, el compilador será 1.8, si fuera JDK10 el compilador sería 10, etc...
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- Modelo de versionado -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificadores del Bot -->
+  <groupId>scripthub.bot</groupId>
+  <artifactId>TestBot</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <name>ScriptHub Test Bot</name>
+  <url>http://scripthubteam.github.io/docs/</url>
+
+  <!-- Compilador y Codificación -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+</project>
+```
+
+**4. Añadimos las dependencias, que en este caso solamente es el JDA.**
+
+>Al usar JDA como dependencia, también debemos añadir el repositorio jcenter, ya que de otra manera no encontrará la dependencia.
+>Además, en la sección `<version>` de JDA se deberá exponer la versión usada, en este caso se está usando la **3.7.1_388**.
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- Modelo de versionado -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificadores del Bot -->
+  <groupId>scripthub.bot</groupId>
+  <artifactId>TestBot</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <name>ScriptHub Test Bot</name>
+  <url>http://scripthubteam.github.io/docs/</url>
+
+  <!-- Compilador y Codificación -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <!-- Dependencias -->
+  <dependencies>
+    <dependency>
+      <groupId>net.dv8tion</groupId>
+      <artifactId>JDA</artifactId>
+      <version>3.7.1_388</version>
+    </dependency>
+  </dependencies>
+
+  <!-- Repositorios -->
+  <repositories>
+    <repository>
+      <id>jcenter</id>
+      <name>jcenter-bintray</name>
+      <url>http://jcenter.bintray.com</url>
+    </repository>
+  </repositories>
+
+</project>
+```
+
+>[JCenter](https://bintray.com/bintray/jcenter) es una página recopilatoria de repositorios, es la web donde se encuentra hosteada la API JDA.
+
+**5. Compilar la aplicación que acabamos de crear. Esto lo haremos mediante el comando `mvn clean install` dado que no hemos señalado ningún tipo de intrucción en el `pom.xml`.**
+
+>Para señalar unas intrucciones de compilación determinadas añadiríamos la etiqueta `<build>` en el `pom.xml` e introduciríamos ahí los pasos correspondientes.
+
+Dentro del directorio de nuestra aplicación ejecutaremos el comando `mvn clean install`, obteniendo una salida parecida a la siguiente:
+
+![output-mvn-compiler](https://i.imgur.com/AijbjDu.png)
+
+El sistema de paqueta **Maven** genera unos archivos de compilación en una caperta apartada de nuestro código fuente, por lo que nuestro árbol de carpetas será modificado y parecido a este:
+
+![arbol-carpetas](https://i.imgur.com/PypVs1Z.png)
+
+**6. Escribir el código necesario para que el Bot funcione.**
+
+Con el proyecto *Maven* ya creado, nuestra aplicación es reconocible por Heroku, pero no tiene código fuente, así que será cuestión de añadir este.  
+En este ejemplo usaremos un código bastante simple que solo mostrará por consola.
+
+![encendiendo-bot](https://i.imgur.com/JTsLK6e.png)
+
+Y compilamos de nuevo:  
+![compilamos](https://i.imgur.com/lLzBE1d.png)
+
+**7. Añadir las intrucciones de compilación.**
+
+Compilar con Java puede ser un poco complejo, ya que debemos incluir las dependencias de JDA y señalizar la clase Main.  
+Debido a esto, haremos uso de algunos plugins que nos ofrece Maven para facilitarnos dicha tarea.
+
+Estos plugins se incluirán en una etiqueta `<build>`, que corresponde a la compilación general, y deberán estar agrupados en una etiqueta `<plugins>`, quedando tal que:
+
+```xml
+<build>
+  <plugins>
+    <plugin>
+      <!-- Plugin Info -->
+    </plugin>
+
+    <plugin>
+      <!-- Otro plugin -->
+    </plugin>
+  </plugins>
+</build>
+```
+
+Dejando nuestro `pom.xml` final tal que:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- Modelo de versionado -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificadores del Bot -->
+  <groupId>scripthub.bot</groupId>
+  <artifactId>TestBot</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <name>ScriptHub Test Bot</name>
+  <url>http://scripthubteam.github.io/docs/</url>
+
+  <!-- Compilador y Codificación -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <!-- Dependencias -->
+  <dependencies>
+    <dependency>
+      <groupId>net.dv8tion</groupId>
+      <artifactId>JDA</artifactId>
+      <version>3.7.1_388</version>
+    </dependency>
+  </dependencies>
+
+  <!-- Repositorios -->
+  <repositories>
+    <repository>
+      <id>jcenter</id>
+      <name>jcenter-bintray</name>
+      <url>http://jcenter.bintray.com</url>
+    </repository>
+  </repositories>
+
+  <!-- Intrucciones de Compilación -->
+  <build>
+    <plugins>
+      <!-- Incluir dependencias JAR -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    
+      <!-- Incluir clase Main -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>scripthub.bot.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+```
+
+* `maven-shade-plugin`: Este plugin recopila todas nuestra dependencias y las incluye dentro de nuestro JAR final, dado que de otra manera la palicación no podría ser ejecutada.
+* `maven-jar-plugin`: Este plugin maneja el tipo de MANIFEST que tendrá el JAR final.  
+  - `<addClasspath>`: Añade el *Classpath*.
+  - `<mainClass>`: Señala la clase *Main*.
+
+Cambiamos un poco el código de la clase Main para que sea propiamente un bot ejecutable.
+
+![bot-code](https://i.imgur.com/C9zcaYP.png)
+
+Y volvemos a compilar:  
+![compilar-bot](https://i.imgur.com/dSCHP7R.png)
+
+>Al ser compilado como archivo JAR, este puede ser ejecutado con la sencilla instrucción `java -jar [archivo .jar]`, en este caso sería `java -jar target\TestBot-0.1.jar` debido a que los archivos compilados se guardan en la caperta *target* en los proyectos *Maven*.
+
+Ejecutamos para comprobar que todo funciona:
+
+>En este caso funcionará correctamente excepto por un error debido a que no he puesto un *token*.
+
+![ejecutamos](https://i.imgur.com/okcBNp4.png)
+
+Y listo, ahora solo faltaría subirlo a la plataforma.
+
 ---
 
-### Bot en Python
+## Bot en Python
 
 ---

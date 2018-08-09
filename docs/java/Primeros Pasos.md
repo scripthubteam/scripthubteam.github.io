@@ -71,13 +71,6 @@ Partiendo de que un documento `pom.xml` base sería así:
 <!--Aquí debería estar la etiqueta <dependencies>, si no está simplemente la creamos.-->
 <dependencies>
     <!--Si ya existía previamente la etiqueta, simplemente añadimos las <dependency>-->
-    <!--JUnit es necesario-->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     <!--Añadimos el JDA-->
     <dependency>
         <groupId>net.dv8tion</groupId>
