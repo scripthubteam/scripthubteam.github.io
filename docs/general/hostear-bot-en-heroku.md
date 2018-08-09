@@ -8,6 +8,7 @@
     * [Java](##bot-en-java) - Preparación para el Bot en Java.
     * [Python](##bot-en-python) - Preparación para el Bot en Python.
 4. [Añadiendo Procfile](#añadir-procfile) - Indicaciones a Heroku sobre cómo se ejecuta nuestro Bot.
+5. [Subiendo el Bot a Heroku](#subir-bot-a-heroku) - Guía para subir el bot al host.
 
 # Introducción
 
@@ -400,10 +401,82 @@ Ejecutamos para comprobar que todo funciona:
 
 ![ejecutamos](https://i.imgur.com/okcBNp4.png)
 
-Y listo, ahora solo faltaría subirlo a la plataforma.
+Y listo, ahora solo faltaría [subirlo a la plataforma](#añadir-procfile).
 
 ---
 
 ## Bot en Python
 
 ---
+
+# Añadir Procfile
+
+El *Procfile* es un archivo especial de Heroku que indica cómo se debe ejecutar la aplicación.  
+Añadirlo es tan sencillo como crear un archivo vacío llamado `Procfile`.
+
+Procfile tiene diferentes funcionalidades, pero nos centraremos en aquellas que ejecutarán las aplicaciones dadas en los ejemplos.
+
+- [Java](###procfile-para-java)
+- [Python](###procfile-para-python)
+
+### Procfile para Java
+
+Dado que nuestra aplicación es un **.jar** ejecutable, solo necesitamos una línea de comando para hacer nuestra aplicación funcional:
+
+`worker: java -jar target\NombreApp.jar`
+
+En el caso de la aplicación usada en el [ejemplo](##bot-en-java), quedaría tal que:
+
+![procfile-java](https://i.imgur.com/72ybSln.png)
+
+---
+
+## Procfile para Python
+
+---
+
+# Subir Bot a Heroku
+
+Heroku funciona en base al sistema de version *Git*, por lo que para hostear nuestra aplicación a dicho servidor deberemos primero aprender un poco sobre dicho sistema.
+
+## Requisitos
+
+- [Git](https://git-scm.com/downloads) - Sistema Git.
+
+## Breve explicación
+
+![git-logo](https://cdn-images-1.medium.com/max/1200/1*NZw05fnJfhj4AHyUHT_3QQ.png)
+
+Git es un sistema de control de versiones, lo que quiere decir que administra los cambios realizados en un archivo o conjunto de archivos.  
+Por ejemplo: Si a una archivo `file.js` se le realizan una serie de cambios, *Git* registrará dichos cambios y los almacenará, pudiendo acceder tanto a la versión modificada como a la actual de `file.js`, siendo capaz de identificar los cambios realizados.
+
+## Comprobación y Comandos
+
+Tras instalar Git, podemos comprobar si se ha registrado correctamete escribiendo el comando `git --version`, para obtener una salida parecida a la siguiente pero con probables cambios en la versión:  
+![salida-git](https://i.imgur.com/coiY71U.png)
+
+Los comandos más usados de Git (o al menos aquellos a tener en cuenta) son:
+
+- `git clone`: Copia un repositorio en nuestro directorio. Si usamos `git clone URL.git`, copiaremos dicho repositorio en el directorio en el que estemos.
+- `git init`: Inicia un control de versiones en *Git*.
+- `git add`: Añade un archivo o conjunto de archivos al sistema de control. Hasta que no son añadidos, esto no llevan un seguimiento de los cambios que se le realizan.
+- `git status`: Muestra el estado actual de nuestro repositorio, es decir, cambios sin guardar, archivos borrados, modificados...
+- `git commit`: Guarda los cambios de los archivos añadidos con `git add`.
+- `git pull`: Actualiza el repositorio actual con la versión más moderna del mismo.
+- `git push`: Sube los archivos al repositorio principal, aquel con la versión más moderna del proyecto.
+
+## Subir Bot a Heroku
+
+Lo primero será comprobar cómo está nuestro repositorio Git, para ello hacemos uso del comando `git status`.
+
+![git-status](https://i.imgur.com/gQt0Gw5.png)
+
+>Como podemos comprobar, en este proyecto hay una serie de archivos no añadidos al git (marcados en naranja), podemos añadir los que necesitemos o añadirlos todos con `git add -A`.
+
+Tras añadir todos los archivos necesarios para el bot, volvemos a usar el comando `git status` para comprobar qué cambios no han sido guardados. Guardaremos los cambios que necesitemos con `git commit -m "Mensaje de Log"`.
+
+![status-added](https://i.imgur.com/bEylIZa.png)
+
+>La bandera (*flag*) `-m` es obligatoria y es para indicar un mensaje de log, por ejemplo: "Añadido AnimeJS al proyecto".
+
+![commit](https://i.imgur.com/WfCVyi9.png)
