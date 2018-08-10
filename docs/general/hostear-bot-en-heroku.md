@@ -14,6 +14,9 @@
     * [Explicación sobre Git](##breve-explicación) - Explicación del sistema Git.
     * [Comandos](##comprobación-y-comandos) - Comprobación de la instalación y comandos más usados.
     * [Hosteando Bot](##pushing-bot) - Subiendo finalmente la aplicación a Heroku.
+6. [Activando Bot](#activar-bot) - Cómo activar el Bot.
+    * [Consola](##consola) - Activar la Aplicación con Heroku CLI.
+    * [Web](##web) - Activar la Aplicación con la Web de Heroku.
 
 # Introducción
 
@@ -575,4 +578,22 @@ Todos estos cambios han sido guardados de manera local, para almacenar dicho cam
 
 ![bot-subido](https://i.imgur.com/w4d1vwH.png)
 
->Heroku usará el archivo **Procfile** para determinar el tipo de ejecución que tendrá nuestra aplicación. 
+>Heroku usará el archivo **Procfile** para determinar el tipo de ejecución que tendrá nuestra aplicación.
+
+# Activar Bot
+
+En *Heroku* la aplicación se puede encender y apagar tanto con la interfaz gráfica de la Web como por consola con Heroku CLI.
+
+* [Consola](##consola)
+* [Web](##web)
+
+## Consola
+
+Para activar la aplicación a través del CLI recurrimos al comando `heroku scale worker=1` y para apagarla `heroku scale worker=0`, dado que el **worker** lo denominamos en el Procfile anteriormente.
+
+## Web
+
+Para activar la aplicación a través de la Web debemos ir a la web de Heroku, seleccionar nuestra App y luego irnos a *Resources*, allí veremos nuestro **worker** apuntando a lo que hayamos señalado.  
+Activarlo es tan sencillo como dar al botón de editar y luego activar.
+
+![heroku-web](https://i.imgur.com/8o5MTZ5.png)
