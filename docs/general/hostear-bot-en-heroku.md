@@ -8,7 +8,12 @@
     * [Java](##bot-en-java) - Preparación para el Bot en Java.
     * [Python](##bot-en-python) - Preparación para el Bot en Python.
 4. [Añadiendo Procfile](#añadir-procfile) - Indicaciones a Heroku sobre cómo se ejecuta nuestro Bot.
+    * [Java](###procfile-para-java) - Aplicación Java.
+    * [Python](###procfile-para-python) - Aplicación Python.
 5. [Subiendo el Bot a Heroku](#subir-bot-a-heroku) - Guía para subir el bot al host.
+    * [Explicación sobre Git](##breve-explicación) - Explicación del sistema Git.
+    * [Comandos](##comprobación-y-comandos) - Comprobación de la instalación y comandos más usados.
+    * [Hosteando Bot](##pushing-bot) - Subiendo finalmente la aplicación a Heroku.
 
 # Introducción
 
@@ -407,6 +412,74 @@ Y listo, ahora solo faltaría [subirlo a la plataforma](#añadir-procfile).
 
 ## Bot en Python
 
+Las aplicaciones Python en Heroku soportan tanto *requirements.txt* como *Pipfile* (generados con *pipenv*). Para este ejemplo usaremos los archivos *Pipfile* ya que personalmente los considero más profesionales y fácilmente trabajables.
+
+### Requisitos
+
+* [Python 3.6+](https://www.python.org/) - Versión recomendada, ya que 3.7 da problemas con `Discord.py`
+* [Pipenv](https://docs.pipenv.org/) - Fácilmente instalable con `python -m pip install pipenv`. 
+* [Virtualenv](https://virtualenv.pypa.io/en/stable/) - De igual manera; `python -m pip install virtualenv`.
+
+### Preparando Entorno de Trabajo
+
+#### Virtualenv
+
+Aunque no es del todo necesario, en este ejemplo crearemos un entorno virtual (*Virtual Environment*) para mantener nuestro *pip* principal limpio.  
+Lo primero será ir a la carpeta donde hemos clonado la aplicación y generar el entorno virtual enfocado a **Python 3.6+** con el comando `python -m virtualenv -p [Ruta a python.exe] [Ruta en la que generar el entorno]`.
+
+>No es necesario, pero es recomendable generar el entorno dentro de una carpeta, para tenerlo más ordenado. En mi caso me gusta crear dicho entorno dentro una carpeta llamada *.env*, más que nada para tenerlo ordenado.
+
+![creando-venv](https://i.imgur.com/h1x74JP.png)
+
+>La bandera (*flag*) `-p "Ruta"` se usa para indicar la versión de Python a usar. En mi caso, para usar Python3.6 accedería a la ruta de la imagen.
+
+Se nos crearán una serie de carpetas en el directorio al que hayamos destinado el *Entorno Virtual*, algo parecido al siguiente árbol:
+
+```
+carpeta-de-venv
+├─ Include
+├─ Lib
+├─ Scripts
+├─ tcl
+└── pip-selfcheck.json
+```
+
+En la carpeta **Scripts** se encontrará un archivo llamada `activate`, que será el que ejecutaremos para iniciar el entorno virtual.
+
+>En este caso en concreto, debido a que el *Virtual Environment* se encuentra en la carpeta *.env*, el comando para activar el entorno quedaría de la siguiente manera:
+
+![activar-venv](https://i.imgur.com/JmdMRYm.png)
+
+Comprobamos que funciona con el simple hecho de ver nuestro entorno entre paréntesis a la izquierda del directorio.
+
+#### Pipenv
+
+>Debido a que los *Entornos Virtuales* se interpretan como un sistema Python completamente limpio, habremos de instalar pipenv usando el comando `python -m pip install pipenv` dentro del entorno.
+
+![instalando-pipenv](https://i.imgur.com/OiTnqPo.png)
+
+**Pipfile** es un tipo de archivo que administra y gestiona nuestro entorno de desarrollo para hacer más cómodo y trasladable el trabajo en el mismo.  
+Lo siguiente será generar el archivo Pipfile, para ello haremos uso del comando `python -m pipenv lock`.
+
+>El comando `lock` genera un archivo *.xml* a partir del archivo "legible por humanos" *Pipfile*, pero si no hay Pipfile lo genera automáticamente.
+
+![creando-pipfile](https://i.imgur.com/iKqp53B.png)
+
+Comprobaremos que se nos han creado dos archivos: `Pipfile` y `Pipfile.lock`.
+
+#### Añadiendo dependencias
+
+Para añadir dependencias a nuestra aplicación será tan fácil como usar `pipenv` en lugar de `pip`.  
+Por ejemplo, si queremos instalar `discord.py` (la API para crear Bots de Discord), usaremos `pipenv install discord.py`.
+
+![instalando-discordpy](https://i.imgur.com/hqWx6vR.png)
+
+Y listo, ahora solo faltaría añadir los módulos .py que vayamos a usar y [subirlo a la plataforma](#añadir-procfile).
+
+>En este ejemplo crearemos un módulo simple `run.py` para inicializar el Bot.
+
+![modulo](https://i.imgur.com/xNPPTCx.png)
+
 ---
 
 # Añadir Procfile
@@ -423,7 +496,7 @@ Procfile tiene diferentes funcionalidades, pero nos centraremos en aquellas que 
 
 Dado que nuestra aplicación es un **.jar** ejecutable, solo necesitamos una línea de comando para hacer nuestra aplicación funcional:
 
-`worker: java -jar target\NombreApp.jar`
+`worker: java -jar NombreApp.jar`
 
 En el caso de la aplicación usada en el [ejemplo](##bot-en-java), quedaría tal que:
 
@@ -432,6 +505,14 @@ En el caso de la aplicación usada en el [ejemplo](##bot-en-java), quedaría tal
 ---
 
 ## Procfile para Python
+
+Dado que las aplicaciones de Python están basadas en **módulos** directamente ejecutables, solo necesitamos un línea de código para hacer nuestra aplicación funcional:
+
+`worker: python moduloPrincipal.py`
+
+En el caso de la aplicación usada en el [ejemplo](##bot-en-python), quedaría tal que:
+
+![procfile-python](https://i.imgur.com/T2wecjb.png)
 
 ---
 
@@ -457,15 +538,15 @@ Tras instalar Git, podemos comprobar si se ha registrado correctamete escribiend
 
 Los comandos más usados de Git (o al menos aquellos a tener en cuenta) son:
 
-- `git clone`: Copia un repositorio en nuestro directorio. Si usamos `git clone URL.git`, copiaremos dicho repositorio en el directorio en el que estemos.
-- `git init`: Inicia un control de versiones en *Git*.
-- `git add`: Añade un archivo o conjunto de archivos al sistema de control. Hasta que no son añadidos, esto no llevan un seguimiento de los cambios que se le realizan.
-- `git status`: Muestra el estado actual de nuestro repositorio, es decir, cambios sin guardar, archivos borrados, modificados...
-- `git commit`: Guarda los cambios de los archivos añadidos con `git add`.
-- `git pull`: Actualiza el repositorio actual con la versión más moderna del mismo.
-- `git push`: Sube los archivos al repositorio principal, aquel con la versión más moderna del proyecto.
+* `git clone`: Copia un repositorio en nuestro directorio. Si usamos `git clone URL.git`, copiaremos dicho repositorio en el directorio en el que estemos.
+* `git init`: Inicia un control de versiones en *Git*.
+* `git add`: Añade un archivo o conjunto de archivos al sistema de control. Hasta que no son añadidos, esto no llevan un seguimiento de los cambios que se le realizan.
+* `git status`: Muestra el estado actual de nuestro repositorio, es decir, cambios sin guardar, archivos borrados, modificados...
+* `git commit`: Guarda los cambios de los archivos añadidos con `git add`.
+* `git pull`: Actualiza el repositorio actual con la versión más moderna del mismo.
+* `git push`: Sube los archivos al repositorio principal, aquel con la versión más moderna del proyecto.
 
-## Subir Bot a Heroku
+## Pushing Bot
 
 Lo primero será comprobar cómo está nuestro repositorio Git, para ello hacemos uso del comando `git status`.
 
@@ -480,3 +561,18 @@ Tras añadir todos los archivos necesarios para el bot, volvemos a usar el coman
 >La bandera (*flag*) `-m` es obligatoria y es para indicar un mensaje de log, por ejemplo: "Añadido AnimeJS al proyecto".
 
 ![commit](https://i.imgur.com/WfCVyi9.png)
+
+Todos estos cambios han sido guardados de manera local, para almacenar dicho cambios en el Host (Heroku) como tal recurriremos al comando `git push heroku master`.
+
+* **heroku**: Indica el lugar remoto al que se subirán nuestro cambios (las configuraciones de esto son más complejas, pero al clonar la App desde el propio Heroku se nos facilitan muchas cosas).
+* **master**: Indica la rama en la que subirán nuestros cambios (debido a que *Git* es capaz de trabajar con múltiples espacios diferenciados).
+
+*Heroku* detectará automáticamente el tipo de aplicación y aplicará todos los plugins o extras necesarios para su correcto funcionamiento.
+
+![subiendo-bot](https://i.imgur.com/skgZReH.png)
+
+>En este caso es una aplicación Java, por lo que *Heroku* instala automáticamente el *JDK* necesario, *Maven* en la versión necesaria y compila según lo establecido.
+
+![bot-subido](https://i.imgur.com/w4d1vwH.png)
+
+>Heroku usará el archivo **Procfile** para determinar el tipo de ejecución que tendrá nuestra aplicación. 
