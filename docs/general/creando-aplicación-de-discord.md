@@ -1,18 +1,3 @@
-# Índice
-
-* [Creando una aplicación en Discord Developers](#Creando-una-aplicación-en-Discord-Developers)
-  * [Paso 1](#Paso-1)
-  * [Paso 2](#Paso-2)
-* [Configurando tu aplicación para que figure como un Bot](#Configurando-tu-aplicación-para-que-figure-como-un-Bot)  
-  * [Paso 3](#Paso-3)
-  * [Paso 4](#Paso-4)
-* [Preparándolo para el combate](#Preparándolo-para-el-combate)
-  * [Paso 5](#Paso-5)
-  * [Paso 6](#Paso-6)
-  * [Paso 7](#Paso-7)
-* [Notas importantes](#Notas-importantes)
-* [Créditos](#Créditos)
-
 ## Creando una aplicación en Discord Developers
 
 Antes de iniciarte por nuestras guías es recomendable que empieces a leer este documento en dónde te explicaremos paso a paso cómo crear una aplicación en Discord, para ser más preciso; crear una aplicación de Discord es lo primordial para obtener las credenciales de nuestro bot para accesarlo al programa.
@@ -107,10 +92,6 @@ Vamos a darle al botón "**Copy**" y usemóslo en nuestro navegador!
 * Recuerda apuntar el **token** de tu bot, te servirá cuando comiences a programar tu bot para lograr que se ponga en línea.
 * El **ID de cliente** es completamente público, puedes compartirlo sin miedo. (No compartas el token!)
 * Esta guía/tutorial fue escrita basada en el nuevo diseño del panel de desarrolladores de Discord.
-
-## Créditos
-
-Tutorial escrito por [MrDevsaider](https://github.com/mrdevsaider), contribuidor de [Script Hub Team](https://github.com/orgs/scripthubteam/people).
 
 
 

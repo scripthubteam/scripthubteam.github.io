@@ -1,23 +1,3 @@
-# Índice
-
-1. [Introducción](#introducción) - ¿Por qué Heroku?
-2. [Instalación de Heroku CLI](#heroku-cli) - Interfaz de uso de Heroku.
-    * [Características de Heroku CLI](##características) - Herramientas más usadas y curiosidades.
-    * [Crear Aplicación con Heroku](##crear-aplicación) - Cómo crear una aplicación con Heroku CLI.
-3. [Preparación del Bot](#preparando-el-bot) - Explicación de los entornos necesarios.
-    * [Java](##bot-en-java) - Preparación para el Bot en Java.
-    * [Python](##bot-en-python) - Preparación para el Bot en Python.
-4. [Añadiendo Procfile](#añadir-procfile) - Indicaciones a Heroku sobre cómo se ejecuta nuestro Bot.
-    * [Java](###procfile-para-java) - Aplicación Java.
-    * [Python](###procfile-para-python) - Aplicación Python.
-5. [Subiendo el Bot a Heroku](#subir-bot-a-heroku) - Guía para subir el bot al host.
-    * [Explicación sobre Git](##breve-explicación) - Explicación del sistema Git.
-    * [Comandos](##comprobación-y-comandos) - Comprobación de la instalación y comandos más usados.
-    * [Hosteando Bot](##pushing-bot) - Subiendo finalmente la aplicación a Heroku.
-6. [Activando Bot](#activar-bot) - Cómo activar el Bot.
-    * [Consola](##consola) - Activar la Aplicación con Heroku CLI.
-    * [Web](##web) - Activar la Aplicación con la Web de Heroku.
-
 # Introducción
 
 ![imagen-heroku](https://www.vectorlogo.zone/logos/heroku/heroku-card.png)

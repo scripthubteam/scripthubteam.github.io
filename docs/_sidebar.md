@@ -22,8 +22,9 @@
   color: #a2a2a2;
   text-shadow: 0px 0px 10px rgba(0,0,0,0.2);">Guías</a>
 
+* [Alojando una aplicación en Heroku](/general/alojando-bot-en-heroku.md)
 * [Creando una aplicación de Discord](/general/creando-aplicación-de-discord.md)
-* [Hostear una aplicación en Heroku](/general/hostear-bot-en-heroku.md)
+* [<font color="orange"><i class="fab fa-git"></i></font> Utilizando Git](/general/utilizando-git.md)
 * <i class="fab fa-java"></i> Java
   * **<i class="fas fa-archive"></i> JDA**
     * [¿Qué es JDA?](/java/jda.md)
