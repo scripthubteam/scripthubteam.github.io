@@ -1,4 +1,4 @@
-![logo](https://scripthubteam.github.io/docs/assets/logo-bn.png)
+![logo](https://scripthubteam.github.io/docs/assets/logo-docs.png)
 > Programación de bots con Discord en español.
 
 [Introducción](#introducci%c3%b3n)
