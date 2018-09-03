@@ -45,13 +45,13 @@ Usa `git remote add origin <server>`, por ejemplo:
 
 ## Las ramas
 
-Para crear una nueva rama en git, utiliza `git checkout -b <nombre>` y posicionate en ella. Para volver a la rama anterior (master) utiliza `git checkout master`, para borrar una ramma utilizaras `git branch -g <nombre>`.
+Para crear una nueva rama en git, utiliza `git checkout -b <nombre>` y posicionate en ella. Para volver a la rama anterior (master) utiliza `git checkout master`, y para borrar una rama en caso de ser necesario utilizaras `git branch -d <nombre>`.
 
-Una nueva ramas no estará disponible generalmente hasta que la publiques usando `git push -u origin master`
+Una nueva rama no estará disponible generalmente hasta que la publiques usando `git push -u origin master`
 
 ## Actualizar y fusionar
 
-Para actualizar tu repositorio local con el más reciente, utiliza `git pull` para obtener los cambios externos hechos.
+Para actualizar tu repositorio local con el más reciente utiliza `git pull` y obtendras los cambios hechos externamente de tu directorio local.
 
 Para fusionar una rama con la que está activa utiliza `git merge <rama>`. Antes de fusionar las ramas, puedes usar el **diff** para ver las diferencias de ambas `git diff <rama_fuente> <rama_seleccionada>`.
 
