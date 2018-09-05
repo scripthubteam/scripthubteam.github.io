@@ -94,6 +94,43 @@ Si nos fijamos en las palabras remarcadas en rojo, podemos ver que son los crede
 
 ## Conexiones
 
+Como se mencionó antes, la conexión a la DBO de nuestra aplicación puede ser establecida por una URI.  
+Heroku almacena dicha URI como una variable de entorno llamada *DATABASE_URL*, por lo que solo se puede acceder a ella desde dentro del entorno Heroku.
+
+La manera de acceder a dicha variable de entorno varía según el lenguaje.
+
 ### Python
 
+Para usar PostgreSQL en Python necesitaremos la librería **psycopg2**, que podremos instalar con el comando `pip install psycopg2-binary` o `pipenv install psycopg2-binary` si estamos en un *Virtual Enviorment*.
+
+![output-psycopg2](https://i.imgur.com/NyX1ekL.png)
+
+Para establecer una conexión con nuestra Base de Datos bastará usar la librería `os` de Python para obtener la variable de entorno *DATABASE_URL* y la libreria `psycopg2` para establecer la conexión.
+
+```python
+import os
+import psycopg2
+
+# Obtenemos variable de entorno
+DATABASE_URL = os.environ['DATABASE_URL']
+
+psycopg2.connect(DATABASE_URL, sslmode='require')
+```
+
+>También podemos establecer dicha conexión señalando dato a dato cada uno de los credenciales que obtengamos con `heroku pg:credentials:url -a nombre-app`.
+
+```python
+import psycopg2
+
+psycopg2.connect(dbname='d4kcqemt1v7ebm'
+                 user='foulctbnasfphk'
+                 host='ec2-54-217-245-53.eu-west-1.compute.amazonaws.com'
+                 password='c8e92783d05010830805d0488daaeee164f6379839975afa3e5f8583f93b88f8'
+                 sslmode='require')
+```
+
+>Obviamente estos credenciales son únicos para cada aplicación y no tienen que coincidir con los que tenga cada usuario.
+
 ### Java
+
+Para usar PostgreSQL en Java necesitaremos la dependencia `postgresql`, que puede ser fácilmente añadida a nuestro proyecto Maven cambiando 
