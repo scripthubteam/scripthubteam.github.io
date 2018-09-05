@@ -131,6 +131,33 @@ psycopg2.connect(dbname='d4kcqemt1v7ebm'
 
 >Obviamente estos credenciales son únicos para cada aplicación y no tienen que coincidir con los que tenga cada usuario.
 
+Recomiendo buscar más información sobre el uso de [psycopg2](http://initd.org/psycopg/docs/).
+
 ### Java
 
-Para usar PostgreSQL en Java necesitaremos la dependencia `postgresql`, que puede ser fácilmente añadida a nuestro proyecto Maven cambiando 
+Para usar PostgreSQL en Java necesitaremos la dependencia `postgresql`, que puede ser fácilmente añadida a nuestro proyecto Maven cambiando nuestro archivo **pom.xml** y añadiendo los siguiente a la lista de dependencias:
+
+```xml
+<dependency>
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <version>42.2.1</version>
+  <!-- Se recomienda usar la última versión -->
+</dependency>
+```
+
+Para establecer una conexión con nuestra Base de Datos bastará usar la librería `System` de Java para obtener la variable de entorno *DATABASE_URL*.
+
+```Java
+private static Connection getConnection() throws URISyntaxException, SQLException {
+    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+    String username = dbUri.getUserInfo().split(":")[0];
+    String password = dbUri.getUserInfo().split(":")[1];
+    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+
+    return DriverManager.getConnection(dbUrl, username, password);
+}
+```
+
+>Hay un manera de introducir dato a dato cada una de las credenciales de nuestra DBO, pero solo complica el proceso. Puedes obtener más información sobre esto en la [documentación](https://jdbc.postgresql.org/documentation/head/index.html).
