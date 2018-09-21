@@ -37,6 +37,7 @@
     * [¿Qué es discord.js?](/js/discord-js.md)
       * [Primeros Pasos](/js/Primeros Pasos.md)
       * [Eventos, utilización y ejemplos](/js/eventos.md)
+      * [Discord.js Commando](/js/commando.md)
       * [**<i class="fas fa-download" title="Descarga el bot modelo de esta librería."></i> Bot Modelo**](https://github.com/MrDevsaider/discordjs-bot-example)
 
 * <i class="fab fa-python"></i> Python
