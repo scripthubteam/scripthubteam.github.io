@@ -29,13 +29,13 @@
 * <i class="fab fa-java"></i> Java
   * **<i class="fas fa-archive"></i> JDA**
     * [¿Qué es JDA?](/java/jda.md)
-      * [Primeros Pasos](/java/Primeros Pasos.md)
-      * [Manejo Avanzado de Plugins](/java/Sistema Avanzado de Plugins.md)
+      * [Primeros Pasos](/java/Primeros_Pasos.md)
+      * [Manejo Avanzado de Plugins](/java/Sistema_Avanzado_de_Plugins.md)
 
 * <i class="fab fa-js"></i> JavaScript
   * **<i class="fas fa-archive"></i> discord.js**
     * [¿Qué es discord.js?](/js/discord-js.md)
-      * [Primeros Pasos](/js/Primeros Pasos.md)
+      * [Primeros Pasos](/js/Primeros_Pasos.md)
       * [Eventos, utilización y ejemplos](/js/eventos.md)
       * [Discord.js Commando](/js/commando.md)
       * [**<i class="fas fa-download" title="Descarga el bot modelo de esta librería."></i> Bot Modelo**](https://github.com/MrDevsaider/discordjs-bot-example)
@@ -43,4 +43,4 @@
 * <i class="fab fa-python"></i> Python
   * **<i class="fas fa-archive"></i> discord.py**
     * [¿Qué es discord.py?](/py/discord-py.md)
-      * [Primeros Pasos](/py/Primeros Pasos.md)
+      * [Primeros Pasos](/py/Primeros_Pasos.md)
