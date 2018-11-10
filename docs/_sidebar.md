@@ -30,7 +30,7 @@
   * **<i class="fas fa-archive"></i> JDA**
     * [¿Qué es JDA?](/java/jda.md)
       * [Primeros Pasos](/java/primeros-pasos.md)
-      * [Manejo Avanzado de Plugins](/java/sistema-avanzado-de-plugins.md)
+      * [Manejo Avanzado de Plugins](/java/Sistema-Avanzado-de-Plugins.md)
 
 * <i class="fab fa-js"></i> JavaScript
   * **<i class="fas fa-archive"></i> discord.js**
