@@ -1,4 +1,3 @@
-# Introducción a JDA (Java Discord API)
 
 > **<i class="fa fa-user"></i> Editor:** [LeCuay](https://github.com/LeCuay)
 

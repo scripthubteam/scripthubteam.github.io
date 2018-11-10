@@ -1,4 +1,3 @@
-# Índice
 
 * [¿Qué es un evento?](#¿qué-es-un-evento)
 * [Usando eventos](#usando-eventos)

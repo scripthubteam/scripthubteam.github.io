@@ -1,4 +1,3 @@
-# Índice
 
 - [Introducción](#introducción)
 - [Requisitos](#requisitos)

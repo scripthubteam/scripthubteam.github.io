@@ -1,4 +1,3 @@
-# Índice
 
 1. [Introducción](#introducción) - Explicación breve de lo que es `discord.py`.
 2. [Instalación](#instalación) - Cómo instalar `discord.py` en nuestro Sistema.

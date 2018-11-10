@@ -1,4 +1,3 @@
-## Creando una aplicación en Discord Developers
 
 Antes de iniciarte por nuestras guías es recomendable que empieces a leer este documento en dónde te explicaremos paso a paso cómo crear una aplicación en Discord, para ser más preciso; crear una aplicación de Discord es lo primordial para obtener las credenciales de nuestro bot para accesarlo al programa.
 

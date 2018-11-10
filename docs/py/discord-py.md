@@ -1,4 +1,3 @@
-# Introducción a Discord.PY
 
 > **<i class="fas fa-user"></i> Editor:** [LeCuay](https://github.com/LeCuay)
 

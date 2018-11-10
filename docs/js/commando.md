@@ -1,4 +1,3 @@
-# Índice
 
 * [¿Qué es Discord.js Commando?](#¿Qué-es-Discord.js-Commando?)
 * [Empezando](#Empezando)

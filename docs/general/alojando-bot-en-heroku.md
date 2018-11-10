@@ -1,6 +1,4 @@
-# Índice
 
-- [Índice](#%C3%ADndice)
 - [Introducción](#introducci%C3%B3n)
 - [Heroku CLI](#heroku-cli)
   - [Características](#caracter%C3%ADsticas)

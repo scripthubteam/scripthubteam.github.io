@@ -1,6 +1,4 @@
-# Índice
 
-- [Índice](#%C3%ADndice)
 - [Introducción](#introducci%C3%B3n)
 - [Asignando DBO a una aplicación](#asignando-dbo-a-una-aplicaci%C3%B3n)
 - [Instalación de PostgreSQL](#instalaci%C3%B3n-de-postgresql)

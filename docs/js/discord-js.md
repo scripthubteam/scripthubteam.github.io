@@ -1,4 +1,3 @@
-# Introducción a Discord.JS
 
 > **<i class="fas fa-users"></i> Editores:** [Nakido](https://github.com/Nakido), [MrDevsaider](https://github.com/MrDevsaider)
 
