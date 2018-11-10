@@ -246,6 +246,27 @@ client.on('guildDelete', guild =>{
 });
 ```
 
+## Evento "messageReactionAdd"
+
+Evento disparado al ser reaccionado uno de los mensajes en la caché del bot. El primer parámetro devuelve un objeto MessageReaction que incluye Message si necesitarámos especificar un determinado mensaje.
+
+```js
+client.on("MessageReactionAdd", (reaction, user) => {
+    if (reaction.emoji.name === "verificado") {
+        user.username.addRole('ID'));
+    }
+});
+```
+
+## Evento "raw"
+
+Se dispara este evento ante cualquier acción recibida desde los servidores de Discord. Nótese que no estará "preprocesada" por Discord.js pero ofrecerá la máxima flexibilidad.
+
+```js
+client.on('raw', event => {
+    console.log('Evento disparado', event);
+});
+```
 ## Evento "error"
 
 Este evento es opcional, pero su utilización también es útil para enviar detalles de un error producido dentro del bot.
