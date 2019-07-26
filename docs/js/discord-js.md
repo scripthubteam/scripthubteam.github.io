@@ -1,5 +1,5 @@
 
-> **<i class="fas fa-users"></i> Editores:** [Nakido](https://github.com/Nakido), [MrDevsaider](https://github.com/MrDevsaider)
+> **<i class="fas fa-users"></i> Editores:** [Nakido](https://github.com/Nakido), [Lau](https://github.com/Lauuu), [MrDevsaider](https://github.com/MrDevsaider)
 
 <font size=5> **A continuación, toma en cuenta estos conceptos antes de comenzar con la guía:** </font>
 
