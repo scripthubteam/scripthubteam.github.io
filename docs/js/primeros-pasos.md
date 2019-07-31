@@ -1,4 +1,3 @@
-> ** <font size=5> Visita el bot modelo de esta librería </font>**
 
 > **<i class="fas fa-download"></i> [Bot Modelo (discordjs-bot-example)](https://github.com/MrDevsaider/discordjs-bot-example) (por [MrDevsaider](https://github.com/MrDevsaider) alojado en [GitHub](https://github.com))**
 
