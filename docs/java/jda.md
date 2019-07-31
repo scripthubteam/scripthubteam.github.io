@@ -10,5 +10,5 @@
 
 **<i class="fas fa-arrow-circle-right"></i> Comenzar con la guía:**
 
-* [Primeros Pasos](/java/Primeros Pasos.md)
-* [Manejo Avanzado de Plugins](/java/Sistema Avanzado de Plugins.md)
+* [Primeros Pasos](/java/Primeros-Pasos.md)
+* [Manejo Avanzado de Plugins](/java/Sistema-Avanzado-de-Plugins.md)
