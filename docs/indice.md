@@ -1,4 +1,4 @@
-## Índice
+# Índice
 
 * [Listado y estatus de las guías](#listado-y-estatus-de-las-guías)
 
