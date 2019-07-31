@@ -2,7 +2,7 @@
 
 * [Listado y estatus de las guías](#listado-y-estatus-de-las-guías)
 
-!> **¿Necesitas ayuda con nuestra documentación?** Visita nuestro servidor de Discord y dirígete al canal de soporte #soporte-general. [Haz clic aquí!](https://discord.gg/VK2V7Yk)
+!> **¿Necesitas ayuda con nuestra documentación?** Visita nuestro servidor de Discord y dirígete al canal de soporte #soporte-general. [Haz clic aquí!](https://discord.gg/KSDevqR)
 
 ## Listado y estatus de las guías
 Listado de guías disponibles. Se muestra el lenguaje de programación del módulo y dirección del contenido de la misma.
