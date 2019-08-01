@@ -56,11 +56,11 @@ Una vez tengamos todos los requisitos necesarios bastará instalar `discord.py` 
 
 **Funciones de Texto exclusivamente:**
 
-```Bash
+```bash
 python3 -m pip install -U discord.py
 ```
 
-```Bash
+```bash
 python -m pip install -U discord.py
 ```
 
@@ -71,11 +71,11 @@ python -m pip install -U discord.py
 - libffi-dev (Puede ser que lo encuentres como `libffi-devel` en algunos Sistemas Operativos)
 - python-dev (Varía en función de la versión de Python. **Ejemplo:** `python3.5-dev` para **Python3.5**)
 
-```Bash
+```bash
 python3 -m pip install -U discord.py[voice]
 ```
 
-```Bash
+```bash
 python -m pip install -U discord.py[voice]
 ```
 
@@ -86,11 +86,11 @@ python -m pip install -U discord.py[voice]
 - libffi-dev (También llamado `libffi-devel`)
 - python-dev (**Ejemplo:** `python3.5-dev` para **Python3.5**)
 
-```Bash
+```bash
 python3 -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
 ```
 
-```Bash
+```bash
 python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
 ```
 
@@ -107,7 +107,7 @@ python -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip
 
 ### Ejemplo 1 - Usando `discord.Client()`
 
-```Python
+```python
 import discord  # Importando el API de Discord para Python
 import asyncio  # Python3.5+ debería traer la dependencia async integrada
 
