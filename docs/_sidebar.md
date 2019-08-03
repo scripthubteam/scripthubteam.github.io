@@ -48,4 +48,4 @@
 * <i class="fab fa-ruby"></i> Ruby
   * **<i class="fas fa-archive"></i> discord.rb**
     * [Próximamente](https://discord.gg/bH3EMT3)
-      *
+
