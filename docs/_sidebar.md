@@ -44,3 +44,7 @@
   * **<i class="fas fa-archive"></i> discord.py**
     * [¿Qué es discord.py?](/py/discord-py.md)
       * [Primeros Pasos](/py/primeros-pasos.md)
+
+* <i class="fab fa-ruby"></i> Ruby
+  * **<i class="fas fa-archive"></i> discord.rb**
+    * Próximamente
