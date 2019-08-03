@@ -45,7 +45,7 @@
     * [¿Qué es discord.py?](/py/discord-py.md)
       * [Primeros Pasos](/py/primeros-pasos.md)
 
-* <i class="fab fa-ruby"></i> Ruby
+* <i class="far fa-gem"></i> Ruby
   * **<i class="fas fa-archive"></i> discord.rb**
     * [Próximamente](https://discord.gg/bH3EMT3)
 
