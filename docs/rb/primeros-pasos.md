@@ -1,7 +1,7 @@
 # Índice 
 
 * [Introducción](#introducción) - Introducción de la gema `discordrb` y preparación del entorno de trabajo.	
-	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.rb`.	
+	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discordrb`.	
 	* [Instalación](#instalacion) - Instalación de la gema.	
 * [Primer bot](#primer-bot) - Tutorial básico para la creación de un bot.	
 	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
@@ -21,6 +21,7 @@ Fue desarrollada por [meew0](https://github.com/meew0 "Perfil en GitHub de meew0
 
 ### Requisitos
 * [Ruby](###Ruby)
+* [gem y Bundler](###gem-y-bundler)
 * [Software para soporte de audio](###software-para-soporte-de-audio)
 
 #### Ruby
@@ -28,14 +29,14 @@ Fue desarrollada por [meew0](https://github.com/meew0 "Perfil en GitHub de meew0
 
 Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://www.ruby-lang.org/es/downloads/ "Descargar Ruby") y elija la versión estable/recomendada \(`2.6.3` en el momento que se escribió esta guía\)
 
-##### gem y bundler
+#### gem y bundler
 `gem` es el servicio encargado de manejar las gemas de Ruby desarrollados por la comunidad, consiste en un comando \(instalado junto con Ruby\) que nos permite instalar y mantener actualizada cualquier gema alojada en su base de datos.
 
 Alternativamente, `bundler` es una alternativa al package manager `gem`, `bundler` es una salida del infierno de la dependencia y garantiza que las gemas que necesita estén presentes en el desarrollo, la puesta en escena y la producción.
 
 En esta guía, utilizaremos ambos package managers, ambos funcionan de distinta manera, pero descuida, son totalmente sencillos!
 
-Para instalar bundler, debemos utilizar el siguiente comando **(ya debemos tener Ruby instalado)**: [CLI docs](https://bundler.io/man/bundle-install.1.html, "Documentación oficial de Bundler")
+Para instalar bundler, debemos utilizar el siguiente comando **(ya debemos tener Ruby instalado)**: [Bundler docs](https://bundler.io/man/bundle-install.1.html, "Documentación oficial de Bundler")
 ```sh
 gem install bundler
 ```
@@ -74,15 +75,17 @@ cd desktop/bot
 Hecho lo anterior, solo debe ejecutar los siguientes comandos:
 ```console
 bundle init #Esto creará un archivo Gemfile que contendrá las gemas necesarias del bot. El contenido que trae por defecto el Gemfile puede eliminarse.
-
-#Abrimos el Gemfile y colocamos la estructura, ejemplo:
-source "https://rubygems.org/" #Este es el source del cual se descargarán las gemas.
-
-gem "discordrb" #Acá se solicita la gema de discordrb.
-
-#Luego, instalamos las gemas del Gemfile con el siguiente comando:
-bundle install #Esto instalará todas las gemas requeridas en el Gemfile y creará un archivo Gemfile.lock
 ```
+    * Abrimos el Gemfile y colocamos la estructura, ejemplo:
+    ```rb
+    source "https://rubygems.org/" #Este es el source del cual se descargarán las gemas.
+
+    gem "discordrb" #Acá se solicita la gema de discordrb.
+    ```
+    * Luego, instalamos las gemas del Gemfile con el siguiente comando:
+    ```console
+    bundle install #Esto instalará todas las gemas requeridas en el Gemfile y creará un archivo Gemfile.lock
+    ```
 
 * **Utilizando gem:**
 Hecho lo anterior, solo debe ejecutar el siguiente comando:
@@ -95,7 +98,7 @@ gem install discordrb --platform=ruby
 ```
 
 Si recibe este error al instalar la gema:
-```
+```console
 Error: Error installing discordrb:
        The 'websocket-driver' native gem requires installed build tools.
 ```
@@ -222,8 +225,11 @@ Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 #### Notas adicionales
 Puedes crear tus propios mensajes de error si tu comando no encuentra algo que especificaste, como los argumentos, un ejemplo que puedes añadir al comienzo de un comando para que el usuario deba escribirlo:
 ```rb
-if !args
-  return message.channel.send("Introduzca algunos parámetros")
+def SinArgs
+    args = Args
+    if !args
+      return message.channel.send("Introduzca algunos parámetros")
+    end
 end
 ```
 También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añada la siguiente condición al comienzo del evento `message`:
@@ -236,9 +242,9 @@ def MensajeBot
 end
 ```
 
-Si queremos tomar una mención, iremos al objeto que las contiene `message.mentions.users` y agarraremos la primera con `first()`
+Si queremos tomar una mención, iremos al objeto que las contiene `message.mentions.users` y agarraremos la primera con `first`
 ```rb
-console.log(message.mentions.users.first().tag)
+console.log(message.mentions.users.first.tag)
 ```
 
 ## Archivo de Configuración
@@ -296,30 +302,35 @@ Discordrb::Bot.new token: token
 ```
 
 ## Conceptos
-Puntos de `discord.js` que pueden resultar más complicados de entender y/o dominar en su totalidad.
+Puntos de `discordrb` que pueden resultar más complicados de entender y/o dominar en su totalidad.
 
 ### Eventos
-Los eventos son el principal punto de interacción con nuestro bot, cada vez que "ocurre algo" en Discord mientras nuestro bot está presente (Como enviar un mensaje, crear un canal, etc), `discord.js` emitirá un evento.
+Los eventos son el principal punto de interacción con nuestro bot, cada vez que "ocurre algo" en Discord mientras nuestro bot está presente (Como enviar un mensaje, crear un canal, etc), `discordrb` emitirá un evento.
 
-Para controlar estos eventos, utilizaremos [`Client`](https://discord.js.org/#/docs/main/stable/class/Client "Client").
+Para controlar estos eventos, utilizaremos [`Bot`](https://www.rubydoc.info/github/meew0/discordrb/Discordrb/Bot "Bot").
 
 La síntaxis básica de cada evento sería:
-```js
-client.on("NombreDelEvento", (parámetros) => {
-	//Código a ejecutarse cuando se emita el evento
-});
+```rb
+bot.evento(parámetros) do |evento|
+	#Código a ejecutarse cuando se emita el evento
+end
 ```
-> Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `message is not defined` ya sabes porqué es.
+> Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `undefined local variable or method 'message'` ya sabes porqué es.
 
-Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
+Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Bot#message"), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
 
-Un ejemplo con el evento [`messageUpdate`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#messageUpdate") (Emitido cuando se edita un mensaje o se añade un embed):
-```js
-client.on("messageUpdate", (oldmsg, newmsg) => {
-	let canal = oldmsg.channel; 
-	if(canal !== "198291975663779842") return; //Ignora los mensajes de otros canales
-		canal.send(oldmsg.content, newmsg.content);
-})
+Un ejemplo con el evento [`message_edit`](https://www.rubydoc.info/gems/discordrb/Discordrb/EventContainer#message_edit-instance_method "EventContainer#message_edit") (Emitido cuando se edita un mensaje o se añade un embed):
+```rb
+bot.message_edit(:id, :in) do |edit|
+	canal = [:in] 
+    def IgnorarMensajes
+        c_ignorar = canal
+	    if c_ignore != "198291975663779842" #Ignora los mensajes de otros canales
+          return
+        end
+    end
+	canal.send(saved_message.content, message.content)
+end
 ```
 >**Importante:** Los eventos son emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
 
