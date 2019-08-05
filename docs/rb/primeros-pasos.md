@@ -1,122 +1,168 @@
-
-> **<i class="fas fa-download"></i> [Bot Modelo (discordjs-bot-example)](https://github.com/MrDevsaider/discordjs-bot-example) (por [MrDevsaider](https://github.com/MrDevsaider) alojado en [GitHub](https://github.com))**
-
-> **Advertencia:** Si no has leído el contenido de la guía, te recomendamos encarecidamente leerla antes de descargar el proyecto.
-
 # Índice 
 
-* [Introducción](#introducción) - Introducción de la librería `discord.js` y preparación del entorno de trabajo.	
-	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.js`.	
-	* [Instalación](#instalacion) - Instalación de la librería.	
+* [Introducción](#introducción) - Introducción de la gema `discordrb` y preparación del entorno de trabajo.	
+	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discord.rb`.	
+	* [Instalación](#instalacion) - Instalación de la gema.	
 * [Primer bot](#primer-bot) - Tutorial básico para la creación de un bot.	
 	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
 	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
 	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros.
 * [Archivo de Configuración](#archivo-de-configuración) - Utilizando un archivo externo para evitar exponer información personal.
 	* [config.json](#config.json) - Creando .json para almacenar información.
-	* [Utilizando config.json](#command-handler) - Utilizando en el código la información almacenada en config.json.
-* [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discord.js`.
-	* [Eventos](#eventos) - Entendiendo el punto más importante de `discord.js`.
+	* [Utilizando config.json](#utilizando-json) - Utilizando en el código la información almacenada en config.json.
+* [Conceptos](#conceptos) - Explicación a fondo de algunas funciones de `discordrb`.
+	* [Eventos](#eventos) - Entendiendo el punto más importante de `discordrb`.
 	* [Colecciones](#colecciones) - Objetos hechos para almacenar varios elementos más fácilmente.
 
 ## Introducción
-[Discord.js](https://github.com/discordjs/discord.js/ "Repositorio en GitHub de Discord.js") es una librería para [node.js](https://nodejs.org/ "Web oficial de Node.js") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
+[Discordrb](https://github.com/meew0/discordrb/ "Repositorio en GitHub de Discordrb") es una gema para [Ruby](https://www.ruby-lang.org/es/ "Web oficial de Ruby") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
 
-Fue desarrollada principalmente por [hydrabolt](https://github.com/hydrabolt "Perfil en GitHub de hydrabolt") y actualmente es la librería más descargada en [npm](https://www.npmjs.com "Web oficial de npm") para la creación de bots en Discord.
-
-En el momento en que se escribe está guía, su última versión es `v11.3` y será con la que estaremos trabajando. Cuenta con soporte para ES8 por lo que es posible utilizar `async/await` ~~aunque estamos acostumbrados a las promesas~~.
+Fue desarrollada por [meew0](https://github.com/meew0 "Perfil en GitHub de meew0")
 
 ### Requisitos
-* [Node.js](###node.js)
+* [Ruby](###Ruby)
 * [Software para soporte de audio](###software-para-soporte-de-audio)
 
-#### Node.js
-`Node.js` es un entorno de ejecución, en este es posible ejecutar código escrito en `JavaScript` desde un servidor en lugar de un navegador.
+#### Ruby
+`Ruby` es un lenguaje de programación orientado a objetos dinámico y de código abierto enfocado en la simplicidad y productividad.
 
-Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://nodejs.org/en/download/ "Descargar node.js") y elija la versión estable/recomendada \(`8.11.1` en el momento que se escribió esta guía\)
+Para descargarlo, diríjase al apartado de descargas en la [web oficial](https://www.ruby-lang.org/es/downloads/ "Descargar Ruby") y elija la versión estable/recomendada \(`2.6.3` en el momento que se escribió esta guía\)
 
-##### npm
-[`NPM`](https://www.npmjs.com "Web oficial de npm") es el servicio encargado de manejar los módulos de Node.js desarrollados por la comunidad, consiste en un comando \(instalado junto con node\) que nos permite instalar y mantener actualizado cualquier módulo alojado en su base de datos.
+##### gem y bundler
+`gem` es el servicio encargado de manejar las gemas de Ruby desarrollados por la comunidad, consiste en un comando \(instalado junto con Ruby\) que nos permite instalar y mantener actualizada cualquier gema alojada en su base de datos.
+
+Alternativamente, `bundler` es una alternativa al package manager `gem`, `bundler` es una salida del infierno de la dependencia y garantiza que las gemas que necesita estén presentes en el desarrollo, la puesta en escena y la producción.
+
+En esta guía, utilizaremos ambos package managers, ambos funcionan de distinta manera, pero descuida, son totalmente sencillos!
+
+Para instalar bundler, debemos utilizar el siguiente comando **(ya debemos tener Ruby instalado)**: [CLI docs](https://bundler.io/man/bundle-install.1.html, "Documentación oficial de Bundler")
+```sh
+gem install bundler
+```
 
 #### Software para soporte de audio
-Si planea utilizar alguna función que requiera audio (reproducir música en un canal de voz por ejemplo), necesitará instalar algunos módulos adicionales:
+Si planea utilizar alguna función que requiera audio (reproducir música en un canal de voz por ejemplo), necesitará instalar algunas gemas adicionales:
 
-* **En PowerShell con permisos de administrador:**
-  * `npm i -g --production windows-build-tools`
+Nota: En Windows si desea utilizar la función de voz, su versión de Ruby debe ser 32bits (x86), de lo contrario, Opus no funcionará.
 
-* **En la carpeta que contendrá el bot:**
-  * `npm i ffmpeg-binaries`
-  * `npm i node-opus` (En caso de que ocurra algún error, intente con `npm i opusscript`)
+* **Software:**
+  * Libsodium [Instalación Libsodium](https://github.com/meew0/discordrb/wiki/Installing-libsodium "Instalación de Libsodium por meew0")
+  * Una distribución compilada de libopus [Instalación Libopus](https://github.com/meew0/discordrb/wiki/Installing-libopus "Instalación de Libopus por meew0")
+  * FFmpeg
+  ```console
+  gem install ffmpeg
+  ```
 
 ### Instalación 
-Para empezar a utilizar `discord.js` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot (o utilizar la carpeta en que haya instalado Opus y ffmpeg).
+Para empezar a utilizar `discordrb` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot.
 
+* **Windows:**
 Luego de esto, deberá abrir el `cmd` \(Win + R y escriba "cmd" en ejecutar\) y abrirá la ruta donde se encuentra la carpeta con el comando `cd`, ejemplo:
 ```console
 cd desktop/bot
 ```
+
+* **Linux:**
+Luego de esto, deberá abrir la `terminal` \(Aplicaciones»Accesorios»Terminal\) y abrirá la ruta donde se encuentra la carpeta con el comando `cd`, ejemplo:
+```console
+cd desktop/bot
+```
+
 > **Consejo:** También puedes utilizar `Shift + Click Derecho` en la carpeta para abrir un cmd en ese directorio.  
 
-Hecho lo anterior, solo debe ejecutar el siguiente comando: `npm i discord.js`.
-De esta manera, se empezará a instalar `discord.js` con todas sus dependencias en el directorio seleccionado.
+* **Utilizando Bundler:**
+Hecho lo anterior, solo debe ejecutar los siguientes comandos:
+```console
+bundle init #Esto creará un archivo Gemfile que contendrá las gemas necesarias del bot. El contenido que trae por defecto el Gemfile puede eliminarse.
+
+#Abrimos el Gemfile y colocamos la estructura, ejemplo:
+source "https://rubygems.org/" #Este es el source del cual se descargarán las gemas.
+
+gem "discordrb" #Acá se solicita la gema de discordrb.
+
+#Luego, instalamos las gemas del Gemfile con el siguiente comando:
+bundle install #Esto instalará todas las gemas requeridas en el Gemfile y creará un archivo Gemfile.lock
+```
+
+* **Utilizando gem:**
+Hecho lo anterior, solo debe ejecutar el siguiente comando:
+```console
+#Linux/MacOS
+gem install discordrb
+
+#Windows
+gem install discordrb --platform=ruby
+```
+
+Si recibe este error al instalar la gema:
+```
+Error: Error installing discordrb:
+       The 'websocket-driver' native gem requires installed build tools.
+```
+Es porque no tienes el Devkit instalado el cual es necesario para construir extensiones nativas.
+
+De esta manera, se empezará a instalar `discordrb` con todas sus dependencias en el directorio seleccionado.
 
 Si no hubo ningún mensaje de error al finalizar la instalación, es hora de programar un bot.
 
 ## Primer bot
-Una vez explicados los puntos básicos y teniendo todo listo, podemos empezar a usar `discord.js`, esta sección cubrirá los primeros pasos en la creación de un bot (Respuestas, Command Handler y Argumentos).
+Una vez explicados los puntos básicos y teniendo todo listo, podemos empezar a usar `discordrb`, esta sección cubrirá los primeros pasos en la creación de un bot (Respuestas, Uso de JSON y Argumentos).
 
-Primero vamos a crear un nuevo archivo con extensión `.js` (ej: `MejorBot.js`).
+Primero vamos a crear un nuevo archivo con extensión `.rb` (ej: `BotRuby.rb`).
 >**Importante:** en el Tipo de archivo al guardar debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
 
-Antes de nada, al igual que con cualquier otro módulo de `Node`, se precisa de la función `require()`para empezar a trabajar con él, así que vamos a declarar una variable que contenga `discord.js`.
-```js
-const Discord = require("discord.js");
+Antes de nada, al igual que con cualquier otra gema de `Ruby`, se precisa de la función `require 'gem'` para empezar a trabajar con ella, así que vamos a declarar una variable que contenga `discordrb`.
+```rb
+require 'discordrb' #Con esto solicitamos la gema discordrb en el archivo del bot.
 ```
 ### Discord Client
-La clase [`Client`](https://discord.js.org/#/docs/main/stable/class/Client "Client") es el principal punto de interacción de `discord.js` con `Discord API`, primero deberá crear una nueva instancia de `Discord.Client` e iniciar sesión con el token obtenido en [My apps](https://discordapp.com/developers/applications/me "Discord Developers").
-```js
-const client = new Discord.Client();
+La clase [`Bot`]("Bot") es el principal punto de interacción de `discordrb` con `Discord API`, primero deberá crear una nueva instancia de `Discord.Client` e iniciar sesión con el token obtenido en [My apps](https://discordapp.com/developers/applications/me "Discord Developers").
+```rb
+bot = Discordrb::Bot.new token: '<token>' #Declaración del cliente y token a utilizar.
 
-client.login("TOKEN");
+bot.run
 ```
-Luego para comprobar que todo haya salido bien, utilizaremos el evento [`ready`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-ready "Client#ready"), que es emitido en cuanto nuestro bot está en línea.
-```js
-client.on("ready", () => { 
-	console.log("Conectado como " + client.user.tag); 
-});
+Luego para comprobar que todo haya salido bien, utilizaremos el evento [`ready`](https://www.rubydoc.info/gems/discordrb/Discordrb/EventContainer#ready-instance_method "EventContainer#ready-instance_method"), que es emitido en cuanto nuestro bot está en línea.
+```rb
+bot.ready() do |ready|
+  puts "I'm online!"
+end
 ```
-Luego ejecute el comando `node` seguido del nombre del archivo de su bot, ejemplo: 
+Luego ejecute el comando `ruby` seguido del nombre del archivo de su bot, ejemplo: 
 ```console
-node bot.js
+ruby bot.rb
 ```
-Si se imprime en la consola el mensaje "Conectado como `DiscordTagDeNuestroBot`", todo salió bien.
+Si se imprime en la consola el mensaje "I'm online!", todo salió bien.
+
 ### Recibiendo mensajes
-Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Client#message"), este emitirá un [objeto](https://discord.js.org/#/docs/main/stable/class/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
-```js
-client.on('message', message => { 
-	console.log(messagr.author.tag, message.content);
-});
+Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://www.rubydoc.info/github/meew0/discordrb/Discordrb/Message "Discordrb::Message"), este emitirá un [objeto](https://www.rubydoc.info/github/meew0/discordrb/Discordrb/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
+```rb
+bot.message() do |msg|
+	console.log(msg.author.tag, msg.content);
+end
 ```
 En este ejemplo, se estaría imprimiendo en la consola el autor y contenido de cada mensaje que presencie el bot, si queremos que ignore el resto de mensajes exceptuando el que usted le indique, deberá crear una condición que compare el contenido de los mensajes.
 > **Importante:** el siguiente ejemplo debe ubicarse dentro del evento `message` (al igual que todo lo que veremos a continuación) y no es la manera correcta para agregar comandos, más adelante veremos como crear un command handler.
 
-```js
-if (message.content.startsWith("ping")) {
-	message.channel.send("Pong!");
-}
+```rb
+if message.content.start_with("ping")
+	message.send_message("Pong!")
+end
 ```
-En este ejemplo, `message.content` representaría el contenido del mensaje enviado, utilizando `startsWith` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
+En este ejemplo, `message.content` representaría el contenido del mensaje enviado, utilizando `start_with` comprobamos que el mensaje empiece por "ping", de esta manera, solo si se cumple esa condición, enviaría un mensaje que contenga "Pong".
 
->**Otra aclaratoria rápida y muy importante:** `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `send()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
+>**Otra aclaratoria rápida y muy importante:** `message` no es un método para enviar mensajes, es solo el objeto emitido por el evento, el método correcto sería `respond()` o `send_message()`, que solo funciona sobre un canal de texto, en este caso `message.channel` que sería el canal en el que fue enviado el mensaje.
 
 ### Command Handler
 Es hora de darle forma a nuestro bot y empezar a añadir comandos. En el ejemplo de la sección anterior pudimos hacer que nuestro bot reaccione a los mensajes que le indiquemos, pero esto no es suficiente, se precisa de algo que filtre los mensajes de una manera más cómoda y tome los parámetros adicionales que le indique el usuario (argumentos).
 
 Primero que nada elija un prefijo, algo único que diferencie los comandos de su bot y nos ocuparemos de que solo responda a los comandos que comiencen por este.
-```js
-const prefix = "/";
+```rb
+Prefix = "/";
 
-if (!message.content.startsWith(prefix)) return;
+if message.content.start_with(prefix)
+  #Código
+end
 ```
 > No usen `/` de prefijo, es solo un ejemplo.
 
@@ -126,53 +172,48 @@ Una vez hecho lo anterior, para terminar el Command Handler debemos hacer dos co
 * Tomar el resto del contenido del mensaje como argumentos.
 
 ¿Suena complicado?, permítanme decir que no lo es, vamos a declarar otras tres variables y procederé a explicar el funcionamiento de estas.
-```js
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
-const content = args.join(" ");
+```rb
+Args = message.content.slice(2, prefix.length).split(' ').strip
+Command = message.content.slice(2, prefix.length).split(' ')[0].downcase
+Args -= [Command]
+content = Args.join(" ")
 ```
 Supongamos que tenemos el siguiente comando: `/saludo Me llamo Nakido`
 
-* En la primera variable (`args`), obviamente lo primero que hacemos es tomar el contenido del mensaje. 
+* En la primera variable (`Args`), obviamente lo primero que hacemos es tomar el contenido del mensaje. 
 	* Con `slice()` estamos cortando del mensaje nuestro prefijo, si nuestro prefijo es `/`, un prefijo de solo un caracter, `prefix.length` solo sería `1`, por lo tanto el comando pasaría a ser solo `saludo`
-	* `trim()` elimina todos los espacios adicionales que puedan haber antes y después del mensaje.
-	* `split(/ +/g)` separaría el mensaje por sus espacios dejando solo un array (utilizamos RegExp en lugar de solo un espacio en caso de que haya un espacio adicional entre palabras, error muy común en los que acostumbramos a usar Discord en celular), de esta manera nos quedaría `["saludo", "Me", "llamo", Nakido]`
-* `command` sería lo que usaremos luego para agregar comandos.
-	* `args.shift()` separaría el comando del resto del mensaje (`shift()` remueve el primer objeto de un array), de esta manera `args` solo quedaría como el resto del contenido del mensaje (`["Me", "llamo", Nakido]`) y lo podremos utilizar para definir parámetros adicionales en nuestros comandos.
-	*  `toLowerCase()` haría que todo el comando estuviera en minúsculas, así en caso de que nos equivoquemos escribiendo el comando y pongamos algo como `/Saludo`, funcionaría igual.
-*  `content` sería similar a `args`, solo que en lugar de tener un array, sería un string.
-	* `join(" ")` es la función que se encarga de unir todos los elementos del array con espacios en un string.
+	* `strip` elimina todos los espacios adicionales que puedan haber antes y después del mensaje.
+	* `split(' ')` separaría el mensaje por sus espacios dejando solo un array, de esta manera nos quedaría `["saludo", "Me", "llamo", "Nakido"]`
+    * `Command` sería lo que usaremos luego para agregar comandos.
+	* `downcase` haría que todo el comando estuviera en minúsculas, así en caso de que nos equivoquemos escribiendo el comando y pongamos algo como `/Saludo`, funcionaría igual.
+    * `content` sería similar a `args`, solo que en lugar de tener un array, sería un string.
+    * `join(" ")` es la función que se encarga de unir todos los elementos del array con espacios en un string.
 
 #### Comandos
 Habiendo entendido todo, prosigamos a hacer un comando.
-```js
-if (command === "ping") {
-	message.channel.send("Pong!");
-}
+```rb
+if Command.eql? "ping" # eql? significa igual a, si vienes de otros lenguajes, === no tiene el mismo significado en Ruby.
+	message.channel.send_message("Pong!")
+end
 ```
-Más simple eh?, de esta manera no tendrán los problemas de `startsWith()` (anteriormente, sí poníamos cosas como "pingdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping").
+Más simple eh?, de esta manera no tendrán los problemas de `start_with()` (anteriormente, sí poníamos cosas como "pingdasdlkh", el mensaje se enviaba igual ya que la condición detectaba que empieza por "ping").
 
 Ahora aprovechemos las otras dos variables y hagamos algo más interesante.
-```js
-if (command === "say") {
-	message.channel.send(content);
-}
+```rb
+if Command.eql? "say"
+	message.channel.send_message(content);
+end
 ```
 Con este comando, si utilizáramos `/say Soy el mejor`, el bot enviaría un mensaje diciendo "Soy el mejor".
 
 Ahora intentemos algo más complicado.
-```js
-if (command === "presentacion") {
-	const nombre = args[0];
-	const edad = args[1];
-	const pais = args[2];
-		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
-}
-// Desestructuración de arrays en ES6
-if (command === "presentacion") {
-	const [nombre, edad, pais] = args;
-		message.channel.send("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais);
-}
+```rb
+if Command.eql? "presentacion"
+	const nombre = args[0]
+	const edad = args[1]
+	const pais = args[2]
+		message.channel.send_message("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais)
+end
 ```
 Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela".
 
@@ -180,18 +221,25 @@ Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 
 #### Notas adicionales
 Puedes crear tus propios mensajes de error si tu comando no encuentra algo que especificaste, como los argumentos, un ejemplo que puedes añadir al comienzo de un comando para que el usuario deba escribirlo:
-```js
-if (!args) return message.channel.send("Introduzca algunos parámetros");
+```rb
+if !args
+  return message.channel.send("Introduzca algunos parámetros")
+end
 ```
 También recomiendo ignorar los mensajes de los bots, si interactúan entre ellos podría ocurrir un desastre (~~temo que puedan querer apoderase de nuestros servidores~~), para evitarlo solo añada la siguiente condición al comienzo del evento `message`:
-```js
-if (message.author.bot) return;
+```rb
+def MensajeBot
+    a = message.from_bot?
+    if a == true
+        return
+    end
+end
 ```
+
 Si queremos tomar una mención, iremos al objeto que las contiene `message.mentions.users` y agarraremos la primera con `first()`
-```js
-console.log(message.mentions.users.first().tag);
+```rb
+console.log(message.mentions.users.first().tag)
 ```
-Otra cosa que quiero mencionar es que son los punto y coma (`;`) que utilizo en cada ejemplo **no son necesarios**, los utilizo por mantener un orden al final de cada declaración.
 
 ## Archivo de Configuración
 Puede que quieras enseñarle tu código a alguien o subirlo a un repositorio en GitHub, pero este contiene el token de tu bot, alguna API key o cuenta personal, para evitar exponer esta información y ya de paso poder acceder a esta más fácilmente, podemos utilizar un archivo de configuración.
@@ -216,7 +264,7 @@ Posteriormente, seguramente necesiten añadir más datos, mi archivo de configur
     "yandex": "022T04676edde956323dd922",
     "osu": "413a4c89d96f5e4453e466"
   },
-  "mal": {
+  "mail": {
     "user": "Nakido", 
     "pass": "passchida"
   }
@@ -224,15 +272,27 @@ Posteriormente, seguramente necesiten añadir más datos, mi archivo de configur
 ```
 
 ### Utilizando config.json
-El config.json lo utilizaremos con un `require()` de la siguiente manera:
-```js
-const { prefix, token } = require("./config.json");
+El config.json lo utilizaremos con un `read()`, `parse()` de la siguiente manera:
+```rb
+#También debemos instalar y solicitar json.
+
+#Gemfile:
+gem 'json'
+
+#gem:
+gem install 'json'
+
+require 'json'
+config_file = File.read('./config.json')
+config = JSON.parse(config_file)
+token = config['token']
+config['prefix']
 ```
->**Importante:** el `./` para que detecte que está en un directorio y no es un módulo.
+>**Importante:** el `./` para que detecte que está en un directorio y no es una gema.
 
 Y luego solo queda implementarlo en el código
-```js
-client.login(token);
+```rb
+Discordrb::Bot.new token: token
 ```
 
 ## Conceptos
