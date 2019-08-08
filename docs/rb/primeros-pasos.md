@@ -141,7 +141,7 @@ Si se imprime en la consola el mensaje "I'm online!", todo salió bien.
 Ahora que nuestro bot está en linea, comprobaremos su funcionamiento intentando que reciba y envíe mensajes, para ello precisamos del evento [`message`](https://www.rubydoc.info/github/meew0/discordrb/Discordrb/Message "Discordrb::Message"), este emitirá un [objeto](https://www.rubydoc.info/github/meew0/discordrb/Discordrb/Message "Message") con todas las propiedades del mensaje (autor, contenido, canal).
 ```rb
 bot.message() do |msg|
-	console.log(msg.author.tag, msg.content);
+	puts (msg.author.tag, msg.content);
 end
 ```
 En este ejemplo, se estaría imprimiendo en la consola el autor y contenido de cada mensaje que presencie el bot, si queremos que ignore el resto de mensajes exceptuando el que usted le indique, deberá crear una condición que compare el contenido de los mensajes.
@@ -212,10 +212,10 @@ Con este comando, si utilizáramos `/say Soy el mejor`, el bot enviaría un mens
 Ahora intentemos algo más complicado.
 ```rb
 if Command.eql? "presentacion"
-	const nombre = args[0]
-	const edad = args[1]
-	const pais = args[2]
-		message.channel.send_message("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais)
+	nombre = Args[0]
+	edad = Args[1]
+	pais = Args[2]
+	message.channel.send_message("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais)
 end
 ```
 Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela".
@@ -329,57 +329,50 @@ bot.message_edit(:id, :in) do |edit|
           return
         end
     end
-	canal.send(saved_message.content, message.content)
+	canal.send_message(saved_message.content, message.content)
 end
 ```
 >**Importante:** Los eventos son emitido en TODOS los servidores en que esté tu bot, por eso la tercera línea que ignora todos los canales menos el indicado.
 
-Para más información y una lista con todos los eventos, diríganse al apartado **Events** en la documentación de la clase [`Client`](https://discord.js.org/#/docs/main/stable/class/Client).
+Para más información y una lista con todos los eventos, diríganse al apartado **EventEmitter** en la documentación. ["EventEmitter"]().
 #### Evento `ready`
-```js
-client.user.setActivity("Dando amor en " + client.guilds.size + "servidores")
+```rb
+bot.game = ("Dando amor en " + bot.servers.size + "servidores")
 
-client.on("ready", () => {
-	client.user.setActivity("Dando amor en " + client.guilds.size + "servidores");
-});
+bot.ready() do |ready|
+	bot.game = ("Dando amor en " + bot.servers.size + "servidores")
+end
 ```
-¿Cual es la diferencia entre el setActivity que está dentro del evento `ready` y el que está fuera?
+¿Cual es la diferencia entre el game que está dentro del evento `ready` y el que está fuera?
 
 El de fuera nos dará `undefined`.
 
-Esto se debe a que al momento de ejecutar el código, `client` no está disponible debido a que demora un poco en cargar toda la información del bot (servidores, usuarios, etc), por lo tanto cualquier cosa que quieras ejecutar al encender el bot, debe estar dentro del evento `ready`.
-
-#### Probando eventos
-Supongamos que estamos haciendo un sistema de bienvenidas y queremos probarlo, lo primero que se te vendrá a la cabeza seguramente sea entrar y salir constantemente con una multicuenta, pero esto es bastante molesto y pesado, en su lugar podemos "simular" un evento con `emit()`.
-```js
-client.emit("guildMemberAdd", message.member);
-```
-Como puedes observar, es una función, el primer parámetro debe ser el nombre del evento y el segundo, sería el objeto que emitiría el evento, pero en este caso debemos declararlo nosotros, en el ejemplo anterior, estoy tomando al autor del mensaje como ese usuario que "entró".
+Esto se debe a que al momento de ejecutar el código, `bot` no está disponible debido a que demora un poco en cargar toda la información del bot (servidores, usuarios, etc), por lo tanto cualquier cosa que quieras ejecutar al encender el bot, debe estar dentro del evento `ready`.
 
 ### Colecciones
 Cuando una propiedad posee varios objetos similares (como canales), son almacenados de una manera diferente para poder acceder a ellos más fácilmente, estas son las colecciones, un ejemplo de una colección sería `guild.channels`, esta contendría todos los canales de un servidor.
 
-Las colecciones utilizan la misma estrectura de los objetos `Map()` ya implementados por defecto en JavaScript pero con algunas funciones adicionales que nos permiten trabajar con ellas de una manera más simple y amplia que, lo que podría ser un array.
+Las colecciones utilizan la misma estructura de los objetos `Map()` ya implementados por defecto en JavaScript pero con algunas funciones adicionales que nos permiten trabajar con ellas de una manera más simple y amplia que, lo que podría ser un array.
 
 > Estaré explicando todo dentro del evento `message` con el fin de hacer todo más fácil de entender.
 
 #### Convirtiendo en un array
 ¿No te gusta la estructura de las colecciones?, no pasa nada, existe el método `.array()` que nos devolvería un nuevo array con todo lo que contiene una colección, ejemplo:
-```js
-const canal = message.guild.channels.array()[0];
-const nombre = canal.name;
+```rb
+canal = message.server.channels.array()[0]
+nombre = canal.name
 ```
 `nombre` devolvería el nombre del primer canal (en cuanto a posición) del servidor, aunque sí queremos el primer canal, existe un método más simple.
 
 #### Primero y último
-Están los métodos `first()` y `last()` para las colecciones, permitiéndonos acceder más fácilmente al primer y último elemento de la colección.
-```js
-const canales = message.guild.channels;
-const primero = canales.first();
-const ultimo = canales.last();
+Están los métodos `first` y `last` para las colecciones, permitiéndonos acceder más fácilmente al primer y último elemento de la colección.
+```rb
+canales = message.server.channels
+primero = canales.first
+ultimo = canales.last
 ```
 Incluso podemos incluir un parámetro para tomar varios elementos.
-```js
+```rb
 canales.first(2)
 ```
 Tomaría los primeros dos, no hace falta explicar más.
@@ -388,61 +381,59 @@ Tomaría los primeros dos, no hace falta explicar más.
 `map()` es uno de los métodos más útiles para colecciones, es igual que la función [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "MDN web docs"), devuelve un array basado en la función indicada.
 
 Supongamos que queremos todos los nombres de los usuarios de un servidor, haríamos lo siguiente:
-```js
-const usuarios = message.guild.members;
-const nombres = usuarios.map(u => u.displayName);
+```rb
+usuarios = message.server.members
+nombres = usuarios.map { |u| u.display_name }
 ```
 También hay que tener en cuenta que la función dentro del `map()` se ejecuta por cada elemento y puede ser más de una.
-```js
-usuarios.map(u => {
-	message.channel.send(u.displayName);
-	message.channel.send(u.id);
-});
+```rb
+usuarios.map { |u| 
+	message.channel.send_message(u.display_name)
+	message.channel.send_message(u.id);
+}
 ```
 Esto enviaría el id y nombre de todos los usuarios de un servidor, uno por mensaje ya que se está ejecutando por cada usuario.
 
 #### Filtrar
-Es posible filtrar los elementos bajo la condición indicada utilizando `filter()` (Similar a [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter "MDN web docs")). 
+Es posible filtrar los elementos bajo la condición indicada utilizando `filter()` (También conocido en Ruby como `select()`).
 
 En lugar de un array como `map()`, este devuelve una nueva colección.
-```js
-message.guild.members.filter(g => g.nickname);
+```rb
+message.server.members.filter{ |g| g.nickname }
 ```
 Esto sería una colección con todos los usuarios que tienen nick, ahora intentemos utilizar `map()` ya que sí, se pueden utilizar entre sí mientras se obtenga otra colección.
-```js
-message.guild.members.filter(g => g.nickname).map(u => {
-	message.channel.send(u.id);
-}
+```rb
+message.guild.members.filterg { |g| g.nickname }.map { |u| message.channel.send_message(u.id) }
 ```
 
 #### Búsqueda
 Ahora los dos métodos que nos permiten buscar algo específico entre colecciones: `get()` y `find()`.
 
 `get()` es un método para `map()`, pero podemos utilizarlo en las colecciones para buscar un elemento específico, en este caso, por id.
-```js
-client.users.get("163156330721443840");
+```rb
+bot.users.get("163156330721443840")
 ```
-Con esto obtendriamos la colección del usuario que posea esa id ~~es mi amigo btw, vayan a spammearle fotos de gatitos~~.
+Con esto obtendriamos la colección del usuario que posea esa id.
 
-Luego tenemos `find()` que al igual que [`Array.find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find "MDN web docs"), podemos utilizarlo para buscar un valor entre todos los elementos de la colección, como el nombre de un canal o usuario.
-```js
-message.guild.channels.find("name", "Nakido");
+Luego tenemos `find()` que podemos utilizarlo para buscar un valor entre todos los elementos de la colección, como el nombre de un canal o usuario.
+```rb
+message.server.channels.find("name", "Nakido")
 ```
 Esta función utiliza dos parámetros, el primero es la propiedad que buscamos, y el segundo lo que debería contener.
 
 #### Otros métodos
 `.concat()` funciona para combinar una colección con otra/s
-```js
-const servidor = message.guild;
-const unaColeccion = servidor.channels;
-const otraColeccion = servidor.members;
-const ultimaColeccion = servidor.roles;
+```rb
+servidor = message.server;
+una_coleccion = servidor.channels
+otra_coleccion = servidor.members
+ultima_coleccion = servidor.roles
 
-unaColeccion.concat(otraColeccion, ultimaColeccion);
+una_coleccion.concat(otra_coleccion, ultima_coleccion)
 ```
 
-`.findAll()` similar a `.find()` solo que este devuelve todos los elementos que coincidan con la búsqueda en lugar de solo uno.
+`.find_all()` similar a `.find()` solo que este devuelve todos los elementos que coincidan con la búsqueda en lugar de solo uno.
 
-`.random()` devolvería un elemento aleatorio de la colección.
+`.rand()` devolvería un elemento aleatorio de la colección (Para números aleatorios se debe utilizar un [`Rango`](https://ruby-doc.org/core-2.2.0/Range.html)).
 
-Para ver todos los métodos y más información, entra en la documentación de [Discord.js](https://discord.js.org/#/docs/main/stable/class/Collection "Collection") y [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map "Map").
+Para ver todos los métodos y más información, entra en la documentación de [Discordrb](https://www.rubydoc.info/gems/discordrb/index) y [Ruby Doc](https://ruby-doc.org/core-2.2.0 "Ruby Docs").

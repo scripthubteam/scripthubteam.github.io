@@ -1,10 +1,11 @@
+
 > **<i class="fas fa-users"></i> Editores:** [Bloodbath](https://github.com/MagicNeko15)
 
 <font size=5> **A continuación, debes tomar en cuenta los siguientes conceptos antes de comenzar con la guía:** </font>
 
-* **¿Qué es discord.rb?** `Espacio de Trabajo`
+* **¿Qué es discordrb?** `Espacio de Trabajo`
 
-**discord.rb** es una gema de Ruby que te permite interactuar con la Discord API muy fácilmente a través del lenguaje de programación Ruby. Esta gema requiere un onfoque orientado a objetos.
+**discordrb** es una gema de Ruby que te permite interactuar con la Discord API muy fácilmente a través del lenguaje de programación Ruby. Esta gema requiere un onfoque orientado a objetos.
 
 * **¿Qué es gem?** `Herramienta de Desarrollo`
 
