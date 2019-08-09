@@ -1,4 +1,6 @@
 
+
+
 > **<i class="fas fa-users"></i> Editores:** [Bloodbath](https://github.com/MagicNeko15)
 
 <font size=5> **A continuación, debes tomar en cuenta los siguientes conceptos antes de comenzar con la guía:** </font>
