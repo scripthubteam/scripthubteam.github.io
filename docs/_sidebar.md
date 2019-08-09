@@ -33,6 +33,15 @@
       * [Manejo Avanzado de Plugins](/java/Sistema-Avanzado-de-Plugins.md)
 
 * <i class="fab fa-js"></i> JavaScript
+  * **<i class="fas fa-archive"></i> Tutorial básico de JS**
+    * [Introducción a JavaScript](/js/introduccion.md)
+      * [Fundamentos básicos](/js/comenzando.md)
+      * [Tipos de datos](/js/tipo-de-datos.md)
+      * [Funciones](/js/funciones.md)
+      * [Strings](/js/string.md)
+      * [Objetos: Propiedades y métodos](/js/objetos.md)
+      * [Operadores](/js/operadores.md)
+      * [Condicionales](/js/condicionales.md)
   * **<i class="fas fa-archive"></i> discord.js**
     * [¿Qué es discord.js?](/js/discord-js.md)
       * [Primeros Pasos](/js/primeros-pasos.md)
@@ -47,5 +56,5 @@
 
 * <i class="far fa-gem"></i> Ruby
   * **<i class="fas fa-archive"></i> discord.rb**
-    * [Próximamente](https://discord.gg/bH3EMT3)
-
+    * [¿Qué es discord.rb?](/rb/discordrb.md)
+      * [Primeros pasos](/rb/primeros-pasos.md)
