@@ -1,11 +1,13 @@
-# Índice 
 
-* [Introducción](#introducción) - Introducción de la gema `discordrb` y preparación del entorno de trabajo.	
-	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discordrb`.	
-	* [Instalación](#instalacion) - Instalación de la gema.	
-* [Primer bot](#primer-bot) - Tutorial básico para la creación de un bot.	
-	* [Discord Client](#discord-client) - Poniendo en línea el bot.	
-	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.	
+
+# Índice
+
+* [Introducción](#introducción) - Introducción de la gema `discordrb` y preparación del entorno de trabajo.
+	* [Requisitos](#requisitos) - Software necesario para empezar a utilizar `discordrb`.
+	* [Instalación](#instalacion) - Instalación de la gema.
+* [Primer bot](#primer-bot) - Tutorial básico para la creación de un bot.
+	* [Discord Client](#discord-client) - Poniendo en línea el bot.
+	* [Recibiendo Mensajes](#recibiendo-mensajes) - Recibiendo y enviando mensajes básicos.
 	* [Command Handler](#command-handler) - Añadiendo comandos y parámetros.
 * [Archivo de Configuración](#archivo-de-configuración) - Utilizando un archivo externo para evitar exponer información personal.
 	* [config.json](#config.json) - Creando .json para almacenar información.
@@ -15,7 +17,7 @@
 	* [Colecciones](#colecciones) - Objetos hechos para almacenar varios elementos más fácilmente.
 
 ## Introducción
-[Discordrb](https://github.com/meew0/discordrb/ "Repositorio en GitHub de Discordrb") es una gema para [Ruby](https://www.ruby-lang.org/es/ "Web oficial de Ruby") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation"). 
+[Discordrb](https://github.com/meew0/discordrb/ "Repositorio en GitHub de Discordrb") es una gema para [Ruby](https://www.ruby-lang.org/es/ "Web oficial de Ruby") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation").
 
 Fue desarrollada por [meew0](https://github.com/meew0 "Perfil en GitHub de meew0")
 
@@ -54,7 +56,7 @@ Nota: En Windows si desea utilizar la función de voz, su versión de Ruby debe 
   gem install ffmpeg
   ```
 
-### Instalación 
+### Instalación
 Para empezar a utilizar `discordrb` necesitará crear una carpeta donde estarán ubicados los archivos necesarios para el funcionamiento del bot.
 
 * **Windows:**
@@ -131,7 +133,7 @@ bot.ready() do |ready|
   puts "I'm online!"
 end
 ```
-Luego ejecute el comando `ruby` seguido del nombre del archivo de su bot, ejemplo: 
+Luego ejecute el comando `ruby` seguido del nombre del archivo de su bot, ejemplo:
 ```console
 ruby bot.rb
 ```
@@ -181,9 +183,9 @@ Command = message.content.slice(2, prefix.length).split(' ')[0].downcase
 Args -= [Command]
 content = Args.join(" ")
 ```
-Supongamos que tenemos el siguiente comando: `/saludo Me llamo Nakido`
+Supongamos que tenemos el siguiente comando: `/saludo Me llamo blood`
 
-* En la primera variable (`Args`), obviamente lo primero que hacemos es tomar el contenido del mensaje. 
+* En la primera variable (`Args`), obviamente lo primero que hacemos es tomar el contenido del mensaje.
 	* Con `slice()` estamos cortando del mensaje nuestro prefijo, si nuestro prefijo es `/`, un prefijo de solo un caracter, `prefix.length` solo sería `1`, por lo tanto el comando pasaría a ser solo `saludo`
 	* `strip` elimina todos los espacios adicionales que puedan haber antes y después del mensaje.
 	* `split(' ')` separaría el mensaje por sus espacios dejando solo un array, de esta manera nos quedaría `["saludo", "Me", "llamo", "Nakido"]`
@@ -218,7 +220,7 @@ if Command.eql? "presentacion"
 	message.channel.send_message("Hola, mi nombre es " + nombre + ", tengo " + edad + " años y actualmente vivo en " + pais)
 end
 ```
-Si utilizamos el comando de la siguiente manera: `/presentacion Daniel 22 Venezuela`, el bot enviaría "Hola, mi nombre es Daniel, tengo 22 años y actualmente vivo en Venezuela".
+Si utilizamos el comando de la siguiente manera: `/presentacion Blood 70 Perú`, el bot enviaría "Hola, mi nombre es Blood, tengo 70 años y actualmente vivo en Perú".
 
 Bastante útil, pero ahora te toca a ti crear tus propios comandos.
 
@@ -259,21 +261,6 @@ El contenido del archivo debe ser similar al siguiente:
 	"prefix": "/",
 	"token": "MzI2ODA5NA6hE5h75NzByNjQx.DAkbDQ.kF7Jf66X2z4KR31yRQ58PYvy4Y",
 	"ownerID": "159158446304788481"
-}
-```
-Posteriormente, seguramente necesiten añadir más datos, mi archivo de configuración es mas o menos así:
-```json
-{
-  "token":"NDQxMjgzMDUxMTM0Mzg2gkH_eyX1joM",
-  "prefix": ".",
-  "APIkeys": {
-    "yandex": "022T04676edde956323dd922",
-    "osu": "413a4c89d96f5e4453e466"
-  },
-  "mail": {
-    "user": "Nakido", 
-    "pass": "passchida"
-  }
 }
 ```
 
@@ -317,12 +304,12 @@ end
 ```
 > Obviamente, si quieres usar esos parámetros debes utilizarlos dentro del evento, si la consola te da un error diciendo `undefined local variable or method 'message'` ya sabes porqué es.
 
-Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-message "Bot#message"), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
+Al ejecutarse un evento, los parámetros pasarían a ser el objeto que emita el evento, si por ejemplo, fuese el ya visto evento [`message`](https://www.rubydoc.info/gems/discordrb/Discordrb/Message), este objeto contendría todo los datos del mensaje que haya ejectuado el evento (Contenido, ID, Autor, Canal).
 
 Un ejemplo con el evento [`message_edit`](https://www.rubydoc.info/gems/discordrb/Discordrb/EventContainer#message_edit-instance_method "EventContainer#message_edit") (Emitido cuando se edita un mensaje o se añade un embed):
 ```rb
 bot.message_edit(:id, :in) do |edit|
-	canal = [:in] 
+	canal = [:in]
     def IgnorarMensajes
         c_ignorar = canal
 	    if c_ignore != "198291975663779842" #Ignora los mensajes de otros canales
@@ -378,7 +365,7 @@ canales.first(2)
 Tomaría los primeros dos, no hace falta explicar más.
 
 #### Mapeo
-`map()` es uno de los métodos más útiles para colecciones, es igual que la función [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "MDN web docs"), devuelve un array basado en la función indicada.
+`map()` es uno de los métodos más útiles para colecciones, es igual que la función [`Array.map()`](https://www.rubyguides.com/2018/10/ruby-map-method/), devuelve un array basado en la función indicada.
 
 Supongamos que queremos todos los nombres de los usuarios de un servidor, haríamos lo siguiente:
 ```rb
@@ -387,7 +374,7 @@ nombres = usuarios.map { |u| u.display_name }
 ```
 También hay que tener en cuenta que la función dentro del `map()` se ejecuta por cada elemento y puede ser más de una.
 ```rb
-usuarios.map { |u| 
+usuarios.map { |u|
 	message.channel.send_message(u.display_name)
 	message.channel.send_message(u.id);
 }
@@ -417,7 +404,7 @@ Con esto obtendriamos la colección del usuario que posea esa id.
 
 Luego tenemos `find()` que podemos utilizarlo para buscar un valor entre todos los elementos de la colección, como el nombre de un canal o usuario.
 ```rb
-message.server.channels.find("name", "Nakido")
+message.server.channels.find("name", "Blood")
 ```
 Esta función utiliza dos parámetros, el primero es la propiedad que buscamos, y el segundo lo que debería contener.
 
