@@ -102,8 +102,6 @@ gem install discordrb --platform=ruby
 ```
 
 Si recibe este error al instalar la gema:
-```
-
 ```console
 Error: Error installing discordrb:
        The 'websocket-driver' native gem requires installed build tools.
