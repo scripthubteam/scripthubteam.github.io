@@ -85,6 +85,7 @@ bundle init #Esto creará un archivo Gemfile que contendrá las gemas necesarias
     gem "discordrb" #Acá se solicita la gema de discordrb.
     ```
     * Luego, instalamos las gemas del Gemfile con el siguiente comando:
+    
     ```console
     bundle install #Esto instalará todas las gemas requeridas en el Gemfile y creará un archivo Gemfile.lock
     ```
@@ -117,7 +118,7 @@ Primero vamos a crear un nuevo archivo con extensión `.rb` (ej: `BotRuby.rb`).
 >**Importante:** en el Tipo de archivo al guardar debe elegir "Todos los archivos", de otra manera, es posible que se guarde como .txt.
 
 Antes de nada, al igual que con cualquier otra gema de `Ruby`, se precisa de la función `require 'gem'` para empezar a trabajar con ella, así que vamos a declarar una variable que contenga `discordrb`.
-```rb
+```ruby
 require 'discordrb' #Con esto solicitamos la gema discordrb en el archivo del bot.
 ```
 ### Discord Client
