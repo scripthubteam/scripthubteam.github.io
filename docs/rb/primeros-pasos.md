@@ -92,6 +92,7 @@ bundle init #Esto creará un archivo Gemfile que contendrá las gemas necesarias
 
 * **Utilizando gem:**
 Hecho lo anterior, solo debe ejecutar el siguiente comando:
+
 ```console
 #Linux/MacOS
 gem install discordrb
@@ -101,6 +102,8 @@ gem install discordrb --platform=ruby
 ```
 
 Si recibe este error al instalar la gema:
+```
+
 ```console
 Error: Error installing discordrb:
        The 'websocket-driver' native gem requires installed build tools.
