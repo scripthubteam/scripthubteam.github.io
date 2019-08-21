@@ -5,7 +5,7 @@
 
 * **¿Qué es eris.js?** `Espacio de Trabajo`
 
-**eris.js** es un módulo de NodeJS para interactuar con la discord API. Es rápido, consistente, legible, flexible y siempre está actualizandose.
+**eris.js** es un módulo de NodeJS para interactuar con la discord API. Es rápido, consistente, legible, flexible y siempre está actualizándose.
 
 * **¿Qué es Node.js?** `Herramienta de Desarrollo`
 
