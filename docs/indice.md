@@ -11,7 +11,8 @@ Listado de guías disponibles. Se muestra el lenguaje de programación del módu
 | :------- | :------: | :-----: | -----:
 | [JDA](/java/jda.md)   | [discord.js](/js/discord-js.md)  | [discord-py](/py/discord-py.md)  | [discord.rb](/rb/discordrb.md) |
 | Versión de la guía: `2.0.1`   | Versión de la guía: `2.1.1`     | Versión de la guía: `1.0.0` | Versión de la guía: `1.0.0` |
-| Editor: [LeCuay](https://github.com/LeCuay) | Editores: [Lau](https://github.com/Lauuu), [Nakido](https://github.com/Nakido), [Devsaider](https://github.com/mrdevsaider) | Editor: [LeCuay](https://github.com/LeCuay) | Editor: [The Bloodbath Alchemist](https://github.com/MagicNeko15)
+| Editor: [LeCuay](https://github.com/LeCuay) | Editores: [Lau](https://github.com/Lauuu), [Nakido](https://github.com/Nakido), [Devsaider](https://github.com/mrdevsaider) | Editor: [LeCuay](https://github.com/LeCuay) | Editor: [The Bloodbath Alchemist](https://github.com/MagicNeko15) |
+|             | [eris](/js/eris/erisjs)     |
 
 ## Tutoriales
 | **JavaScript**
