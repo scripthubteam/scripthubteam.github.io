@@ -54,7 +54,7 @@ var sobremi = bot.registerCommand("sobremi", (msg, args) => {
     return miVida;
 }, {
     aliases: ["contarvida"],
-    description: "Envia un mensaje diciendo Pong!",
+    description: "Envia un mensaje contandonos tu vida!",
     fullDescription: "Este comando puede usarse cuando estás aburrido.",
     cooldown: 10,
     cooldownExclusions: { userIDs: ["595734746059898927"] },
@@ -66,7 +66,28 @@ var sobremi = bot.registerCommand("sobremi", (msg, args) => {
 
 Su uso sería algo como esto: `!sobremi Mi vida es muy divertida!`. El bot enviaría un mensaje con el contenido de la vida del usuario al canal en donde el comando fue utilizado. Si el usuario no nos cuenta nada, le diremos `Cuéntanos sobre tu vida!`.
 
-Además podemos ver que agregué muuuuchas más opciones. A continuación las explicaré.
+En este ejemplo me decanté por utilizar `join(" ")`, que es el método encargado de unir todos los elementos del array `args` con espacios en blanco.
+Al ser `args` un array podría utilizar `args[0]` para tomar el `string` que se encuentre en la posición 0.
+
+```js
+var sobremi = bot.registerCommand("sobremi", (msg, args) => {
+    if (!args[0]) return "Cuéntanos sobre tu vida!";
+    return args[0]
+}, {
+    aliases: ["contarvida"],
+    description: "Envia un mensaje contandonos tu vida!",
+    fullDescription: "Este comando puede usarse cuando estás aburrido.",
+    cooldown: 10,
+    cooldownExclusions: { userIDs: ["595734746059898927"] },
+    cooldownMessage: "Este comando está en cd.",
+    usage: "Pequeño texto sobre tu vida",
+    invalidUsageMessage: "Uso inválido"
+});
+```
+
+Supongamos que el usuario utiliza `!sobremi mi vida es genial`. En este caso solo enviaría el `mi`, ya que se encuentra en la posición 0.
+
+Además podemos ver que en los dos ejemplos agregué muuuuchos más parámetros de configuración del comando. A continuación los explicaré.
 
  * El parámetro `aliases` sirve para designar aliases para tu comando. Por ejemplo, el comando `sobremi` también podría ser utilizado como `contarvida`.
  * `description` mostrará la descripción del comando al utilizar el ["comando help"](####Comando-help).
@@ -77,7 +98,6 @@ Además podemos ver que agregué muuuuchas más opciones. A continuación las ex
  * `cooldownMessage` define el mensaje que retornará en caso de que el usuario intente usar un comando en cooldown.
  * `usage` mostrará el uso en el comando help.
  * `invalidUsageMessage` define el mensaje de retorno en caso de que el `usage` esté mal utilizado.
-
 
 ### Comando help
 La clase `CommandClient` nos provee de un comando help predefinido. No hace falta escribir ni **una sola línea de código** para comenzar a usar este comando, simplemente tipea tu `prefijo` seguido de `help`.
@@ -149,3 +169,29 @@ if(this.commandOptions.defaultHelpCommand) {
 }
 ```
 > **Nota:** Lo que no esté traducido es porque puede modificarse mediante parámetros al definir `CommandClient`.
+
+### Sub comandos
+Esta clase actúa como un registro de comando normal, solamente cambiará el hecho de que deberá ser utilizado como un `subcomando`. (Ej: *!comando subcomando*)
+Tomemos el ejemplo del comando ["sobremi"](###utilizando-argumentos) y especifiquemos que si el `subcomando` es `pais` retorne el país especificado en los argumentos.
+
+```js
+sobremi.registerSubcommand("pais", (msg, args) => {
+  if (args[0]) return "Cuál es tu país de orígen?";
+  return args[0]
+}, {
+  aliases: ["mipais"],
+  description: "Cuentas tu país",
+  fullDescription: "Este comando puede usarse cuando estás aburrido.",
+  cooldown: 10,
+  cooldownExclusions: { userIDs: ["595734746059898927"] },
+  cooldownMessage: "Este comando está en cd.",
+  usage: "Muestranos tu país",
+  invalidUsageMessage: "Uso inválido"
+});
+```
+
+Entonces con `sobremi.registerSubcommand()` estamos registrando un sub comando al comando `sobremi`. Al utilizar `!sobremi pais Argentina` el bot, como es de esperar enviaría `Argentina` al chat.
+
+> **Atención!** Esta es una versión primitiva de la guía sobre *Eris*. Seguiremos actualizandola con más contenido.
+
+
