@@ -48,7 +48,11 @@
       * [Eventos, utilización y ejemplos](/js/eventos.md)
       * [Discord.js Commando](/js/commando.md)
       * [**<i class="fas fa-download" title="Descarga el bot modelo de esta librería."></i> Bot Modelo**](https://github.com/MrDevsaider/discordjs-bot-example)
-
+  * **<i class="fas fa-archive"></i> eris**
+    * [¿Qué es eris?](/js/eris/erisjs.md)
+      * [Primeros pasos](/js/eris/primeros-pasos.md)
+      * [CommandClient: Comandos con estilo](/js/eris/commandclient.md)
+      
 * <i class="fab fa-python"></i> Python
   * **<i class="fas fa-archive"></i> discord.py**
     * [¿Qué es discord.py?](/py/discord-py.md)
