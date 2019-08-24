@@ -15,10 +15,3 @@ Listado de guías disponibles. Se muestra el lenguaje de programación del módu
 |             | [eris](/js/eris/erisjs)     |
 |             | Versión de la guía: `1.0.0` |
 |             | Editor: [Lau](https://github.com/Lauuu)
-
-## Tutoriales
-| **JavaScript**
-| :-------:
-| [JavaScript básico](/js/Introducción.md)
-| Versión del tutorial: `1.0.0`
-| Editor: [Lau](https://github.com/Lauuu)
