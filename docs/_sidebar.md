@@ -42,7 +42,7 @@
   * **<i class="fas fa-archive"></i> eris**
     * [¿Qué es eris?](/js/eris/erisjs.md)
       * [Primeros pasos](/js/eris/primeros-pasos.md)
-      * [CommandClient: Comandos con estilo](/js/eris/commandclient.md)
+      * [CommandClient](/js/eris/commandclient.md)
       
 * <i class="fab fa-python"></i> Python
   * **<i class="fas fa-archive"></i> discord.py**
