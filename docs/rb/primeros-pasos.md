@@ -14,7 +14,7 @@
 * [CommandBot](#commandbot) - Utilizando CommandBot, el handler de comandos nativo de `discordrb`.
 	* [Utilizando argumentos](#utilizando-argumentos) - El concepto de argumentos.
 	* [Atributos de comando](#atributos-de-comando) - Herramientas de mejora para nuestros comandos.
-  *	[Comando help](#comando-help) - Conociendo el comando `help` de `discordrb`.
+  	* [Comando help](#comando-help) - Conociendo el comando `help` de `discordrb`.
 
 ## Introducción
 [Discordrb](https://github.com/meew0/discordrb/ "Repositorio en GitHub de Discordrb") es una gema para [Ruby](https://www.ruby-lang.org/es/ "Web oficial de Ruby") hecha para facilitar el uso de [Discord API](https://discordapp.com/developers/docs/intro "Discord API Documentation").
