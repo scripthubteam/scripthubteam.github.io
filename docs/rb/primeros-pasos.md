@@ -196,7 +196,7 @@ Y luego solo queda implementarlo en el código
 Discordrb::Bot.new token: token
 ```
 
-### CommandBot
+## CommandBot
 Discord.rb posee un sistema que facilita la creación de comandos, permitiendo añadir distintos parámetros como cooldown, permisos, y ahorrándote líneas de código.
 Para comenzar a utilizar `CommandBot` debemos realizar pequeñas modificaciones en la definición del `cliente`.
 ```rb
