@@ -246,7 +246,6 @@ end
 ```
 
 Como verán la definición del comando se extendió considerablemente. Permítame explicar cada atributo punto por punto.
-
 	* `permission_message` será el mensaje de retorno cuando el usuario no tenga permisos suficientes para utilizar el comando.
 	* `required_permissions` es un array que contiene los permisos necesarios para utilizar el comando.
 	* `description` será el mensaje mostrado en el comando [help](#comando-help)
