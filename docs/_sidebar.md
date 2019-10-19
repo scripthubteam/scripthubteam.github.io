@@ -26,6 +26,7 @@
 * [<font color="orange"><i class="fab fa-git"></i></font> Utilizando Git](/general/utilizando-git.md)
 * [Alojando una aplicación en Heroku](/general/alojando-bot-en-heroku.md)
 * [Asignando Base de Datos a Bot](/general/asignar-base-de-datos-en-heroku.md)
+<span style="display:block" class="note">
 <details markdown=1>
  <summary markdown=1> * <i class="fab fa-java"></i> Java</summary>
   * **<i class="fas fa-archive"></i> JDA**
@@ -60,3 +61,4 @@
     * [¿Qué es discord.rb?](/rb/discordrb.md)
       * [Primeros pasos](/rb/primeros-pasos.md)
   </details>
+</span>
