@@ -9,10 +9,10 @@
   color: #a2a2a2;
   text-shadow: 0px 0px 10px rgba(0,0,0,0.2);">Inicio</a>
 
-* [<i class="fas fa-align-justify"></i> [Introducción](/)
-* [<i class="far fa-map"></i> [Índice](general/indice.md)
+* [<i class="fas fa-align-justify"></i> Introducción](/)
+* [<i class="far fa-map"></i> Índice](general/indice.md)
 
-- <a style="flex: 1 2 auto;
+  <a style="flex: 1 2 auto;
   margin: 2px;
   font-size: 14px;
   padding: 10px;
