@@ -8,4 +8,4 @@
 En favor de hacer la REST API de Discord más accesible y fácil de usar [Rapptz](https://github.com/Rapptz) diseñó y cedió a la comunidad [discord.py](https://github.com/Rapptz/discord.py), un sistema de Clases OpenSource que se puede usar de librería para administrar todas las herramientas que nos da Discord API.
 
 **<i class="fas fa-arrow-circle-right"></i> Comenzar con la guía:**
-* [Primeros Pasos](/py/primeros-pasos.md)
+* [Primeros Pasos](/guias/py/primeros-pasos.md)
