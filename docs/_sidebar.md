@@ -31,7 +31,8 @@
     - **<i class="fas fa-archive"></i> JDA**
     - [¿Qué es JDA?](guias/java/jda.md)
       - [Primeros Pasos](guias/java/primeros-pasos.md)
-      - [Manejo Avanzado de Plugins](guias/java/Sistema-Avanzado-de-Plugins.md)
+      - [Uso de eventos](guias/java/eventos.md)
+      - [Creación de comandos](guias/java/command-handler.md)
 
 - <i class="fab fa-js"></i> JavaScript
   - **<i class="fas fa-archive"></i> discord.js**
