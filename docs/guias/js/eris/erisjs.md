@@ -12,4 +12,4 @@
 Node.js es un entorno JavaScript de lado de servidor que utiliza un modelo asíncrono y dirigido por eventos.
 
 **<i class="fas fa-arrow-circle-right"></i> Comenzar con la guía:**
-* [Primeros Pasos](/js/eris/primeros-pasos.md)
+* [Primeros Pasos](/guias/js/eris/primeros-pasos.md)
