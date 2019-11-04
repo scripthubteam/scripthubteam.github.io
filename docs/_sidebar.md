@@ -48,8 +48,8 @@
       
 - <i class="fab fa-python"></i> Python
   - **<i class="fas fa-archive"></i> discord.py**
-    - [¿Qué es discord.py?](guias/py/discord-py.md)
-      - [Primeros Pasos](guias/py/primeros-pasos.md)
+    - [¿Qué es discord.py?](guias/py/dpy/discord-py.md)
+      - [Primeros Pasos](guias/py/dpy/primeros-pasos.md)
 
 - <i class="far fa-gem"></i> Ruby
   - **<i class="fas fa-archive"></i> discord.rb**
