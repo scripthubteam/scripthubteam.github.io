@@ -29,10 +29,10 @@
 
   - <i class="fab fa-java"></i> Java
     - **<i class="fas fa-archive"></i> JDA**
-    - [¿Qué es JDA?](guias/java/jda.md)
-      - [Primeros Pasos](guias/java/primeros-pasos.md)
-      - [Uso de eventos](guias/java/eventos.md)
-      - [Creación de comandos](guias/java/command-handler.md)
+    - [¿Qué es JDA?](guias/java/jda/jda.md)
+      - [Primeros Pasos](guias/java/jda/primeros-pasos.md)
+      - [Uso de eventos](guias/java/jda/eventos.md)
+      - [Creación de comandos](guias/java/jda/command-handler.md)
 
 - <i class="fab fa-js"></i> JavaScript
   - **<i class="fas fa-archive"></i> discord.js**
