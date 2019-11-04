@@ -53,5 +53,5 @@
 
 - <i class="far fa-gem"></i> Ruby
   - **<i class="fas fa-archive"></i> discord.rb**
-    - [¿Qué es discord.rb?](guias/rb/discordrb.md)
-      - [Primeros pasos](guias/rb/primeros-pasos.md)
+    - [¿Qué es discord.rb?](guias/rb/drb/discordrb.md)
+      - [Primeros pasos](guias/rb/drb/primeros-pasos.md)
