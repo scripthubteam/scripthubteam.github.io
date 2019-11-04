@@ -36,10 +36,10 @@
 
 - <i class="fab fa-js"></i> JavaScript
   - **<i class="fas fa-archive"></i> discord.js**
-    - [¿Qué es discord.js?](guias/js/discord-js.md)
-      - [Primeros Pasos](guias/js/primeros-pasos.md)
-      - [Eventos, utilización y ejemplos](guias/js/eventos.md)
-      - [Discord.js Commando](guias/js/commando.md)
+    - [¿Qué es discord.js?](guias/js/djs/discord-js.md)
+      - [Primeros Pasos](guias/js/djs/primeros-pasos.md)
+      - [Eventos, utilización y ejemplos](guias/js/djs/eventos.md)
+      - [Discord.js Commando](guias/js/djs/commando.md)
       - [**<i class="fas fa-download" title="Descarga el bot modelo de esta librería."></i> Bot Modelo**](https://github.com/MrDevsaider/discordjs-bot-example)
   - **<i class="fas fa-archive"></i> eris**
     - [¿Qué es eris?](guias/js/eris/erisjs.md)
