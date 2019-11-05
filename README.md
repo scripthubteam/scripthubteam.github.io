@@ -16,7 +16,7 @@ Nos gustaría invitarte a nuestro servidor de Discord donde además de ser una d
 Script Hub está conformado por un grupo de personas que también aman que respeten sus derechos de autor, a continuación, enlaces directos que deben ser tomados en cuenta:
 
 * [Ver miembros del equipo de Script Hub](https://github.com/orgs/scripthubteam/people)
-* [Ver licencia de este repositorio](https://github.com/scripthubteam/scripthubteam.github.io/blob/master/LICENSE)
+* [Ver licencia de este repositorio](https://github.com/scripthubteam/scripthubteam.github.io/blob/master/LICENSE.md)
 
 ## Declaración
 
