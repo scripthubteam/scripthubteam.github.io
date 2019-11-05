@@ -6,7 +6,7 @@ Somos programadores aficionados que trabajamos en este proyecto en nuestro tiemp
 
 Cuando pensamos en crear **Script Hub** al principio nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, y que los programadores aficionados de lengua española se pudieran comunicar y leer cómodamente.
 
-Nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/KSDevqR)
+Nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/NnXuHTQ)
 
 * [Introducción de la documentación](https://scripthubteam.github.io/docs)
 * Introducción de la librería de códigos **(Próximamente)**
