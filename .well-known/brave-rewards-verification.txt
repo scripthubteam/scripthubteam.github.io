@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: scripthubteam.github.io
+Token: e42ce33b430dca2be451c040e88accc7fd736f19d8eee6675e3da4cdbd9621cf
