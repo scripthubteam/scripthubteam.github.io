@@ -18,4 +18,4 @@ Git es un software de control de versiones diseñado por Linus Torvalds, pensand
 [Lee más acerca la funcionalidad de git](https://git-scm.com/book/es/v1/Empezando-Fundamentos-de-Git)
 
 **<i class="fas fa-arrow-circle-right"></i> Comenzar con la guía:**
-* [Primeros Pasos](/guias/js/primeros-pasos.md)
+* [Primeros Pasos](/guias/js/djs/primeros-pasos.md)
