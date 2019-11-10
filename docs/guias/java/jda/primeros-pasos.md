@@ -167,6 +167,7 @@ Abrimos una carpeta cualquiera, no importa si es o no donde estará nuestros arc
 - **Creando el proyecto con el sistema Gradle**.
 Damos clic derecho sobre el explorador del proyecto, seleccionamos `Nuevo > Otro...` (o en inglés, *New > Other...*) y en la carpeta de `Gradle` seleccionamos `Gradle Project`, el que tiene el símbolo de una letra `G`. Escribimos un nombre para el proyecto y le damos en `Finalizar` (o en inglés, *Finish*).
 Si se hizo correctamente todo, el proyecto dentrá una estructura similar a esta:
+
 ```
 - src/main/java
 - src/test/java
@@ -177,10 +178,12 @@ Si se hizo correctamente todo, el proyecto dentrá una estructura similar a esta
     - gradlew.bat
     - settings.gradle
 ```
+
 Al comprobar si eso es verdadero, eliminamos también las clases `src/main/java` y `src/test/java`.
 
 - **Configurar Gradle e instalar JDA**.
 Abriremos el archivo llamado `build.gradle`, eliminamos todo lo que tiene y lo reemplazamos por:
+
 ```gradle
 plugins {
   id 'java'
@@ -204,6 +207,7 @@ dependencies {
 
 compileJava.options.encoding = 'UTF-8'
 ```
+
 Debemos reemplazar `clase.principal.o.Main` por el archivo Main o inicial de nuestro bot.
 Esto instala JDA en su versión 4.0.0_52 y activa el formato *UTF-8*.
 
@@ -217,6 +221,7 @@ Activamos la opción `Usar importaciones automáticas` (o *Use auto-import*, en 
 
 - **Configurar e instalar Gradle**.
 Vamos a darle a conocer a IntelliJ como es nuestro proyecto, por donde debe empezar a ejecutar y entre otras cosas, por medio del archivo `build.gradle`, el cual debemos reemplazar por esto:
+
 ```gradle
 plugins {
     id'application'
@@ -240,6 +245,7 @@ dependencies {
 
 compileJava.options.encoding = 'UTF-8'
 ```
+
 Y debemos reemplazar `clase.principal.o.Main` por el archivo Main o inicial de nuestro bot.
 Esto instala JDA en su versión 4.0.0_52 y activa el formato *UTF-8*.
 
@@ -306,16 +312,19 @@ En la pestaña de `Dependencias` buscamos el JDA y presionamos clic derecho enci
 Para empezar con el primer inicio del bot con JDA, ya deberíamos tener el JDA instalado en nuestro proyecto a través de cualquiera de los métodos de instalación anteriormente leídos o escritos. Y empezamos con algo básico, tener nuestro bot en línea.
 - Creamos un `package` dentro de la carpeta en la que se encontrará todo nuestro código y dará un mayor orden (opcional).
 - Creamos una clase con el nombre de nuestro bot o `Main`, la cual será la primera a ejecutar y si estamos dentro de un *package* se especifica en la primera línea utilizando (a pesar de que algunos IDEs ya traen esta línea por defecto al crear la clase):
+
 ```java
 package algo.algo.algo;
 ```
 
 - Empezamos importando todas las clases del *package* llamado `api` de `net.dv8tion.jda`, para esto utilizamos la línea de código, ahí el `*` indica que son todos los archivos dentro de ese *package*:
+
 ```java
 import net.dv8tion.jda.api.*;
 ```
 
 - Proseguimos con la creación de la clase (en algunos IDEs se crea automáticamente con el nombre del acrhivo o clase que definimos anteriormente), para esto utilizamos las siguientes líneas de código, la cual define una clase pública llamada `Main` o como le colocamos al principio y dentro de toda esa clase, es decir, dentro de los corchetes (*{ }*) colocamos todo el código que dará la clase, pueden ser funciones o variables, públicas o privadas, estáticas:
+
 ```java
 public class Main {
 
@@ -323,11 +332,13 @@ public class Main {
 ```
 
 - Se crea la variable pública, estática y sin un valor de inicio pero que se dará más adelante, será un tipo de variable `JDA` y tendrá un nombre de `bot` aunque puede ser reemplazado por cualquier otro que podamos recordar muy fácilmente, por ejemplo, el nombre de nuestro bot y para eso, utlizamos la siguiente línea de código dentro de la clase:
+
 ```java
 public static JDA bot;
 ```
 
 - Empieza la función principal o `main`, esta función será pública, estática y no devolverá nada, tendrá un parámetro de un conjunto de strings llamado `args`, también lanzará una excepción que probablemente nos dé JDA al iniciar el bot por si el token está mal o cualquier otro error, para definir esa función se utiliza (dentro de la clase principal y debajo de la variable `bot`), aquí empezará nuestro código a ejecutarse:
+
 ```java
 public static void main(String[] args) {
 
@@ -335,6 +346,7 @@ public static void main(String[] args) {
 ```
 
 - Dentro de esta función, le damos valor a la variable `bot` que será el resultado de la construcción de una cuenta de Discord tipo BOT y se define su token, esto lo hacemos por medio de estas tres líneas de código:
+
 ```java
 bot = new JDABuilder(AccountType.BOT)
     .setToken("Token")
@@ -342,6 +354,7 @@ bot = new JDABuilder(AccountType.BOT)
 ```
 
 - Y listo, al ejecutar todas esas líneas de código obtendremos a nuestro bot en línea utilizando la librería JDA con el lenguaje de programación *Java*, en resultado a todo lo anterior escrito y brevemente explicado, quedaría así:
+
 ```java
 package ejem.plo; // Definimos si está dentro de un package y cuál es ese package
 
