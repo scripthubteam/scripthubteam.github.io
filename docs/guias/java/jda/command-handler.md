@@ -31,7 +31,7 @@ if (!e.getMessage().getContentRaw().startsWith("PREFIX")) return;
 Reemplazamos obviamente `PREFIX` por el respectivo prefix del bot.
 Ahora debemos establecer los argumentos de un comando, para eso se quitan las primeras letras del mensaje, es decir, el prefijo y se divide el mensaje por todos los espacios usando una expresión regular (*RegEx*) la cual es la siguiente: `" +"`. Todo esto escrito, sería lo siguiente:
 ```java
-String[] args = e.getMessage().getContentRaw().substring(Configuration.prefix.length()).trim().split(" +");
+String[] args = e.getMessage().getContentRaw().substring("Prefijo").trim().split(" +");
 ```
 Pero falta una cosa, quitar el primer elemento del array que sería el comando, pero todavía no lo vamos a hacer. Vamos por partes: primero, verificamos si hay comando por medio de la lectura de la longitud de los argumentos, después se define el comando y por último, se redefinen los argumentos quitando el primero:
 ```java
