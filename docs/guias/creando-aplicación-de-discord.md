@@ -3,7 +3,7 @@ Antes de iniciarte por nuestras guías es recomendable que empieces a leer este 
 
 ### Paso 1
 
-Dírigete a la la página Discord Developers ([haz clic aquí](https://discordapp.com/developers/applications/)):
+Dirígete al portal de desarrolladores de Discord ([haz clic aquí](https://discordapp.com/developers/applications/)):
 
 ![](https://i.imgur.com/MBuJdaV.png)
 
@@ -66,11 +66,11 @@ Nos vamos a ir al apartado de la barra lateral izquierda que dice "**OAuth**":
 
 ![](https://i.imgur.com/dj8sLrW.png)
 
-Luego, vamos a la sección del encabezado que dice "**OAUTH2 URL GENERATOR**", en esta sección hacemos click al pequeño cuadrado que dice "**bot**":
+Luego, vamos a la sección del encabezado que dice "**OAUTH2 URL GENERATOR**", en esta sección hacemos clic al pequeño cuadrado que dice "**bot**":
 
 ![](https://i.imgur.com/QvaT0Ts.png)
 
-Para generar ya el enlace y poder invitar a nuestro Bot hacemos click en el botón "**Copy**" a lado de la URL generada:
+Para generar ya el enlace y poder invitar a nuestro Bot hacemos clic en el botón "**Copy**" a lado de la URL generada:
 
 ![](https://i.imgur.com/31XUyXz.png)
 
@@ -89,9 +89,5 @@ Vamos a darle al botón "**Copy**" y usemóslo en nuestro navegador!
 ## Notas importantes
 
 * Recuerda apuntar el **token** de tu bot, te servirá cuando comiences a programar tu bot para lograr que se ponga en línea.
-* El **ID de cliente** es completamente público, puedes compartirlo sin miedo. (No compartas el token!)
+* La **ID de cliente** es completamente pública, puedes compartirlo sin miedo. (¡No compartas el token!)
 * Esta guía/tutorial fue escrita basada en el nuevo diseño del panel de desarrolladores de Discord.
-
-
-
-
