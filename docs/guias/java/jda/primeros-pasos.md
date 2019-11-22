@@ -79,7 +79,7 @@ Partiendo de que un documento `pom.xml` base sería así:
 
 ### Eclipse Maven
 
-- **Se elije el espacio de trabajo (o *workspace*)**.
+- **Se elige el espacio de trabajo (o *workspace*)**.
 Abrimos una carpeta cualquiera, no importa si es o no donde estará nuestros archivos del bot, seguido de eso nos dirijimos a `Archivo > Nuevo > Otro > Maven > Proyecto de Maven` (o en inglés, *File > New > Other > Maven > Maven Project*) y ahí sí elejimos la carpeta en donde queremos almacenar todos los datos. Eso empezará a crear un proyecto con el sistema Maven.
 
 - **Configurar algunas cosas de Maven**.
