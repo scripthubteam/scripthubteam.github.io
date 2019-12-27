@@ -1,6 +1,6 @@
-<span align="center">
-<img width=30% src="https://i.imgur.com/veMn1Bd.png">
-</span>
+<p align="center">
+<img width=20% src="https://i.imgur.com/veMn1Bd.png">
+</p>
 
 # Contenido movido a https://guias.scripthubteam.com
 
