@@ -1,5 +1,5 @@
 <span align="center">
-<img src="https://i.imgur.com/veMn1Bd.png" width="%20" height="20%">
+<img src="https://i.imgur.com/veMn1Bd.png" width="%20" height="%20">
 </span>
 
 # Contenido movido a https://guias.scripthubteam.com
