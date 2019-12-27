@@ -1,24 +1,11 @@
-![](https://scripthubteam.github.io/docs/assets/logo-bn.png)
+<span align="center">
+<img src="https://i.imgur.com/veMn1Bd.png" width="%50" height="50%">
+</span>
 
-# Sobre nosotros
+# Contenido movido a https://guias.scripthubteam.com
 
-Somos programadores aficionados que trabajamos en este proyecto en nuestro tiempo libre, escribimos guías y ayudamos a otros a comprender la función de la programación orientada a Discord.
+El contenido de este repositorio ya no está disponible.
 
-Cuando pensamos en crear **Script Hub** al principio nos basamos en crear una versión hispana de la **Discord API** donde el inglés no sería un limitante, y que los programadores aficionados de lengua española se pudieran comunicar y leer cómodamente.
 
-Nos gustaría invitarte a nuestro servidor de Discord donde además de ser una documentación, **somos una comunidad donde compartimos, creamos e innovamos con ideas.** [¡Únete ya!](https://discord.gg/x6cx7sW)
-
-* [Introducción de la documentación](https://scripthubteam.github.io/docs)
-* Introducción de la librería de códigos **(Próximamente)**
-
-## Copyright y licencia
-
-Script Hub está conformado por un grupo de personas que también aman que respeten sus derechos de autor, a continuación, enlaces directos que deben ser tomados en cuenta:
-
-* [Ver miembros del equipo de Script Hub](https://github.com/orgs/scripthubteam/people)
-* [Ver licencia de este repositorio](https://github.com/scripthubteam/scripthubteam.github.io/blob/master/LICENSE.md)
-
-## Declaración
-
-2018 \(c\) - **Script Hub** \(este equipo\) no es una empresa registrada, su logo y su nombre son de nuestra propiedad intelectual independiente \(sus miembros del equipo\). [Discord](https://es.wikipedia.org/wiki/Discord) es una marca registrada de Discord Inc.
+2019 \(c\) - **Script Hub** \(este equipo\) no es una empresa registrada, su logo y su nombre son de nuestra propiedad intelectual independiente \(sus miembros del equipo\). [Discord](https://es.wikipedia.org/wiki/Discord) es una marca registrada de Discord Inc.
 
